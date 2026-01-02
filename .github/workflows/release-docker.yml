@@ -1,0 +1,87 @@
+name: Build & Push Docker Image (from Tag)
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Git Tag/Version (z.B. 0.2.0 oder v0.2.0)"
+        required: true
+        type: string
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    env:
+      IMAGE_NAME: docker.io/tmskln/spring-openproject-mcp-server
+
+    steps:
+      - name: Checkout tag
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: refs/tags/${{ inputs.tag }}
+
+      - name: Set PKG_VERSION (strip optional leading "v")
+        id: ver
+        shell: bash
+        run: |
+          TAG="${{ inputs.tag }}"
+          PKG_VERSION="${TAG#v}"
+          echo "PKG_VERSION=$PKG_VERSION" >> "$GITHUB_ENV"
+          echo "pkg_version=$PKG_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Java + Maven cache
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+
+      - name: Build JAR (mvn clean package)
+        run: mvn -B -DskipTests clean package
+
+      - name: Convert CycloneDX SBOM to SPDX
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f "./target/classes/META-INF/sbom/application.cdx.json"
+          docker run --rm \
+            -v "${PWD}/target/classes/META-INF/sbom:/work" --platform linux/amd64 \
+            cyclonedx/cyclonedx-cli \
+            convert \
+            --input-file /work/application.cdx.json \
+            --output-file /work/application.spdx.json \
+            --output-format spdxjson
+
+      - name: Set up QEMU (multi-arch)
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Set build date
+        run: echo "BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
+      
+      - name: Build & Push multi-arch image
+        run: |
+          docker buildx build \
+            -f docker/Dockerfile \
+            -t "${IMAGE_NAME}:${PKG_VERSION}" \
+            --label "org.opencontainers.image.build-date=${BUILD_DATE}" \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            --label "org.opencontainers.image.version=${PKG_VERSION}" \
+            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --label "org.opencontainers.image.created=${BUILD_DATE}" \
+            --attest type=sbom,generator=docker/scout-sbom-indexer:latest \
+            --platform linux/amd64,linux/arm64 \
+            --push \
+            .
