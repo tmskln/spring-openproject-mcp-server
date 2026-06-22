@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "schedule": ["before 6am on Monday"],
+  "labels": ["dependencies"],
+  "prConcurrentLimit": 5,
+  "customManagers": [
+    {
+      "description": "Track eclipse-temurin base image version in Dockerfile ARG",
+      "customType": "regex",
+      "fileMatch": ["^docker/Dockerfile$"],
+      "matchStrings": ["ARG TAG=\"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "eclipse-temurin",
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Group Spring Boot updates",
+      "matchPackagePrefixes": ["org.springframework.boot"],
+      "groupName": "Spring Boot"
+    },
+    {
+      "description": "Group Spring AI updates",
+      "matchPackagePrefixes": ["org.springframework.ai"],
+      "groupName": "Spring AI"
+    },
+    {
+      "description": "Group Apache Commons updates",
+      "matchPackageNames": [
+        "commons-beanutils:commons-beanutils",
+        "commons-codec:commons-codec",
+        "org.apache.commons:commons-lang3"
+      ],
+      "groupName": "Apache Commons"
+    },
+    {
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions"
+    }
+  ]
+}
