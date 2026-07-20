@@ -1,0 +1,24 @@
+{
+  "name": "spring-openproject-mcp-server",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "mounts": [
+    "type=bind,source=/Volumes/dev/devpod/mnt/spring-openproject-mcp-server,target=/mnt/host/spring-openproject-mcp-server",
+    "type=bind,source=/Volumes/dev/devpod/mnt/spring-openproject-mcp-server/home/dev,target=/home/dev"
+  ],
+  "remoteUser": "dev",
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "JAVA_HOME": "/usr/lib/jvm/java-25-openjdk-arm64"
+  },
+  "customizations": {
+    "jetbrains": {
+      "backend": "IntelliJ"
+    }
+  },
+  "postCreateCommand": "java -version",
+  "shutdownAction": "stopContainer"
+}
