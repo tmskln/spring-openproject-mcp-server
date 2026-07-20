@@ -1,0 +1,51 @@
+FROM debian:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        bash-completion \
+        bat \
+        btop \
+        build-essential \
+        ca-certificates \
+        curl \
+        dnsutils \
+        git \
+        grc \
+        grep \
+        htop \
+        iproute2 \
+        iputils-ping \
+        jq \
+        less \
+        locales \
+        lsof \
+        nano \
+        net-tools \
+        openssh-client \
+        pandoc \
+        procps \
+        psmisc \
+        rsync \
+        sed \
+        sudo \
+        tar \
+        tree \
+        unzip \
+        vim \
+        wget \
+        zip \
+        yq \
+        && \
+    sed -i '/en_US.UTF-8 UTF-8/s/^# //' /etc/locale.gen && \
+    locale-gen && \
+    update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+
+CMD ["/bin/bash"]
