@@ -51,7 +51,7 @@ PKG_VERSION="dev" && docker build \
 
 ### run
 ```bash
-docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${$yourOpenProject} --tmpfs /tmp spring-openproject-mcp-server
+docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProject} --tmpfs /tmp spring-openproject-mcp-server:dev
 ```
 ```json
 {
