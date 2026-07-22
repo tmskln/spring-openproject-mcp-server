@@ -16,7 +16,7 @@ public class McpNoAuthTestSecurityConfig {
 
   @Bean
   @Order(0)
-  SecurityFilterChain testMcpPermitAll(HttpSecurity http) throws Exception {
+  SecurityFilterChain testMcpPermitAll(HttpSecurity http) {
     http
         .securityMatcher("/mcp", "/mcp/**", "/sse")
         .authorizeHttpRequests(reg -> reg.anyRequest().permitAll())

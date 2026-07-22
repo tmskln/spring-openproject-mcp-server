@@ -2,7 +2,7 @@ package de.tklein.tklab.openproject.mcp.openproject.client;
 
 import static de.tklein.tklab.openproject.mcp.util.PatchMap.Nullable.ALLOW_NULL_VALUES;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.dto.PriorityDto;
 import de.tklein.tklab.openproject.mcp.dto.ProjectDto;
 import de.tklein.tklab.openproject.mcp.dto.RelationDto;
@@ -32,7 +32,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientResponseException;
 
 /*
- * Copyright (c) 2025 Thomas Klein
+ * Copyright (c) 2026 Thomas Klein
  * SPDX-License-Identifier: MIT
  */
 @Service

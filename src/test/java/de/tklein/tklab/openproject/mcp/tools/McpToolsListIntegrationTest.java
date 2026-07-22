@@ -2,8 +2,8 @@ package de.tklein.tklab.openproject.mcp.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import de.tklein.tklab.openproject.mcp.TestConstants;
@@ -77,7 +77,7 @@ class McpToolsListIntegrationTest {
         "workPackageUpdate",
         "workPackageUploadAttachment"
     );
-    List<String> actualToolNames = tools.findValuesAsText("name");
+    List<String> actualToolNames = tools.findValuesAsString("name");
     assertThat(actualToolNames).containsExactlyInAnyOrderElementsOf(expectedToolNames);
   }
 
@@ -128,8 +128,7 @@ class McpToolsListIntegrationTest {
   }
 
   @Test
-  void toolsList_canBeAssertedWithJsonPath_toolNamesContainRelationAdd_andNoBlankNames()
-      throws Exception {
+  void toolsList_canBeAssertedWithJsonPath_toolNamesContainRelationAdd_andNoBlankNames() {
     String json = objectMapper.writeValueAsString(toolsListResponse);
     DocumentContext ctx = JsonPath.parse(json);
 
