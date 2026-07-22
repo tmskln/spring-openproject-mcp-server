@@ -15,16 +15,16 @@ import jakarta.validation.groups.Default;
 import java.util.Base64;
 import java.util.List;
 import lombok.extern.log4j.Log4j2;
-import org.springaicommunity.mcp.annotation.McpArg;
-import org.springaicommunity.mcp.annotation.McpPrompt;
-import org.springaicommunity.mcp.annotation.McpTool;
-import org.springaicommunity.mcp.annotation.McpTool.McpAnnotations;
+
+import org.springframework.ai.mcp.annotation.McpArg;
+import org.springframework.ai.mcp.annotation.McpPrompt;
+import org.springframework.ai.mcp.annotation.McpTool;
+import org.springframework.ai.mcp.annotation.McpTool.McpAnnotations;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
-/*
- * Copyright (c) 2025 Thomas Klein
- * SPDX-License-Identifier: MIT
+/**
+ * Copyright (c) 2026 Thomas Klein SPDX-License-Identifier: MIT
  */
 @Log4j2
 @Validated
@@ -37,6 +37,7 @@ public class WorkPackageTools {
     this.openProjectApiClient = openProjectApiClient;
   }
 
+  @SuppressWarnings("UnusedReturnValue")
   @McpTool(
       description = "Queries the work-packages by projectId.",
       annotations = @McpAnnotations(readOnlyHint = true))
@@ -44,6 +45,8 @@ public class WorkPackageTools {
     return openProjectApiClient.workPackageList(projectId);
   }
 
+
+  @SuppressWarnings("UnusedReturnValue")
   @McpTool(
       description = "Gets the work-package by id 'wpId'.",
       annotations = @McpAnnotations(readOnlyHint = true))
@@ -51,6 +54,7 @@ public class WorkPackageTools {
     return openProjectApiClient.workPackageShow(workPackageId);
   }
 
+  @SuppressWarnings("UnusedReturnValue")
   @McpTool(
       description = "Creates a new work-package for a project. Requires projectId and typeId (e.g. 1 for Task).")
   @Validated({OnCreate.class, Default.class})
@@ -59,6 +63,7 @@ public class WorkPackageTools {
     return openProjectApiClient.workPackageCreate(projectId, workPackage);
   }
 
+  @SuppressWarnings("UnusedReturnValue")
   @McpTool(
       description = "Updates a work-package for a project. Requires projectId and typeId (e.g. 1 for Task).")
   public boolean workPackageUpdate(@NotNull Integer workPackageId,
@@ -66,6 +71,7 @@ public class WorkPackageTools {
     return openProjectApiClient.workPackageUpdate(workPackageId, workPackage);
   }
 
+  @SuppressWarnings("UnusedReturnValue")
   @McpTool(
       description = "Uploads an attachment to a work package. Provide workPackageId, fileName and base64-encoded fileContent. Optionally provide fileContentType.")
   public Integer workPackageUploadAttachment(@NotNull Integer workPackageId,
@@ -129,9 +135,8 @@ public class WorkPackageTools {
         - If there is a lockVersion conflict, reload/refetch, regenerate the diff, and re-request confirmation.
         """.formatted(workPackageId, requestedChange);
 
-    return new GetPromptResult(
-        "OpenProject Work Package Safe Edit",
-        List.of(new PromptMessage(Role.ASSISTANT, new TextContent(prompt)))
-    );
+    return GetPromptResult.builder(
+            List.of(new PromptMessage(Role.ASSISTANT, TextContent.builder(prompt).build())))
+        .description("OpenProject Work Package Safe Edit").build();
   }
 }

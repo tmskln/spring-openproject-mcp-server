@@ -57,7 +57,7 @@ public class SecurityConfig {
 
   @Bean
   @Order(1)
-  SecurityFilterChain actuatorSecurity(HttpSecurity http) throws Exception {
+  SecurityFilterChain actuatorSecurity(HttpSecurity http) {
     http
         .securityMatcher("/actuator/**")
         .authorizeHttpRequests(reg -> reg
@@ -70,8 +70,7 @@ public class SecurityConfig {
 
   @Bean
   @Order(2)
-  SecurityFilterChain mcpSecurity(HttpSecurity http, McpBearerAuthenticationFilter mcpFilter)
-      throws Exception {
+  SecurityFilterChain mcpSecurity(HttpSecurity http, McpBearerAuthenticationFilter mcpFilter) {
     http
         .securityMatcher("/mcp/**", "/mcp", "/error", "/sse")
         .authorizeHttpRequests(reg -> reg.anyRequest().authenticated())

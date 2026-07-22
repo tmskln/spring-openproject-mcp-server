@@ -2,8 +2,8 @@ package de.tklein.tklab.openproject.mcp.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -258,7 +258,7 @@ public class McpToolsHelper {
     }
   }
 
-  private static JsonNode parseJsonRpcFromSse(String body) throws Exception {
+  private static JsonNode parseJsonRpcFromSse(String body) {
     String trimmed = body == null ? "" : body.trim();
     // A) MCP Streaming: Body is JSON
     if (trimmed.startsWith("{") || trimmed.startsWith("[")) {

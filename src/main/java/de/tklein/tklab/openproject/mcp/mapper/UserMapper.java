@@ -2,7 +2,7 @@ package de.tklein.tklab.openproject.mcp.mapper;
 
 import static org.apache.commons.lang3.StringUtils.trimToNull;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.dto.UserDto;
 import jakarta.annotation.Nonnull;
 import org.mapstruct.Mapper;
@@ -23,4 +23,3 @@ public interface UserMapper {
     return dto;
   }
 }
-

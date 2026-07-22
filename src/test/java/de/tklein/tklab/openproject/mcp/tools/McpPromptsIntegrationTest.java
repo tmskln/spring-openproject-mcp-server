@@ -2,7 +2,7 @@ package de.tklein.tklab.openproject.mcp.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.TestConstants;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
@@ -58,7 +58,7 @@ class McpPromptsIntegrationTest {
     assertThat(prompts.isArray()).isTrue();
 
     // Check that we have the expected prompt (from WorkPackageTools)
-    List<String> actualPromptNames = prompts.findValuesAsText("name");
+    List<String> actualPromptNames = prompts.findValuesAsString("name");
     assertThat(actualPromptNames).contains("openproject.workpackage.safe_edit",
         "openproject.project.summary");
   }

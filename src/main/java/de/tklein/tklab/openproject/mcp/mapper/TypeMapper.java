@@ -1,6 +1,6 @@
 package de.tklein.tklab.openproject.mcp.mapper;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.dto.TypeDto;
 import java.time.OffsetDateTime;
 import org.mapstruct.Mapper;
