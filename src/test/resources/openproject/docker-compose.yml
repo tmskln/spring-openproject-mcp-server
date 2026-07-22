@@ -16,6 +16,10 @@ services:
 
       # optional: keep email out of the way
       OPENPROJECT_EMAIL__DELIVERY__METHOD: "smtp"
+
+      # diables check for SECRET_KEY_BASE
+      OPENPROJECT_DISABLE__SECRET_KEY_BASE__CHECK: "true"
+
     healthcheck:
       test: ["CMD", "sh", "-c", "wget -qO- http://localhost/api/v3 >/dev/null 2>&1 || exit 1"]
       interval: 10s

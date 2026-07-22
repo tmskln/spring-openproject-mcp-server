@@ -6,7 +6,7 @@ The user's' OpenProject API token is used for authentication (not stored in the 
 
 
 ## Open project compatibility
-Tested against OpenProject 14,15,16.6,17.2
+Tested against OpenProject 14,15,16.6,17.5
 
 
 ## Get started (using LM Studio)
@@ -76,7 +76,7 @@ If you want to control the OpenProject server from the MCP-client or run against
 
 ## Integration Tests
 ```bash
-mvn test -Dopenproject.container.tag=16 -Dopenproject.container.port=18080
+mvn test -Dopenproject.container.tag=17.5.1 -Dopenproject.container.port=18080
 ```
 Mind to remove volumes between tests 
 

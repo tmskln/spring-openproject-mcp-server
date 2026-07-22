@@ -1,4 +1,4 @@
-ARG TAG="25.0.2_10-jre-alpine-3.23"
+ARG TAG="25.0.3_9-jre-alpine-3.23"
 
 FROM docker.io/eclipse-temurin:${TAG}
 
