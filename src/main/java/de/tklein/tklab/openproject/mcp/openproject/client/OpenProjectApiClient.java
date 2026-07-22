@@ -2,7 +2,6 @@ package de.tklein.tklab.openproject.mcp.openproject.client;
 
 import static de.tklein.tklab.openproject.mcp.util.PatchMap.Nullable.ALLOW_NULL_VALUES;
 
-import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.dto.PriorityDto;
 import de.tklein.tklab.openproject.mcp.dto.ProjectDto;
 import de.tklein.tklab.openproject.mcp.dto.RelationDto;
@@ -30,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientResponseException;
+import tools.jackson.databind.JsonNode;
 
 /*
  * Copyright (c) 2026 Thomas Klein

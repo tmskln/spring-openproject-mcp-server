@@ -1,9 +1,9 @@
 package de.tklein.tklab.openproject.mcp.mapper;
 
-import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.dto.RelationDto;
 import de.tklein.tklab.openproject.mcp.openproject.client.OpenProjectApiClient;
 import org.mapstruct.Mapper;
+import tools.jackson.databind.JsonNode;
 
 @Mapper
 public interface RelationMapper {
