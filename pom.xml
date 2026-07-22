@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.13</version>
+    <version>3.5.16</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>de.tklein.tklab</groupId>
   <artifactId>spring-openproject-mcp-server</artifactId>
-  <version>0.3.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <name>spring-openproject-mcp-server</name>
   <description>spring-openproject-mcp-server</description>
   <url/>
@@ -39,9 +39,9 @@
     <mapstruct.version>1.6.3</mapstruct.version>
     <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
     <commons-beanutils.version>1.11.0</commons-beanutils.version>
-    <commons-codec.version>1.20.0</commons-codec.version>
+    <commons-codec.version>1.22.0</commons-codec.version>
     <commons-lang3.version>3.20.0</commons-lang3.version>
-    <caffeine.version>3.2.3</caffeine.version>
+    <caffeine.version>3.2.4</caffeine.version>
   </properties>
   <dependencies>
     <dependency>
@@ -237,7 +237,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <!--suppress UnresolvedMavenProperty -->
-          <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar}</argLine>
+          <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
         </configuration>
       </plugin>
       <!--      <plugin>-->
