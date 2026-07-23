@@ -14,21 +14,21 @@ public interface TypeMapper {
     }
     TypeDto dto = new TypeDto();
     dto.setId(node.path("id").asInt());
-    dto.setName(node.path("name").asText());
+    dto.setName(node.path("name").asString());
     dto.setDefaultType(node.path("isDefault").asBoolean());
     dto.setMilestone(node.path("isMilestone").asBoolean());
 
-    String createdAt = node.path("createdAt").asText(null);
+    String createdAt = node.path("createdAt").asString(null);
     if (createdAt != null) {
       dto.setCreatedAt(OffsetDateTime.parse(createdAt));
     }
 
-    String updatedAt = node.path("updatedAt").asText(null);
+    String updatedAt = node.path("updatedAt").asString(null);
     if (updatedAt != null) {
       dto.setUpdatedAt(OffsetDateTime.parse(updatedAt));
     }
 
-    dto.setHref(node.path("_links").path("self").path("href").asText(null));
+    dto.setHref(node.path("_links").path("self").path("href").asString(null));
     return dto;
   }
 }

@@ -35,7 +35,7 @@ class McpPingIntegrationTest {
     String sessionId = McpToolsHelper.initializeAndGetSessionId(port);
     JsonNode pingResponse = McpToolsHelper.callPing(port, sessionId);
     // JSON-RPC Basic checks
-    assertThat(pingResponse.path("jsonrpc").asText()).isEqualTo("2.0");
+    assertThat(pingResponse.path("jsonrpc").asString()).isEqualTo("2.0");
     assertThat(pingResponse.hasNonNull("id")).isTrue();
     assertThat(pingResponse.path("error").isMissingNode()
         || pingResponse.path("error").isNull()).isTrue();

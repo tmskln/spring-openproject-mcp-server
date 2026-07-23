@@ -50,7 +50,7 @@ class McpToolsListIntegrationTest {
   @Test
   void toolsList_jsonRpcBasics() {
     // JSON-RPC Basis-Checks
-    assertThat(toolsListResponse.path("jsonrpc").asText()).isEqualTo("2.0");
+    assertThat(toolsListResponse.path("jsonrpc").asString()).isEqualTo("2.0");
     assertThat(toolsListResponse.hasNonNull("id")).isTrue();
     assertThat(toolsListResponse.path("error").isMissingNode() || toolsListResponse.path("error")
         .isNull()).isTrue();
@@ -86,14 +86,14 @@ class McpToolsListIntegrationTest {
     JsonNode tools = toolsListResponse.path("result").path("tools");
     assertThat(tools.isArray()).isTrue();
     assertThat(tools).isNotEmpty();
-    // tools.forEach(c -> System.out.println(c.get("name").asText()));
+    // tools.forEach(c -> System.out.println(c.get("name").asString()));
 
     // Generische Qualitäts-Checks für alle Tools
     for (JsonNode tool : tools) {
-      assertThat(tool.path("name").asText()).isNotBlank();
-      assertThat(tool.path("description").asText()).isNotBlank();
+      assertThat(tool.path("name").asString()).isNotBlank();
+      assertThat(tool.path("description").asString()).isNotBlank();
       assertThat(tool.path("inputSchema").isObject()).isTrue();
-      assertThat(tool.path("inputSchema").path("type").asText()).isIn("object", "");
+      assertThat(tool.path("inputSchema").path("type").asString()).isIn("object", "");
     }
   }
 
@@ -106,7 +106,7 @@ class McpToolsListIntegrationTest {
     // Konkrete Checks für ein Tool mit required-Parametern + Feld-Descriptions
     JsonNode relationAdd = findToolByName(tools, "relationAdd");
     assertThat(relationAdd).isNotNull();
-    assertThat(relationAdd.path("description").asText())
+    assertThat(relationAdd.path("description").asString())
         .isEqualTo("Adds a relation to a work package.");
 
     JsonNode inputSchema = relationAdd.path("inputSchema");
@@ -117,13 +117,13 @@ class McpToolsListIntegrationTest {
         .contains("workPackageId", "otherWorkPackageId", "relationType");
 
     JsonNode properties = inputSchema.path("properties");
-    assertThat(properties.path("workPackageId").path("description").asText())
+    assertThat(properties.path("workPackageId").path("description").asString())
         .contains("work package unique id (from)");
-    assertThat(properties.path("otherWorkPackageId").path("description").asText())
+    assertThat(properties.path("otherWorkPackageId").path("description").asString())
         .contains("work package unique id (to)");
-    assertThat(properties.path("description").path("description").asText())
+    assertThat(properties.path("description").path("description").asString())
         .contains("optional description of the relation");
-    assertThat(properties.path("relationType").path("description").asText())
+    assertThat(properties.path("relationType").path("description").asString())
         .contains("allowed relation type");
   }
 
@@ -141,7 +141,7 @@ class McpToolsListIntegrationTest {
 
   private JsonNode findToolByName(JsonNode toolsArray, String name) {
     for (JsonNode tool : toolsArray) {
-      if (name.equals(tool.path("name").asText())) {
+      if (name.equals(tool.path("name").asString())) {
         return tool;
       }
     }
@@ -151,7 +151,7 @@ class McpToolsListIntegrationTest {
   private Set<String> requiredAsSet(JsonNode requiredArray) {
     Set<String> out = new HashSet<>();
     for (JsonNode n : requiredArray) {
-      out.add(n.asText());
+      out.add(n.asString());
     }
     return out;
   }

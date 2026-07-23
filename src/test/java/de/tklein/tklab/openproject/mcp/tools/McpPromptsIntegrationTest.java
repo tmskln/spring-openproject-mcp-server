@@ -45,7 +45,7 @@ class McpPromptsIntegrationTest {
   @Test
   void promptsList_jsonRpcBasics() {
     // JSON-RPC Basis-Checks
-    assertThat(promptsListResponse.path("jsonrpc").asText()).isEqualTo("2.0");
+    assertThat(promptsListResponse.path("jsonrpc").asString()).isEqualTo("2.0");
     assertThat(promptsListResponse.hasNonNull("id")).isTrue();
     assertThat(
         promptsListResponse.path("error").isMissingNode() || promptsListResponse.path("error")
@@ -71,8 +71,8 @@ class McpPromptsIntegrationTest {
 
     // Generische Qualitäts-Checks für alle Prompts
     for (JsonNode prompt : prompts) {
-      assertThat(prompt.path("name").asText()).isNotBlank();
-      assertThat(prompt.path("description").asText()).isNotBlank();
+      assertThat(prompt.path("name").asString()).isNotBlank();
+      assertThat(prompt.path("description").asString()).isNotBlank();
     }
   }
 
@@ -89,13 +89,13 @@ class McpPromptsIntegrationTest {
     JsonNode safeEditPrompt = findPromptByName(prompts, name);
     assertThat(safeEditPrompt).isNotNull();
 
-    assertThat(safeEditPrompt.path("name").asText()).isEqualTo(name);
-    assertThat(safeEditPrompt.path("description").asText()).contains(description);
+    assertThat(safeEditPrompt.path("name").asString()).isEqualTo(name);
+    assertThat(safeEditPrompt.path("description").asString()).contains(description);
   }
 
   private JsonNode findPromptByName(JsonNode promptsArray, String name) {
     for (JsonNode prompt : promptsArray) {
-      if (name.equals(prompt.path("name").asText())) {
+      if (name.equals(prompt.path("name").asString())) {
         return prompt;
       }
     }
