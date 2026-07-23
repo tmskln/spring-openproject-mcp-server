@@ -18,12 +18,12 @@ public interface RelationMapper {
     JsonNode idNode = relationElement.path("id");
     dto.setId(idNode.isMissingNode() || idNode.isNull() ? null : idNode.asInt());
 
-    dto.setType(relationElement.path("type").asText(null));
-    dto.setDescription(relationElement.path("description").asText(null));
+    dto.setType(relationElement.path("type").asString(null));
+    dto.setDescription(relationElement.path("description").asString(null));
 
     JsonNode to = relationElement.path("_links").path("to");
-    dto.setToId(extractWpId(to.path("href").asText(null)));
-    dto.setTo(to.path("title").asText(null));
+    dto.setToId(extractWpId(to.path("href").asString(null)));
+    dto.setTo(to.path("title").asString(null));
 
     return dto;
   }
@@ -36,8 +36,8 @@ public interface RelationMapper {
     RelationDto dto = new RelationDto();
     dto.setId(null); // derived entries: parent/children/ancestors
     dto.setType(derivedType);
-    dto.setToId(extractWpId(linkNode.path("href").asText(null)));
-    dto.setTo(linkNode.path("title").asText(null));
+    dto.setToId(extractWpId(linkNode.path("href").asString(null)));
+    dto.setTo(linkNode.path("title").asString(null));
 
     return dto;
   }

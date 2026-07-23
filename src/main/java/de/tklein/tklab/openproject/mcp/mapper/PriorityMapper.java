@@ -14,9 +14,9 @@ public interface PriorityMapper {
 
     PriorityDto dto = new PriorityDto();
     dto.setId(node.path("id").asInt());
-    dto.setName(node.path("name").asText(null));
+    dto.setName(node.path("name").asString(null));
     dto.setPosition(node.path("position").isMissingNode() ? null : node.path("position").asInt());
-    dto.setHref(node.path("_links").path("self").path("href").asText(null));
+    dto.setHref(node.path("_links").path("self").path("href").asString(null));
     return dto;
   }
 }

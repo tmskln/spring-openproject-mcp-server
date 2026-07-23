@@ -16,33 +16,33 @@ public interface WorkPackageMapper {
     WorkPackageDto dto = new WorkPackageDto();
     dto.setId(node.path("id").asInt());
     dto.setLockVersion(node.path("lockVersion").asInt());
-    dto.setSubject(node.path("subject").asText(null));
-    dto.setDescription(node.path("description").path("raw").asText(null));
+    dto.setSubject(node.path("subject").asString(null));
+    dto.setDescription(node.path("description").path("raw").asString(null));
 
     JsonNode storyPointsNode = node.get("storyPoints");
     if (storyPointsNode != null && !storyPointsNode.isNull()) {
       dto.setStoryPoints(storyPointsNode.asInt());
     }
 
-    String startDate = node.path("startDate").asText(null);
+    String startDate = node.path("startDate").asString(null);
     if (startDate != null) {
       dto.setStartDate(LocalDate.parse(startDate));
     }
 
-    String dueDate = node.path("dueDate").asText(null);
+    String dueDate = node.path("dueDate").asString(null);
     if (dueDate != null) {
       dto.setDueDate(LocalDate.parse(dueDate));
     }
 
-    dto.setEstimatedTime(node.path("estimatedTime").asText(null));
-    dto.setDuration(node.path("duration").asText(null));
+    dto.setEstimatedTime(node.path("estimatedTime").asString(null));
+    dto.setDuration(node.path("duration").asString(null));
 
-    String createdAt = node.path("createdAt").asText(null);
+    String createdAt = node.path("createdAt").asString(null);
     if (createdAt != null) {
       dto.setCreatedAt(OffsetDateTime.parse(createdAt));
     }
 
-    String updatedAt = node.path("updatedAt").asText(null);
+    String updatedAt = node.path("updatedAt").asString(null);
     if (updatedAt != null) {
       dto.setUpdatedAt(OffsetDateTime.parse(updatedAt));
     }
@@ -51,21 +51,21 @@ public interface WorkPackageMapper {
     JsonNode typeNode = node.path("_embedded").path("type");
     if (typeNode.isMissingNode()) {
       typeNode = node.path("_links").path("type");
-      dto.setType(typeNode.path("title").asText(null));
+      dto.setType(typeNode.path("title").asString(null));
     } else {
-      dto.setType(typeNode.path("name").asText(null));
+      dto.setType(typeNode.path("name").asString(null));
     }
 
     // Priority-Name extrahieren: Für einzelne WP aus embedded, für Listen aus _links
     JsonNode priorityNode = node.path("_embedded").path("priority");
     if (priorityNode.isMissingNode()) {
       priorityNode = node.path("_links").path("priority");
-      dto.setPriority(priorityNode.path("title").asText(null));
+      dto.setPriority(priorityNode.path("title").asString(null));
     } else {
-      dto.setPriority(priorityNode.path("name").asText(null));
+      dto.setPriority(priorityNode.path("name").asString(null));
     }
 
-    dto.setHref(node.path("_links").path("self").path("href").asText(null));
+    dto.setHref(node.path("_links").path("self").path("href").asString(null));
     return dto;
   }
 }

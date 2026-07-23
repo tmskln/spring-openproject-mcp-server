@@ -18,8 +18,8 @@ public interface UserMapper {
     JsonNode userNode = root.path("_links").path("user");
 
     UserDto dto = new UserDto();
-    dto.setHref(trimToNull(userNode.path("href").asText(null)));
-    dto.setName(trimToNull(userNode.path("title").asText(null)));
+    dto.setHref(trimToNull(userNode.path("href").asString(null)));
+    dto.setName(trimToNull(userNode.path("title").asString(null)));
     return dto;
   }
 }

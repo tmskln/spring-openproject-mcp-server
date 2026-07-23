@@ -435,7 +435,7 @@ class OpenProjectApiClientIntegrationTest {
   }
 
   private static String generateAdminApiKey() throws Exception {
-    String ruby = """
+    final var ruby = """
         u = User.find_by(login: 'admin')
         raise 'admin user not found' unless u
         t = Token::API.create!(user: u)
