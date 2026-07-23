@@ -2,8 +2,6 @@ package de.tklein.tklab.openproject.mcp.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import tools.jackson.databind.JsonNode;
-import tools.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import de.tklein.tklab.openproject.mcp.TestConstants;
@@ -17,6 +15,8 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Import;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  * Tests behavior around MCP method: 'tools/list'

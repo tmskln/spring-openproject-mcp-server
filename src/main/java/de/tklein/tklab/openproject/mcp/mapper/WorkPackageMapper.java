@@ -56,7 +56,7 @@ public interface WorkPackageMapper {
       dto.setType(typeNode.path("name").asString(null));
     }
 
-    // Priority-Name extrahieren: Für einzelne WP aus embedded, für Listen aus _links
+    // Priority-Name extrahieren: für einzelne WP aus embedded, für Listen aus _links
     JsonNode priorityNode = node.path("_embedded").path("priority");
     if (priorityNode.isMissingNode()) {
       priorityNode = node.path("_links").path("priority");

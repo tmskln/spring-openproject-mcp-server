@@ -2,7 +2,6 @@ package de.tklein.tklab.openproject.mcp.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import tools.jackson.databind.JsonNode;
 import de.tklein.tklab.openproject.mcp.TestConstants;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,6 +9,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Import;
+import tools.jackson.databind.JsonNode;
 
 /**
  * Tests behavior around MCP method: 'ping'.

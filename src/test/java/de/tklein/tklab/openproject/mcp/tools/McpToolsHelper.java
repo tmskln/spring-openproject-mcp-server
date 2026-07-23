@@ -2,8 +2,6 @@ package de.tklein.tklab.openproject.mcp.tools;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import tools.jackson.databind.JsonNode;
-import tools.jackson.databind.ObjectMapper;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -11,6 +9,9 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
+import org.jspecify.annotations.NonNull;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  * common code for tests in tools package
@@ -283,7 +284,7 @@ public class McpToolsHelper {
     for (String line : sseBody.split("\\R")) { // \\R = any line break
       if (line.startsWith("data:")) {
         collecting = true;
-        data.append(line.substring("data:".length()).trim());
+        data.append(extractPrefixAndTrim(line, "data:"));
         continue;
       }
       if (collecting) {
@@ -293,13 +294,17 @@ public class McpToolsHelper {
         }
         // Multi-line data support (selten, aber möglich)
         if (line.startsWith("data:")) {
-          data.append("\n").append(line.substring("data:".length()).trim());
+          data.append("\n").append(extractPrefixAndTrim(line, "data:"));
         }
       }
     }
 
     String out = data.toString().trim();
     return out.isEmpty() ? null : out;
+  }
+
+  private static String extractPrefixAndTrim(String line, @SuppressWarnings("SameParameterValue") final @NonNull String prefix) {
+    return line.substring(prefix.length()).trim();
   }
 
 }

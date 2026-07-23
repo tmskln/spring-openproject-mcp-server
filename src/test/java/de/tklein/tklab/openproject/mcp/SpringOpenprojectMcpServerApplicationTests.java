@@ -21,6 +21,7 @@ class SpringOpenprojectMcpServerApplicationTests {
   private CacheManager cacheManager;
 
   @Test
+  @SuppressWarnings("EmptyMethod")
   void contextLoads() {
     // empty test to verify that the Spring Boot application context starts successfully
   }

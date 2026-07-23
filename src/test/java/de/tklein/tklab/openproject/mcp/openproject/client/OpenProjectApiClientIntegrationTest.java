@@ -32,6 +32,7 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import lombok.extern.log4j.Log4j2;
+import org.jspecify.annotations.NonNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
@@ -109,7 +110,7 @@ class OpenProjectApiClientIntegrationTest {
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
-      // since we need the values before class initialization cannot use @Value(..) to set properties
+      // since we need the values before class initialization cannot use @Value(...) to set properties
       tag = applicationContext.getEnvironment().getProperty(
           "openproject.container.tag", "latest");
       port = applicationContext.getEnvironment().getProperty(
@@ -435,6 +436,24 @@ class OpenProjectApiClientIntegrationTest {
   }
 
   private static String generateAdminApiKey() throws Exception {
+    List<List<String>> candidates = getCandidates();
+
+    for (List<String> args : candidates) {
+      CmdResult r = dockerComposeCapture(args.toArray(String[]::new));
+      if (r.exitCode == 0) {
+        String out = r.stdout.trim();
+        if (!out.isBlank()) {
+          List<String> lines = out.lines().map(String::trim).filter(s -> !s.isBlank()).toList();
+          return lines.getLast();
+        }
+      }
+    }
+
+    throw new IllegalStateException(
+        "Could not generate API key via rails runner in container. Check container logs / command availability.");
+  }
+
+  private static @NonNull List<List<String>> getCandidates() {
     final var ruby = """
         u = User.find_by(login: 'admin')
         raise 'admin user not found' unless u
@@ -450,24 +469,10 @@ class OpenProjectApiClientIntegrationTest {
         end
         """;
 
-    List<List<String>> candidates = List.of(
+    return List.of(
         List.of("exec", "-T", COMPOSE_SERVICE_NAME, "bash", "-lc",
             "bundle exec rails runner " + shellQuote(ruby))
     );
-
-    for (List<String> args : candidates) {
-      CmdResult r = dockerComposeCapture(args.toArray(String[]::new));
-      if (r.exitCode == 0) {
-        String out = r.stdout.trim();
-        if (!out.isBlank()) {
-          List<String> lines = out.lines().map(String::trim).filter(s -> !s.isBlank()).toList();
-          return lines.getLast();
-        }
-      }
-    }
-
-    throw new IllegalStateException(
-        "Could not generate API key via rails runner in container. Check container logs / command availability.");
   }
 
   @SuppressWarnings("SameParameterValue")
