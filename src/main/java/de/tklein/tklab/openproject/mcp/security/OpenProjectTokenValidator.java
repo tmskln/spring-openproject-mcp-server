@@ -47,9 +47,9 @@ public class OpenProjectTokenValidator {
 
   /**
    * Checks the token against OpenProject. Cached!
-   * Store user name+href in Cache for audit and logging purposed.
+   * Store username+href in Cache for audit and logging purposed.
    */
-  Supplier<ValidatedOpenProjectUser> cachedCheckToken = () -> {
+  final Supplier<ValidatedOpenProjectUser> cachedCheckToken = () -> {
     try {
       UserDto user = fetchUserFromOpenProject();
       if (user == null || user.getHref() == null || user.getHref().isBlank()) {

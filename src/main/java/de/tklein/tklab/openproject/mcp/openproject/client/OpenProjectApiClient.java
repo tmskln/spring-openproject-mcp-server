@@ -91,6 +91,7 @@ public class OpenProjectApiClient {
     return result.findValue("id").asInt();
   }
 
+  @SuppressWarnings("SameReturnValue")
   public boolean workPackageUpdate(Integer workPackageId, WorkPackageUpdateDto workPackage) {
     var model = PatchMap.of(ALLOW_NULL_VALUES,
         "lockVersion", workPackage.getLockVersion(),
@@ -198,6 +199,7 @@ public class OpenProjectApiClient {
     }
   }
 
+  @SuppressWarnings("SameReturnValue")
   public boolean relationAddParent(@NotNull Integer wpId, @NotNull Integer parentId) {
     var wp = restOperations.getJson("/api/v3/work_packages/{wpId}", wpId);
     int lockVersion = wp.path("lockVersion").asInt();
@@ -209,6 +211,7 @@ public class OpenProjectApiClient {
     return true;
   }
 
+  @SuppressWarnings("SameReturnValue")
   public boolean relationDeleteParent(Integer wpId) {
     var wp = restOperations.getJson("/api/v3/work_packages/{wpId}", wpId);
     int lockVersion = wp.path("lockVersion").asInt();
