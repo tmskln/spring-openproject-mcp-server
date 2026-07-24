@@ -1,6 +1,7 @@
-ARG TAG="25.0.3_9-jre-alpine-3.23"
+# Dockerfile for building the target image using GraalVM Spring Boot with AOT
 
-FROM docker.io/eclipse-temurin:${TAG}
+ARG RUNTIME_IMAGE="docker.io/ubuntu:24.04"
+FROM ${RUNTIME_IMAGE}
 
 LABEL org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.source="https://github.com/tmskln/spring-openproject-mcp-server.git" \
@@ -8,25 +9,26 @@ LABEL org.opencontainers.image.licenses="MIT" \
 
 WORKDIR /app
 
-COPY target/spring-openproject-mcp-server*.jar app.jar
+# Copy the pre-built binary and other necessary files from the host target directory
+COPY target/spring-openproject-mcp-server app
 COPY target/classes/application-prod.properties application-prod.properties
 COPY target/classes/META-INF/sbom/application.cdx.json application.cdx.json
 COPY target/classes/META-INF/sbom/application.spdx.json application.spdx.json
 
-RUN addgroup --system spring && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates wget && \
+    rm -rf /var/lib/apt/lists/* && \
+    addgroup --system spring && \
     adduser --system --ingroup spring spring && \
     chown -R spring:spring /app
 
 USER spring:spring
-# ...
+
+ENV SPRING_PROFILES_ACTIVE=prod
 
 EXPOSE 8080
 
 HEALTHCHECK --interval=5m --timeout=3s --start-period=20s --retries=3 \
   CMD wget -qO- http://127.0.0.1:8081/actuator/health/readiness | grep -q '"status":"UP"' || exit 1
 
-# Command to run the application
-ENTRYPOINT ["sh", "-c", "java -Dspring.profiles.active=prod -jar /app/app.jar"]
-
-####################################
-# --platform linux/amd64,linux/arm64
+ENTRYPOINT ["sh", "-c", "exec /app/app --spring.profiles.active=${SPRING_PROFILES_ACTIVE}"]

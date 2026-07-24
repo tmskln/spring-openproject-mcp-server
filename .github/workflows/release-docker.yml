@@ -7,14 +7,31 @@ on:
         description: "Git Tag/Version (z.B. 0.2.0 or v0.2.0)"
         required: true
         type: string
+      runtime:
+        description: "Container runtime to publish"
+        required: true
+        default: jvm
+        type: choice
+        options:
+          - jvm
+          - native
       latest:
         description: "Update 'latest' tag?"
         required: true
         default: true
         type: boolean
+
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm64
+    runs-on: ${{ matrix.runner }}
     permissions:
       contents: read
 
@@ -46,15 +63,31 @@ jobs:
           echo "PKG_VERSION=$PKG_VERSION" >> "$GITHUB_ENV"
           echo "pkg_version=$PKG_VERSION" >> "$GITHUB_OUTPUT"
 
+      - name: Select Dockerfile and tag suffix
+        shell: bash
+        run: |
+          if [ "${{ inputs.runtime }}" = "native" ]; then
+            echo "DOCKERFILE_PATH=docker/Dockerfile.native-dist" >> "$GITHUB_ENV"
+            echo "IMAGE_TAG_SUFFIX=-native" >> "$GITHUB_ENV"
+          else
+            echo "DOCKERFILE_PATH=docker/Dockerfile" >> "$GITHUB_ENV"
+            echo "IMAGE_TAG_SUFFIX=" >> "$GITHUB_ENV"
+          fi
+
       - name: Set up Java + Maven cache
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: ${{ inputs.runtime == 'native' && 'graalvm' || 'temurin' }}
           java-version: "25"
           cache: maven
 
-      - name: Build JAR (mvn clean package)
-        run: mvn -B -DskipTests clean package
+      - name: Build Artifact (Maven)
+        run: |
+          if [ "${{ inputs.runtime }}" = "native" ]; then
+            mvn -B -Pnative -DskipTests clean package
+          else
+            mvn -B -DskipTests clean package
+          fi
 
       - name: Convert CycloneDX SBOM to SPDX
         shell: bash
@@ -62,15 +95,12 @@ jobs:
           set -euo pipefail
           test -f "./target/classes/META-INF/sbom/application.cdx.json"
           docker run --rm \
-            -v "${PWD}/target/classes/META-INF/sbom:/work" --platform linux/amd64 \
+            -v "${PWD}/target/classes/META-INF/sbom:/work" \
             cyclonedx/cyclonedx-cli \
             convert \
             --input-file /work/application.cdx.json \
             --output-file /work/application.spdx.json \
             --output-format spdxjson
-
-      - name: Set up QEMU (multi-arch)
-        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -80,26 +110,68 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          logout: true
       
       - name: Set build date
         run: echo "BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
       
-      - name: Build & Push multi-arch image
+      - name: Build & Push single-arch image
+        shell: bash
         run: |
-          TAGS=("-t" "${IMAGE_NAME}:${PKG_VERSION}")
-          if [ "${{ inputs.latest }}" = "true" ]; then
-            TAGS+=("-t" "${IMAGE_NAME}:latest")
-          fi
+          IMAGE_TAG="${IMAGE_NAME}:${PKG_VERSION}-${{ matrix.arch }}${IMAGE_TAG_SUFFIX}"
 
           docker buildx build \
-            -f docker/Dockerfile \
-            "${TAGS[@]}" \
+            -f "${DOCKERFILE_PATH}" \
+            -t "${IMAGE_TAG}" \
             --label "org.opencontainers.image.build-date=${BUILD_DATE}" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --label "org.opencontainers.image.version=${PKG_VERSION}" \
             --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
             --label "org.opencontainers.image.created=${BUILD_DATE}" \
             --attest type=sbom,generator=docker/scout-sbom-indexer:latest \
-            --platform linux/amd64,linux/arm64 \
+            --platform linux/${{ matrix.arch }} \
             --push \
             .
+
+  merge-manifests:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      IMAGE_NAME: docker.io/tmskln/spring-openproject-mcp-server
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set PKG_VERSION
+        id: ver
+        run: |
+          TAG="${{ inputs.tag }}"
+          PKG_VERSION="${TAG#v}"
+          echo "PKG_VERSION=$PKG_VERSION" >> "$GITHUB_ENV"
+
+      - name: Set IMAGE_TAG_SUFFIX
+        run: |
+          if [ "${{ inputs.runtime }}" = "native" ]; then
+            echo "IMAGE_TAG_SUFFIX=-native" >> "$GITHUB_ENV"
+          else
+            echo "IMAGE_TAG_SUFFIX=" >> "$GITHUB_ENV"
+          fi
+
+      - name: Create and push multi-arch manifest
+        run: |
+          TAG="${IMAGE_NAME}:${PKG_VERSION}${IMAGE_TAG_SUFFIX}"
+          docker buildx imagetools create -t "${TAG}" \
+            "${IMAGE_NAME}:${PKG_VERSION}-amd64${IMAGE_TAG_SUFFIX}" \
+            "${IMAGE_NAME}:${PKG_VERSION}-arm64${IMAGE_TAG_SUFFIX}"
+          
+          if [ "${{ inputs.latest }}" = "true" ]; then
+            LATEST_TAG="${IMAGE_NAME}:latest${IMAGE_TAG_SUFFIX}"
+            docker buildx imagetools create -t "${LATEST_TAG}" \
+              "${IMAGE_NAME}:${PKG_VERSION}-amd64${IMAGE_TAG_SUFFIX}" \
+              "${IMAGE_NAME}:${PKG_VERSION}-arm64${IMAGE_TAG_SUFFIX}"
+          fi

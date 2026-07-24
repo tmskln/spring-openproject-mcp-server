@@ -3,9 +3,11 @@ package de.tklein.tklab.openproject.mcp.openproject.client;
 import jakarta.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.Optional;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Component
 public class HttpHeaderOpenProjectConnectionResolver implements OpenProjectConnectionResolver {
@@ -14,23 +16,20 @@ public class HttpHeaderOpenProjectConnectionResolver implements OpenProjectConne
   public static final String HEADER_AUTHORIZATION = "Authorization";
   public static final String BEARER = "Bearer ";
 
-  private final ObjectProvider<HttpServletRequest> requestProvider;
   private final URI configuredBaseUrl;
   private final boolean allowHeaderBaseUrl;
 
   public HttpHeaderOpenProjectConnectionResolver(
-      ObjectProvider<HttpServletRequest> requestProvider,
       @Value("${openproject.url}") String configuredBaseUrl,
       @Value("${openproject.allow-header-base-url:false}") boolean allowHeaderBaseUrl
   ) {
-    this.requestProvider = requestProvider;
     this.configuredBaseUrl = URI.create(configuredBaseUrl);
     this.allowHeaderBaseUrl = allowHeaderBaseUrl;
   }
 
   @Override
   public OpenProjectConnection resolve() {
-    HttpServletRequest req = requestProvider.getIfAvailable();
+    HttpServletRequest req = currentRequest();
 
     String authorization = (req == null) ? null : req.getHeader(HEADER_AUTHORIZATION);
     String bearerToken = extractBearerToken(authorization).orElse(null);
@@ -44,6 +43,14 @@ public class HttpHeaderOpenProjectConnectionResolver implements OpenProjectConne
     }
 
     return new OpenProjectConnection(baseUrl, bearerToken);
+  }
+
+  private static HttpServletRequest currentRequest() {
+    RequestAttributes attributes = RequestContextHolder.getRequestAttributes();
+    if (attributes instanceof ServletRequestAttributes servletRequestAttributes) {
+      return servletRequestAttributes.getRequest();
+    }
+    return null;
   }
 
   private static Optional<String> extractBearerToken(String authorizationHeader) {

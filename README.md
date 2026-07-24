@@ -2,7 +2,7 @@
 
 MCP server to manage OpenProject work-packages realized in Java.
 The server acts as a proxy to your OpenProject API. 
-The user's' OpenProject API token is used for authentication (not stored in the container!).
+The user's OpenProject API token is used for authentication (not stored in the container!).
 
 
 ## Open project compatibility
@@ -12,8 +12,8 @@ Tested against OpenProject 14,15,16.6,17.5
 ## Get started (using LM Studio)
 1. Launch the Docker container   
   `docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProjectUrl} --tmpfs /tmp docker.io/tmskln/spring-openproject-mcp-server:latest`   
-   or if you built the image locally   
-   `docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProjectUrl} --tmpfs /tmp spring-openproject-mcp-server:dev`
+  or if you built the image locally   
+  `docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProjectUrl} --tmpfs /tmp spring-openproject-mcp-server:dev`
 2. Run LM Studio and choose an appropriate model for your project domain. _qwen/qwen3-coder-30b_ works well to create technical epics and user stories. For simple translations and text refinements, a smaller model is enough.
 3. Configure LM Studio's `mcp.json` file below *"mcpServers":{...}* and set the API token for the project to use (see below)
 4. If you see *"mcp/openproject-mcp"* on the right side, below Integrations start prompting.
@@ -29,8 +29,13 @@ Tested against OpenProject 14,15,16.6,17.5
 
 Find the latest image at [https://hub.docker.com/r/tmskln/spring-openproject-mcp-server](https://hub.docker.com/r/tmskln/spring-openproject-mcp-server)
 
+Local startup measurements on this codebase showed that the regular JVM image reached readiness faster than the JVM AOT variant, while the native image remains the path intended for materially faster cold starts. The repository now supports both the existing JVM image and a dedicated native container build.
+
 ### build
 ```bash
+# JVM image (current default release path)
+./mvnw -B -DskipTests clean package
+
 # convert java SBOM to optimized OCI format
 docker run --rm \
   -v "./target/classes/META-INF/sbom:/work"  --platform linux/amd64 \
@@ -50,6 +55,32 @@ PKG_VERSION="dev" && docker build \
  --platform linux/amd64,linux/arm64 \
  . 
  ```
+
+```bash
+# Native image (faster cold starts, heavier build)
+PKG_VERSION="dev-native" && docker build \
+ -f docker/Dockerfile.native \
+ -t spring-openproject-mcp-server:${PKG_VERSION} \
+ --attest type=sbom,generator=docker/scout-sbom-indexer:latest \
+ --label org.opencontainers.image.build-date=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+ --label org.opencontainers.image.revision=$(git rev-parse HEAD) \
+ --label org.opencontainers.image.version=${PKG_VERSION} \
+ --platform linux/amd64 \
+ .
+```
+
+```bash
+# Optional JVM AOT run mode.
+# Build the jar with -Pnative so Spring generates AOT assets,
+# then enable the runtime flag in the regular JVM container.
+./mvnw -B -Pnative -DskipTests clean native:compile
+docker run --rm \
+ -p 0.0.0.0:8080:8080 \
+ -e OPENPROJECT_URL=https://${yourOpenProject} \
+ -e SPRING_AOT_ENABLED=true \
+ --tmpfs /tmp \
+ spring-openproject-mcp-server:dev
+```
 
 ### run
 ```bash
@@ -83,6 +114,11 @@ If you want to control the OpenProject server from the MCP-client or run against
 mvn test -Dopenproject.container.tag=17.5.1 -Dopenproject.container.port=18080
 ```
 Mind to remove volumes between tests 
+
+The release workflow now accepts a `runtime` input:
+
+- `jvm` publishes the existing JAR-based image
+- `native` publishes a `-native` tag built from `docker/Dockerfile.native`
 
 
 ## TODO
