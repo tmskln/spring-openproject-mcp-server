@@ -10,8 +10,10 @@ Tested against OpenProject 14,15,16.6,17.5
 
 
 ## Get started (using LM Studio)
-1. Launch the Docker container
-  `docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${$yourOpenProject} --tmpfs /tmp spring-openproject-mcp-server:latest`
+1. Launch the Docker container   
+  `docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProjectUrl} --tmpfs /tmp docker.io/tmskln/spring-openproject-mcp-server:latest`   
+   or if you built the image locally   
+   `docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProjectUrl} --tmpfs /tmp spring-openproject-mcp-server:dev`
 2. Run LM Studio and choose an appropriate model for your project domain. _qwen/qwen3-coder-30b_ works well to create technical epics and user stories. For simple translations and text refinements, a smaller model is enough.
 3. Configure LM Studio's `mcp.json` file below *"mcpServers":{...}* and set the API token for the project to use (see below)
 4. If you see *"mcp/openproject-mcp"* on the right side, below Integrations start prompting.
@@ -51,15 +53,15 @@ PKG_VERSION="dev" && docker build \
 
 ### run
 ```bash
-docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProject} --tmpfs /tmp spring-openproject-mcp-server:dev
+docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProjectUrl} --tmpfs /tmp spring-openproject-mcp-server:dev
 ```
-```json
+```json file=mcp.json
 {
   "mcpServers": {
     "openproject-mcp": {
       "url": "http://127.0.0.1:8080/sse",
       "headers": {
-        "Authorization": "Bearer {YourOpenProjectApiToken}"
+        "Authorization": "Bearer {yourOpenProjectApiToken}"
       }
     }
   }
@@ -67,11 +69,13 @@ docker run -d -p 0.0.0.0:8080:8080 -e OPENPROJECT_URL=https://${yourOpenProject}
 ```
 
 If you want to control the OpenProject server from the MCP-client or run against multiple OpenProject servers set start the container with ```-e OPENPROJECT_ALLOW_HEADER_BASE_URL=true``` and set the server URL in MCP config:
-```json
-{
-  "Authorization": "Bearer {YourOpenProjectApiToken}",
-  "X-OpenProject-Base-Url": "https://${$yourOpenProjexct}"
-}
+```json file=mcp.json
+...
+      "headers": {
+        "Authorization": "Bearer {yourOpenProjectApiToken}"
+        "X-OpenProject-Base-Url": "https://{yourOpenProjectUrl}"
+      }
+...
 ```
 
 ## Integration Tests
