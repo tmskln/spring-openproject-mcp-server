@@ -84,7 +84,7 @@ jobs:
       - name: Build Artifact (Maven)
         run: |
           if [ "${{ inputs.runtime }}" = "native" ]; then
-            mvn -B -Pnative -DskipTests clean package
+            mvn -B -Pnative -DskipTests clean native:compile
           else
             mvn -B -DskipTests clean package
           fi
@@ -115,7 +115,7 @@ jobs:
       - name: Set build date
         run: echo "BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
       
-      - name: Build & Push single-arch image
+      - name: Build and Push single-arch image
         shell: bash
         run: |
           IMAGE_TAG="${IMAGE_NAME}:${PKG_VERSION}-${{ matrix.arch }}${IMAGE_TAG_SUFFIX}"
