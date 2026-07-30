@@ -18,8 +18,8 @@ COPY target/classes/META-INF/sbom/application.spdx.json application.spdx.json
 RUN apt-get update && \
     apt-get install -y --no-install-recommends ca-certificates wget && \
     rm -rf /var/lib/apt/lists/* && \
-    addgroup --system spring && \
-    adduser --system --ingroup spring spring && \
+    groupadd --system spring && \
+    useradd --system --gid spring --no-create-home --shell /usr/sbin/nologin spring && \
     chown -R spring:spring /app
 
 USER spring:spring
