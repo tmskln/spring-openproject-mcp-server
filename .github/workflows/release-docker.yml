@@ -60,7 +60,7 @@ jobs:
           - arch: amd64
             runner: ubuntu-24.04
           - arch: arm64
-            runner: ubuntu-24.04-arm64
+            runner: ubuntu-24.04
     runs-on: ${{ matrix.runner }}
     permissions:
       contents: read
