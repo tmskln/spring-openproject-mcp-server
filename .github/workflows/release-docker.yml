@@ -41,12 +41,14 @@ jobs:
           distribution: ${{ matrix.runtime == 'native' && 'graalvm' || 'temurin' }}
           cache: maven
 
-      - name: Maven Validate
+      - name: Maven Build and Test
         run: |
           if [ "${{ matrix.runtime }}" = "native" ]; then
+            # For native, we only validate to keep CI fast (full native compile is done in build-and-push)
             mvn -B -Pnative validate
           else
-            mvn -B validate
+            # For JVM, we run full verification including integration tests before release
+            mvn -B verify
           fi
 
   build-and-push:

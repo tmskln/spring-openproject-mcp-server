@@ -11,7 +11,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         runtime: [jvm, native]
     steps:
@@ -27,7 +27,7 @@ jobs:
       - name: Maven Validate
         run: |
           if [ "${{ matrix.runtime }}" = "native" ]; then
-            mvn -B -Pnative validate
+            mvn -B -Pnative validate native:compile
           else
             mvn -B validate
           fi
