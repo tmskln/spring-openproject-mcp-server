@@ -22,7 +22,35 @@ on:
         type: boolean
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime: [jvm, native]
+    steps:
+      - name: Checkout tag
+        uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: "25"
+          distribution: ${{ matrix.runtime == 'native' && 'graalvm' || 'temurin' }}
+          cache: maven
+
+      - name: Maven Validate
+        run: |
+          if [ "${{ matrix.runtime }}" = "native" ]; then
+            mvn -B -Pnative validate
+          else
+            mvn -B validate
+          fi
+
   build-and-push:
+    needs: validate
     strategy:
       fail-fast: false
       matrix:

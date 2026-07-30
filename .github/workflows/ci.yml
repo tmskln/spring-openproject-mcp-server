@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "dev*" ]
+  pull_request:
+    branches: [ "main", "dev*" ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime: [jvm, native]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: ${{ matrix.runtime == 'native' && 'graalvm' || 'temurin' }}
+          cache: maven
+
+      - name: Maven Validate
+        run: |
+          if [ "${{ matrix.runtime }}" = "native" ]; then
+            mvn -B -Pnative validate
+          else
+            mvn -B validate
+          fi
