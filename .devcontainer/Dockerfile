@@ -1,4 +1,4 @@
-FROM devcontainer_debian_base:202607202214
+FROM devcontainer_debian_base:202608062122
 
 ENV DEBIAN_FRONTEND=noninteractive
 

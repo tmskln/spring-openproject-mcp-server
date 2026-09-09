@@ -6,7 +6,7 @@ The user's' OpenProject API token is used for authentication (not stored in the 
 
 
 ## Open project compatibility
-Tested against OpenProject 14,15,16.6,17.5
+Tested against OpenProject 14,15,16.6,17.7
 
 
 ## Get started (using LM Studio)
@@ -87,8 +87,7 @@ Mind to remove volumes between tests
 
 ## TODO
 - MCP OpenProject with OTEL
-- use results after patch JSON
-- add kubernetes deployment+service (helm?)
+- use results after patch JSON to avoid unnecessary GET requests
 
 
 ## SSE vs. Streamable

@@ -1,4 +1,4 @@
-ARG TAG="25.0.3_9-jre-alpine-3.23"
+ARG TAG="25.0.4_7-jre-ubi10-minimal"
 
 FROM docker.io/eclipse-temurin:${TAG}
 
@@ -13,8 +13,7 @@ COPY target/classes/application-prod.properties application-prod.properties
 COPY target/classes/META-INF/sbom/application.cdx.json application.cdx.json
 COPY target/classes/META-INF/sbom/application.spdx.json application.spdx.json
 
-RUN addgroup --system spring && \
-    adduser --system --ingroup spring spring && \
+RUN adduser --system -U spring && \
     chown -R spring:spring /app
 
 USER spring:spring
