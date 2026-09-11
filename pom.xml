@@ -43,6 +43,9 @@
     <commons-codec.version>1.22.1</commons-codec.version>
     <commons-lang3.version>3.20.0</commons-lang3.version>
     <caffeine.version>3.2.4</caffeine.version>
+    <!-- temporary increasing tomcat version from 11.0.24 to 11.0.25 (CVE-2026-65905, CVE-2026-68525, CVE-2026-65182) -->
+    <!-- remove <tomcat.version> when spring-boot-starter-parent or spring-boot-starter-tomcat-runtime >4.1.1 exists -->
+    <tomcat.version>11.0.25</tomcat.version>
   </properties>
   <dependencies>
     <dependency>
