@@ -11,7 +11,7 @@
   </parent>
   <groupId>de.tklein.tklab</groupId>
   <artifactId>spring-openproject-mcp-server</artifactId>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.2.0-SNAPSHOT</version>
   <name>spring-openproject-mcp-server</name>
   <description>spring-openproject-mcp-server</description>
   <url/>
@@ -41,11 +41,17 @@
     <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
     <commons-beanutils.version>1.11.0</commons-beanutils.version>
     <commons-codec.version>1.22.1</commons-codec.version>
-    <commons-lang3.version>3.20.0</commons-lang3.version>
-    <caffeine.version>3.2.4</caffeine.version>
-    <!-- temporary increasing tomcat version from 11.0.24 to 11.0.25 (CVE-2026-65905, CVE-2026-68525, CVE-2026-65182) -->
-    <!-- remove <tomcat.version> when spring-boot-starter-parent or spring-boot-starter-tomcat-runtime >4.1.1 exists -->
-    <tomcat.version>11.0.25</tomcat.version>
+    <commons-lang3.version>3.21.0</commons-lang3.version>
+    <caffeine.version>3.3.0</caffeine.version>
+    <!-- temporary increasing tomcat version from 11.0.24 to 11.0.25 (CVE-2026-65905, CVE-2026-68525, CVE-2026-65182, CVE-2026-86350, CVE-2026-77762,...) -->
+    <!-- remove <tomcat.version> when spring-boot-starter-parent or spring-boot-starter-tomcat-runtime > 4.1.1 exists -->
+    <tomcat.version>11.0.26</tomcat.version>
+    <!-- temporary increasing tomcat version from 2.3.34 to 2.3.35 (CVE-2026-84939) -->
+    <!-- remove <freemarker.version> when spring-boot-starter-parent or spring-boot-starter-freemarker > 4.1.1 exists -->
+    <freemarker.version>2.3.35</freemarker.version>
+    <!-- temporary increasing tomcat version from 3.1.5 to 3.1.7 (CVE-2026-68497, CVE-2026-91777, CVE-2026-91776, CVE-2026-89407, CVE-2026-89425, CVE-2026-19032, CVE-2026-83557) -->
+    <!-- remove <jackson-bom.version> when spring-boot-starter-parent or spring-boot-web > 4.1.1 exists -->
+    <jackson-bom.version>3.1.7</jackson-bom.version>
   </properties>
   <dependencies>
     <dependency>
@@ -62,6 +68,17 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-restclient</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- using spring-boot-starter-log4j2, spring-boot-starter-logging has to be excluded -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
     <!-- spring boot 4.0 migration: spring-boot-starter-cache came with spring-boot-starter-web until spring boot 3.5 -->
     <dependency>
