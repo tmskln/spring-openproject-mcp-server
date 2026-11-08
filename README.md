@@ -1,8 +1,9 @@
 # spring-openproject-mcp-server
 
 MCP server to manage OpenProject work-packages realized in Java.
-The server acts as a proxy to your OpenProject API. 
-The user's' OpenProject API token is used for authentication (not stored in the container!).
+The server acts as a proxy to your OpenProject API.  
+The user's' OpenProject API token is used for authentication (not stored in the container!).  
+Find detailed information in the [OpenWiki documentation](https://tmskln.github.io/spring-openproject-mcp-server/).
 
 
 ## Open project compatibility
@@ -27,7 +28,7 @@ Tested against OpenProject 14,15,16.6,17.7
 
 ## Docker
 
-Find the latest image at [https://hub.docker.com/r/tmskln/spring-openproject-mcp-server](https://hub.docker.com/r/tmskln/spring-openproject-mcp-server)
+Find the latest image at [Docker Hub](https://hub.docker.com/r/tmskln/spring-openproject-mcp-server)
 
 ### build
 ```bash
