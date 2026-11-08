@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:592567ed750bcc394df747677fc5e3748bb4b06eba2991c1a64344109f24036d",
+  "claims": [
+    {
+      "id": "claim_cf3bec79ce8f489da856e05cc05c7ba2",
+      "statement": "Test discovery is controlled by JUnit 5 tags defined in TestConstants: `integration_local`, `integration_remote`, and `security`.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/TestConstants.java",
+          "version": "repo-file-v1:sha256:0b1ac5d6b8a1f61fbe7f107260dfc8ea5cc6438016b1efb7c4dd87b00894c80c"
+        }
+      ]
+    },
+    {
+      "id": "claim_af18f5b30d4d4f79b28cffcda7c74344",
+      "statement": "McpToolsHelper is a static utility that encapsulates raw MCP protocol interactions: sending initialize, ping, tools/list, and prompts/list JSON-RPC requests to the embedded server, extracting the Mcp-Session-Id header, and parsing SSE-delimited JSON-RPC responses.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsHelper.java",
+          "version": "repo-file-v1:sha256:825ead1738a670936e6816f4df77f7c8206311f60330b5d6e030936257bf8e82"
+        }
+      ]
+    },
+    {
+      "id": "claim_be3babd5d7784b31bf8447a899233b40",
+      "statement": "McpPingIntegrationTest verifies the MCP ping method returns valid JSON-RPC 2.0 with an object result, using STREAMABLE protocol to avoid keeping an SSE stream open.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPingIntegrationTest.java",
+          "version": "repo-file-v1:sha256:2842f48270ff1202507018114a71651a0d513416d53a2c76f2bcb849df564a38"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e37e8028b474a919839bc7835a1065d",
+      "statement": "McpToolsListIntegrationTest asserts that tools/list returns all 14 expected tools (priorityList, projectList, relationAdd, relationAddParent, relationAllowedValues, relationDelete, relationDeleteParent, relationList, typeList, workPackageCreate, workPackageList, workPackageShow, workPackageUpdate, workPackageUploadAttachment) and validates inputSchema structure including required fields for relationAdd.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsListIntegrationTest.java",
+          "version": "repo-file-v1:sha256:f830751b6c854d093fd1bc5664cc84c6cc4c6127678bb59b54daabb296e01176"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2dd6dccfbbe4f53985bd172ed2694a1",
+      "statement": "McpPromptsIntegrationTest verifies prompts/list returns expected prompts (openproject.workpackage.safe_edit, openproject.project.summary) and that every prompt has a non-blank name and description.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPromptsIntegrationTest.java",
+          "version": "repo-file-v1:sha256:1ad5b35945090f4983f351eaa193540bca091c1e47ae39b39388d889a1042419"
+        }
+      ]
+    },
+    {
+      "id": "claim_1a6bd753f2aa47438a2773d190407641",
+      "statement": "McpSecurityIntegrationTest uses a parameterized OpenProjectTokenValidator stub to verify that MCP methods enforce authentication on initialize, reject unauthenticated requests with 401, and accept valid tokens after a successful initialize session.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpSecurityIntegrationTest.java",
+          "version": "repo-file-v1:sha256:56e01a0f50158e3679c671f9219041ee7d1d0f7e1d087501ec74f8180dacc6e2"
+        }
+      ]
+    },
+    {
+      "id": "claim_f17c4cab5f9f443b8f09aefd483fc25c",
+      "statement": "McpNoAuthTestSecurityConfig is a @TestConfiguration that overrides the production Spring Security filter chain for MCP endpoints (/mcp, /mcp/**, /sse) with a permit-all rule at order 0, imported by local integration tests to disable authentication.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpNoAuthTestSecurityConfig.java",
+          "version": "repo-file-v1:sha256:0948ac3b3d8bbf53082881e7c00d910d43b2f57381dd920bc330124ab5fe216d"
+        }
+      ]
+    },
+    {
+      "id": "claim_87c347f214904530aa2ce134a78ed826",
+      "statement": "OpenProjectApiClientIntegrationTest manages a real OpenProject Docker container lifecycle via an ApplicationContextInitializer that runs docker compose up, waits for the /api/v3 health endpoint, generates an admin API key via Rails runner, and tears down the container with docker compose down -v after tests.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java",
+          "version": "repo-file-v1:sha256:ac3aba7e0dfea3f3fb6789d6fabc402968921a4ac637d87530576b53414cfb96"
+        },
+        {
+          "resource": "repo://src/test/resources/openproject/docker-compose.yml",
+          "version": "repo-file-v1:sha256:a98b1c94ac06c0c0714d8d856dd288115a11d93603b7ba3d3c9e2059ef20de5e"
+        }
+      ]
+    },
+    {
+      "id": "claim_29713bdaa0d449f2999c9c403bb79c06",
+      "statement": "OpenProjectApiClientIntegrationTest verifies OpenProjectApiClient behavior including root() authentication, projectList with Demo project, workPackage CRUD with lockVersion, attachment upload, relation add/delete, parent relation management, and error contracts (404 for non-existent IDs, 422 for invalid relations).",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java",
+          "version": "repo-file-v1:sha256:ac3aba7e0dfea3f3fb6789d6fabc402968921a4ac637d87530576b53414cfb96"
+        }
+      ]
+    },
+    {
+      "id": "claim_8fcf60fabd594d0eb7e824b98a121f9d",
+      "statement": "PatchMapTest unit tests verify PatchMap.of() filters null values when Nullable.DROP_NULL_VALUES is used, preserves them when Nullable.ALLOW_NULL_VALUES is used, handles empty arguments, throws IllegalArgumentException for odd argument counts, throws ClassCastException for non-string keys, and correctly stores mixed types.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/util/PatchMapTest.java",
+          "version": "repo-file-v1:sha256:704c4fb5970a9cd7ae6a5ee7723bec4439b84c8ea020071e9782ac1978f41c77"
+        }
+      ]
+    },
+    {
+      "id": "claim_0435bb457fb9406aa389248d895380c5",
+      "statement": "All local MCP integration tests share a common architecture: @SpringBootTest with RANDOM_PORT, @Import of McpNoAuthTestSecurityConfig, @Tag(TAG_INTEGRATION_TEST_LOCAL), @TestInstance(PER_CLASS), and @LocalServerPort.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPingIntegrationTest.java",
+          "version": "repo-file-v1:sha256:2842f48270ff1202507018114a71651a0d513416d53a2c76f2bcb849df564a38"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPromptsIntegrationTest.java",
+          "version": "repo-file-v1:sha256:1ad5b35945090f4983f351eaa193540bca091c1e47ae39b39388d889a1042419"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsListIntegrationTest.java",
+          "version": "repo-file-v1:sha256:f830751b6c854d093fd1bc5664cc84c6cc4c6127678bb59b54daabb296e01176"
+        }
+      ]
+    },
+    {
+      "id": "claim_23af77b6c96743b3824b82f5b98593df",
+      "statement": "application-test.properties configures the Docker container settings: image tag (17.7.2), port (18088), shutdown behavior (false), and disables header-based URL override.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/resources/application-test.properties",
+          "version": "repo-file-v1:sha256:feed1fcdd7009814f5aa55ab34d23d7429d453b9b0483bd6c728168a18e07d45"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:a0ba60906f26e1fad32c879a8b8aecc72f13f3ddba07ccf061d0089c38cf2668",
+  "claims": [
+    {
+      "id": "claim_c53c20fecbac498485ea93e57306fddd",
+      "statement": "Work package creation flows from WorkPackageTools.workPackageCreate through Bean Validation (@Validated with OnCreate + Default groups), into OpenProjectApiClient.workPackageCreate which builds a PatchMap model and renders create_work_package.ftl to produce a JSON payload, then POSTs to /api/v3/projects/{projectId}/work_packages and returns the created work package ID.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageCreateDto.java",
+          "version": "repo-file-v1:sha256:b3dce285e2b1c0a6438c3a7af6add8969d3a0a72288b9cef35ddc3b9385c10a0"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L90-L101",
+          "version": "repo-lines-v1:sha256:c98776026b5a351ded5a418c25143ed3eacda7861a4cfd94c235281cc29e6064:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5MGRjYjBiOWU4NjlkNmUxZDY3OWIwMzk4MDQ4NmYwZjBkODQyYjYzZTA5OTI2ZGVhZTZlNDljMTc5OWE3MjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlMDAzMjhmMTQ5MDQ5Mjk5OGEyOGFkNjU1OTlhY2ZmMzMyMGFkMTZhNGUxOGNmZGM1YTA3NDNiMTg3ODBlMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ1MjJhOGRmNjY1ZmVkYjU2ZWFjOWRkOGJlMGFmN2QzNGFiM2NiZGVkNzY5ZTk0ZjllYWYwOWNmYWFmNzIyMTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRhMGI5Mjc4NGJmODcxOWI4ZWRjODViZThlNmE0YTBiZWU0Y2FiMzg3YTc3Mzk2MjI4ZTdlYTAzZDNmMjdhNWYifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageTools.java#L66-L72",
+          "version": "repo-lines-v1:sha256:9af77890f58cfcd874c3f99cc6cd2cf086e8eb957728a8c49e8ec3d3f27cbfb2:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY2YWVhNDYzZWI1OGFkYWU3Zjc0MmM4NWNhODZhNTZkY2VlMmE2OGNmNjU3NjllZDAxMTBiODQ3MTZlNzgyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWRiY2ZiYWMwMzliMmM4MjNjZWU5YWJhNTc4OGNiMjEwMGE2MGYzYmY0ZmNlYzgwYTBmNmJmNGJiOGNjZGQzZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDA2YmZjMzYyMWQzM2RlOGQyODQ2MDdjOGE5ODZkMjBmZGVmOWE3MGIxMGNhYWQxOGY5YzkwMTRiNWVkNDQ2OCJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/create_work_package.ftl",
+          "version": "repo-file-v1:sha256:d255bddf3602f990c6f82d6a57f2ca503d8a4f827d332d32e2a29f51e787d62c"
+        }
+      ]
+    },
+    {
+      "id": "claim_2f4d7cf044a942e0817937fa9f1ad462",
+      "statement": "WorkPackageUpdateDto extends WorkPackageCreateDto and adds a required lockVersion field (@NotNull) to enforce optimistic locking; subject and typeId are overridden without required=true to make them optional for updates.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageUpdateDto.java",
+          "version": "repo-file-v1:sha256:5a5b1796939bec94246394efed94e8244e21bb1c035fca42c8f25bcbcf560528"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java#L83-L92",
+          "version": "repo-lines-v1:sha256:768a50922c8fef5356cd1ec85892103b59e63b0f9cadabb3e48c18d2d3ce69bf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2ZWFkZmIzMGFmMmQ3ZmQxMzZkNzA3ZTYzNWNiYjRlYTA0NjRhODg2NGM1MTAzMWUxMzc1MGU1ODNiOWU4MmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmMmNiOWI1MThjMDIwZTZhNmZjNTgxMGVjZTMwM2JkNTU4MmQ2OWQyNGMxOTExZDdkNTdjZWEyNWViZjlhZDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNlMmQ5OTViOGMxOGUxNWRmNjYzMDgyYjEwNjM2Y2NjNTU0M2MzNzc3ZjJmMWNlY2M4NTEwNDA2ODYyMDY3YmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmMjdjOGFkNjhiYjQwNjc2M2RmNzZmNmVhY2IxNDg1Yzk4ZjA0MzA0NDY1YTdmMWQ1OWE5MmUzMmQ0NjgyYzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2c08237216464444b4c16d4c6e4d22a9",
+      "statement": "The update_work_package.ftl template renders a partial JSON payload that always includes lockVersion, conditionally includes _links.type and _links.priority, conditionally includes mutable fields (subject, description, startDate, dueDate, estimatedTime, storyPoints), and sets _meta.validateCustomFields to true.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L103-L114",
+          "version": "repo-lines-v1:sha256:6a86045e347dd75c049fc3790d779227f6eea92d00a4de6aa8c51f95c463f701:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk2N2U4MDc4YTY0ZWI1NzNjYmVmM2E1MTRhMzlhYzFjYzM5YzdmMzc1MGVmMmYxZjQzYjUzNmFkOTk1NTU0NTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRlNThlZDllYTczMDFiYTAxZTAxZDU2MGM2YTEyMTc4ZTBkYjc4M2U4YWY2NjM2YjBiYWMwZjUxNDNmNzZlYmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI4NGQyNTU0ZGYxYTYwNTFmNDE3ODY4NGFjZmYwOTI1ZTVmYzI0NGNjMDdkZTcwMTU5ZmUwYTdhOGJjNzJmNDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE3Zjk3NGFmMmVjMGEyNDY2MzQ4Zjg4YzM4NjNhNDc1ZjhhODNhZmI2NWE2NjgzNTI0YTdmYTE0NGVkN2I0NmQifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/update_work_package.ftl",
+          "version": "repo-file-v1:sha256:f01641a9ca0a62ed78fae4834de682b2e2f782288ccea6b0914df7c2197d4a21"
+        }
+      ]
+    },
+    {
+      "id": "claim_b84ffce91cf343b096dd105bca562231",
+      "statement": "create_work_package.ftl always sets scheduleManually to true, hardcodes status to /api/v3/statuses/1, and explicitly sets duration to null, while conditionally emitting startDate, dueDate, estimatedTime, storyPoints, and priority _links only when their values are present.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/templates/create_work_package.ftl",
+          "version": "repo-file-v1:sha256:d255bddf3602f990c6f82d6a57f2ca503d8a4f827d332d32e2a29f51e787d62c"
+        }
+      ]
+    },
+    {
+      "id": "claim_f524dd5bf15d4bdb8e31416a26f30e0b",
+      "statement": "Attachment upload in workPackageUploadAttachment decodes the Base64 file content (throwing IllegalArgumentException on invalid input), builds a multipart/form-data body via restOperations, and POSTs it to /api/v3/work_packages/{wpId}/attachments, returning the attachment ID.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L116-L121",
+          "version": "repo-lines-v1:sha256:12d82e9943551c9f2758e22b899fb2a2b86a4e66e991c76bc4e6f01f42d7c83a:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzczZTUzZTEzY2UzMTE2M2ZlY2I2NTVhOGZlYzlkZDc0ZWY4MmFkNTgxNWVhMDk1YjNiMTRhMzU5NWQwNTdjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTY2MzE0YzIzYzM1ZDUyNzZiZGY3NDE4MDU0OTgzZjI0MGQ4Y2E3ZDIzYmMzZDFjM2Y4ODc0YzM3ZGUwOGZkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzJmNDhhYjhmZmVmYjgyNmM4MmQ3ZjUyNmFlMzc0MDdiN2RjNjdiMmM1MGJmYzNkNWFkMWJjZjNkMDM2NWFhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDY2YjRhODlkNzZmMjJmOTc5MDE5YzYwNjc0ZGRjNjA2MjRmOGNjZDJiODA0Mjg5OWY3ZjA1NGMxZTczMmNhNCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageTools.java#L91-L103",
+          "version": "repo-lines-v1:sha256:d50ac5655e17a12a992193e43b5de8b08bc5d87f1a43405a5c5df1bcc3a9c3f0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg2MDRhNjc3NzQ1NmJiMzgxNWIyYjFiM2U1OTcwMmM3NGQ0Y2UxMmQ4YTVlMjNmZWM4MTg1ZjkwODMxYTBhMGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3NWJkMjQ4NmFhZTAwMThhNzMzMjg3MzE2Mzg0ZWNlNjZkNTQzYjUxYTI1YjM3ZDNhZmJmMzAwYzU2YmJlNDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg2OTM5NDgxMmUwMDFjNTEyODliNmZlMjQzM2Y1ZmIxNWU2ZjcwZjI5MTc4NzNjNTZiOTA1YmE5N2E3ZWE2ZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBhYzc0NmVhOGRiMWVmOGU3YzdkM2NkYzU1NzZlZTBiYzNmYjk2MDJmNjM3NGU4ZTA4M2E1NjljZmE1NGZhMWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_70e0d012a36a49a2a09306c4b612ab61",
+      "statement": "Parent relation management (add and delete) is performed in-band by fetching the current work package to read lockVersion, then PATCHing the work package with _links.parent.href set to the parent's API URI or null.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L202-L225",
+          "version": "repo-lines-v1:sha256:076bc6d509b6137e9019402e3a485767f451441ab59a98cc333a69f47e9c3f9a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFlZmZlOTg2Nzk2YzIyYTI3ZGRmZGQ1MDAzNTc1YmUzMTdhNWFjMTI0MDJkOWQxNDlkZTU3OTkxMzE4MWQzNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3ZDg2MzJlNTRlOTI5OGFiYjk1ODcyN2UyZDUxNDA4YWJhZjEzNjYwMzUzNzkxMDE0MGFiZjY1YjMwYWI2MTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/update_parent_relation.ftl",
+          "version": "repo-file-v1:sha256:7408e7466411a730a31b24df7dbcc9e23ec57d1df1d7d19b5f1ab2f14fdfb5cb"
+        }
+      ]
+    },
+    {
+      "id": "claim_145ba840783841be808715894d6872bc",
+      "statement": "General typed relations are managed via POST to /api/v3/work_packages/{wpId}/relations (create_parent_relation.ftl) and DELETE to /api/v3/relations/{relationId}; relationDelete catches RestClientResponseException and returns false instead of propagating the error.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L170-L193",
+          "version": "repo-lines-v1:sha256:6ecca2c714d3f0ee3628daed0118d800a583a599361469f55e2cf4788e758da4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhYTUyYTU0ZGZlYTZkODkyNzAzN2RhYWY1MDIwNTg3NzFjODJjNjNlMjVjYzM0MTYyNzE5MjNiZmY4YWJiZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1MDhhZjMxZjYwYjdkMDhmODBiNjU3NjdiODg3M2IyNTMyOWM1MmY2YzQ4MTVmYzMxZWViZGE2OTgwNTg4NzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU5ZDIxMDlmNzFlMWZiN2I3Zjg0MzlhNGE4YWZhNDIwODIxZmFlMTRkNmQwY2IwOTk4NmVlNDhiZjcxZWQwY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVlZTllMDIyNzEyYjMxYjQ2Njg1ZjA4NDg5NjU4MmVhNDBkYWZhZjZkYThmZDA5MDFkOTJkYTM0NWRiYWIzOWIifQ"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java#L180-L185",
+          "version": "repo-lines-v1:sha256:8fab5994609e0f38af1faad81fc757ac9e342b8d4bf5e968dec2a7c6940aaa9f:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTkyYzEyOTZlOTI3MmVkMTQ0N2EzZTk4ZGJmNWEyNGJmMTJhYTRkYzI1NGI2OTBmODI5NzMzZDMyOWM4YTViNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmMwODE1OGY0YTBlYzNhYTJiNzc5NWYxYzg5MGI4ZmJiOTlkZjFhMzVjNjcxMzhmMTJiMTM3NjIyOGFkN2ExZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjViMjY5NWM2NmJlNTEyMGYxYmJmNmU3ZDRmY2ZlYmFjNTQ0MjY3NzIxZTI3NzQ5NWY1MzQ2YWI1ZDM5YTA0YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWRiNmFkNWVmMmRmODk0YjUwNDFlNzJkMWQzOThiMDZmNGNhMWM4N2UwMjBhYzlmNDIwNzQ4NTc5MjRmOGY4ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2a392a7e919469a9b2e65d1ca42a723",
+      "statement": "listRelationsForWorkPackage assembles the complete relation set from four sources: _embedded.relations._embedded.elements (explicit), _links.parent (derived), _links.children[] (derived), and _links.ancestors[] (derived), mapping each via RelationMapper.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/RelationMapper.java#L37-L49",
+          "version": "repo-lines-v1:sha256:94593a389f2f718813d150f9c46445a3a6abecf6bf68cc22d1aa2dcedab5bd9d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmY2YwMjNmYzVlMzk5N2NmMzEwMGE1NDBmYTUyNWU2NmYxMzZhZDJlZDMxNGM2MzQ0NGFjOGNmNzcxNjkwODIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5Y2I0YTQzNzMzYTg2ZWZlNDkxYTBkM2NlZDNkMzE4NTMzNmQwZWNkYmE2NDU5MmI4NDNmNjBkNDY1ZDhmNDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQxODEyMWNmZWU2YzdiMTVkYmVkYjllMGVlOGYzNzFmZmE0M2QxNTQ1OTkxMGFhNDdlMDYwOTYwZDkwMWNjMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFiYWQ5ZWI3YWRkN2E2NTExM2E3OTllNjYwZTY3NzU5ZjA0MDk4OGE2YWNjOWE4ZTA2YWY3MjM0Mjc5ZTZjNTUifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L130-L168",
+          "version": "repo-lines-v1:sha256:085129fe049b4a273d6b6c82c1d05bb2d96f8cf7a41edfda8a8bee833a7acee3:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRjMWJiNjVkOTI1NWFiNjMzZWE0M2M0ZjkxMDA2N2VkZWZiOWNhYjA0NTQ2YTg3YmIxYzNlYTY1NDdlM2UxNTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhNWVhMDBlOGNmMDcyYWMzMTc2MGQ5ZDA3ZWU1NGFhYTBlNjY5MDQ2YmYyNDY1NzQ1ZjEzYWFiYjdjOGY2MzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM1MjhiYWJmODM5NWY2YmNkNWZhMDJiMjFhNGY2ZmEwZGUxYTRiNjQxNjE2OWE3NTJjODliZDc3NDAyNjAwYzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlMGRmNGE1NTA2YmY4MWJjOWQwODAzMGM0NDQ0MjE5YmM3NmI1ODA3NDMyMzYwOTA4OGNiMWRhNDQ3ZDBiOGMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7cc7715c58ed444c8872c66cc8ec3809",
+      "statement": "Derived relations (parent, children, ancestors) have id set to null in RelationDto because they are inferred from _links, not stored as explicit relation records; only explicit relations have a real id.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/RelationDto.java#L27-L30",
+          "version": "repo-lines-v1:sha256:1f0ba2f1dda7044777e6e90181f9fa44d963934373f83448033f674464679c0b:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYwN2E5Y2FmOWI4NGNjZjdiNjE3MDUzMTY0ZmM3NGZiYmQwNWM0NWUxMzBlYTg2MTZjNTdkMjFkZjI2MTQyMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTA2NzQ4N2MwZWE4YjkxYTMxMDE2NWNhZjY4Y2ZiNTQzNmM5Zjc2NThjMTcxOGM2NmJmZTYxZTBiNzZkNWFjZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGZiYzU5MjdmM2UxYTRlM2RkNDA0YTNhYjY1YWFkM2E1NzljMDdiYzY3ODlmZDQyNzIxNThmMTJjNjFmZTExZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjNlMGI5ZDE5Njk2MGM0ODUwMThhNDBlMjc3NDc3M2QyMWY3NDMxYTE2N2NkM2UyZWJlOTQ3YjNiNWM4M2Q3OSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/RelationMapper.java#L37-L49",
+          "version": "repo-lines-v1:sha256:94593a389f2f718813d150f9c46445a3a6abecf6bf68cc22d1aa2dcedab5bd9d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmY2YwMjNmYzVlMzk5N2NmMzEwMGE1NDBmYTUyNWU2NmYxMzZhZDJlZDMxNGM2MzQ0NGFjOGNmNzcxNjkwODIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5Y2I0YTQzNzMzYTg2ZWZlNDkxYTBkM2NlZDNkMzE4NTMzNmQwZWNkYmE2NDU5MmI4NDNmNjBkNDY1ZDhmNDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQxODEyMWNmZWU2YzdiMTVkYmVkYjllMGVlOGYzNzFmZmE0M2QxNTQ1OTkxMGFhNDdlMDYwOTYwZDkwMWNjMzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFiYWQ5ZWI3YWRkN2E2NTExM2E3OTllNjYwZTY3NzU5ZjA0MDk4OGE2YWNjOWE4ZTA2YWY3MjM0Mjc5ZTZjNTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2bf2823f5b9642d38a4bcd96536ef519",
+      "statement": "PatchMap.of creates a map from alternating key-value arguments with two null-handling modes: ALLOW_NULL_VALUES (preserves null entries for explicit JSON null emission) and DROP_NULL_VALUES (skips null entries).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/util/PatchMap.java#L12-L44",
+          "version": "repo-lines-v1:sha256:6b6d0956a8960c67184b382d41eea50530aa46d5cc431104f8f5485b4921a205:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1YzIwMTQ5OGUyZGMwOGQzMGMyNTA2NmY0M2VhMzE5OTRlNDhmNTE5MTkzOTkwOWQ2NmZhZWUxMzg3NjdkZjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlZWFhMGEzNTI4YTYzNDhkNDcwZjZhMTQ1OTIyMjVlODIyODVjYmEzYzMxYTFiYzgxNjlhNWYxMGJlNzZhYzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_69655375831240ca8788841d8b44c0ca",
+      "statement": "safeEditWorkPackagePrompt generates a prompt that enforces: (1) Markdown line breaks as the literal two-character sequence /n, (2) always using the latest lockVersion from the server, (3) diff-before-update workflow with explicit user confirmation, and (4) refetching after any update before further changes.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageTools.java#L106-L142",
+          "version": "repo-lines-v1:sha256:829340ca743c36b07c9aefba380310c4b2e1365cb3f7cbca57026f16586f3816:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3NWJiOWZkMTlkOTVjNGJmYjUzMzAxMTcyMjY4Y2I1N2VhNjZlOGE2NTAwZGEzYTAzNWUwM2M4MDY2M2ZkZjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3ZGI4OTY4ZDE1ODNiYjU5Y2Q1MTU3NGZjZGQ3NmFlNjVkZWQxYzYxMmNlZjIyM2YxNTY5NmUzYjU3ZjNhZjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java#L105-L131",
+          "version": "repo-lines-v1:sha256:ed86b4d737b9e797e2491942d775e8a4b23215748fa474477f4a2a589ca6b15c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4MjJhN2UwZWNiYjZhNjcwNzk3MGYxYjU2M2EyZTljNjM5YWMwMzRhYzIyYWVlNmY4ZDI0NDllOTdkNTNjYjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRlNjQ0MmZmNzUyN2E0YTQxODk3MGM4OTY4YzBjYzE4Y2UyZDFlNDg1ODhlYzhhNjE2NzVhNzM4ODIzZjIyY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_90a53c7b588b4832b1006720f6ed7287",
+      "statement": "WorkPackageMapper.toDto extracts type and priority names from _embedded for single work package lookups and from _links for list responses, and parses ISO-8601 strings for startDate, dueDate, createdAt, and updatedAt.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/WorkPackageMapper.java",
+          "version": "repo-file-v1:sha256:a6fc7b501034dafb812a6a853f87d4a47ca51db8521b13b943432fba6815be6d"
+        }
+      ]
+    },
+    {
+      "id": "claim_a4180d882bf2430ca76285459cb5e313",
+      "statement": "OpenProjectApiClient.workPackageShow returns null (not a 404 exception) when the requested work package does not exist; this is tested as an explicit contract in the integration test suite.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L72-L81",
+          "version": "repo-lines-v1:sha256:3b5ae34873db8f2f35e35ad154a4508691bc905beceabc3007504b8e4d371df9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNjJmNjBkODU5MGE1NzljZjQ2ZjhkNjczNzhjNGM1NzJiOTYyY2VjY2RiOTBjN2E1ZjdiNDJiOTYwNzgyYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkYTRiMWFmYThkNDdjN2NjNzA2N2RiZjMzYWE3ZGRlMGNiNjhhNDk1OTI3NmJkMDE5N2Q4ZDNjZjcxOTRiOTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxNWIyMTNlN2QyNmJkY2Y1YmNjYmMwNjhhMzgwY2ZiMTZlNGM2NTdiYzJjY2I1ZGQ4ZDNjNTViYTU2NmIyYzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI4NGQyNTU0ZGYxYTYwNTFmNDE3ODY4NGFjZmYwOTI1ZTVmYzI0NGNjMDdkZTcwMTU5ZmUwYTdhOGJjNzJmNDcifQ"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java#L173-L177",
+          "version": "repo-lines-v1:sha256:46f2f45f66864be4c7a36142df215ce11ac7b244763c2d9ca8b99309abc2ad26:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQzMmM2MmRhOWZlMjcwNDhlYjA3NmZlZWFlM2Q1YjFkZjM5Y2Y3OTg0NThhY2YwYTM2MzBkOGIzZTNkYjk1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjUxNzQ5YWZmMjczZDI2YWM2MzA3ZDc1YzMwYzViYzhlODIyMmZjMjc2YjAxOTFiZWMwMDUzNDE4NDA0N2FhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgzN2Q3MWYxMThlNWNjOTEzOTgyMGQxYmFjODczNGJlMTdiZjBkNDNjN2E4ODNjNmM5ZThkMzZkZjNhMmM4MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_345f322305d44c7ca9c677a9b982fe6f",
+      "statement": "Validation failures across all work package tools throw ConstraintViolationException with property path identifiers (e.g., workPackageCreate.workPackage.subject, workPackageUpdate.workPackage.lockVersion), verified by unit tests.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java#L32-L97",
+          "version": "repo-lines-v1:sha256:677d5979b35a705f4071576546b82e5b676d0d03971f99157283f9aff2e6f330:eyJzZWxlY3RlZExpbmVDb3VudCI6NjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJmNzM5MmYxZjljYzM3ODkzZWQ1ZTFhMThkZGI4N2E0NjMyNjFjYjVlZWYxNzEyMmU3YjFhMzEyY2NjNTEzOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ODIxN2EzZDA1OTgwMmI4NWUwN2ViMDEwMjNlYzE1Zjk4ZWQzYWQ1N2EzYmU1OGIxZjU5MThiMTU2Njk0OWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJmZTczNDlmOTc4ODFkMGZiOWZiZTFjNTJiNDdjNTg2ZjU2MjdmMmJlMjhiODI3OWEzNThmMzc3YWIzMTBmYzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc2YTdmY2ExMjk4ZmNkNjExMzExMzViOWY1M2NlNjI1ODk0ZTllZTUxOGU3ZWJlY2ZmYjAyYzFhNjJiZDUxYzcifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

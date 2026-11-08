@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:073ab49a3c87d9edf9828df63b0561f76c632c0e72a3170a50194d2f14e19117",
+  "claims": [
+    {
+      "id": "claim_e9a447d8b6c94d169a698d1744c8c7da",
+      "statement": "The Docker build produces a multi-platform image for linux/amd64 and linux/arm64 using the Eclipse Temurin JRE 25 base image (tag 25.0.4_7-jre-ubi10-minimal). An SBOM attestation is generated via docker/scout-sbom-indexer at build time.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L45-L56",
+          "version": "repo-lines-v1:sha256:33ec929d55859470af120a0e33b27ad85bab42721d41616643bc07c46e1aaf86:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3NzUxOGIwN2UyYzRiY2E5NjEzNDMxMGViMGFjMjc0N2FhOTBhZGE3NjBiZTBmYWJhOTMxN2JmNzdlNTRkOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkMzg4OGI3MWU3ODk5ODE4OWQ0YzZhNjk4YTk2ODVhMDBiOTJlMGUzMmNiOGYxZmUxNDUxNWE4Mzc4NWY2ZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZlMjdhMWY3N2IzNmVjYzlkYTg0MTIyYWNjNzBlYTM3OTFhNjM1ZmMxMjY0MmNlZDU3MzlmN2VjN2Q0MjYxNTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1MjI5YmNlODhiYzMzZWJmODYyMDFlOTM0Y2Q0NjU2NWMxYjhmOTJmZmY5MGQyYTFiNTA2OWQ4YTI0NjczYjUifQ"
+        },
+        {
+          "resource": "repo://docker/Dockerfile#L1-L3",
+          "version": "repo-lines-v1:sha256:3d9369e85028f50ad225619a0bca09e50e5a5943e472401fe6f28aa25fd227d6:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDFjYzA4MzQ1MzkwMjAwYmQxYmNiMzY5NDkwNDdhNDJiNTI0NDg5ZWRhZjdiNTMwMGMxNDhiOGVlMDRiOTVlYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZkOTg2N2YwOGNhYjhhYWQ2YWIxNTdmOGI2YzQzZmUyMzJmZjgxZGZhNGZiNjg5Y2RjOTEzMmRmMDhmMmRlMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGM0MjBkMjYxZjc4ODg1YTM3NTU5N2U3NDkyN2NhMjQ3MDY4YTgzZjI0NDdjNmE0YjBmNWQ1ZjY0ZGVlNjkyNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_21d49763aacf46489d2d116a7f76ca80",
+      "statement": "The Dockerfile copies the application JAR as /app/app.jar, application-prod.properties to the image root, and both CycloneDX and SPDX SBOM files into the image. A non-root 'spring' system user is created and used at runtime.",
+      "evidence": [
+        {
+          "resource": "repo://docker/Dockerfile#L9-L23",
+          "version": "repo-lines-v1:sha256:517ad60fec47edb4f2fd2f8492db1a012a75efbfe9137eea873f54e482e958bb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxNDU4MTEwMWY3MDhkODNlYzA1MTQ1NTdiZDc3NjQ1NmVhNmY1Mzc0ZGEwNDk1MzhmYjQ3MjE0OGI0Nzc2YzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjExNjQxMWQ4NjExMWNlNmU3ZDUwOThiMDhhZWMwMjVlNzNjNzc5N2JmNGU0Y2I5ODJlNjQ2YjBmM2M3Y2U5YmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjNjc5NGYxMThjM2VmZGRkYTFlYzY3ZGQ1YzRmODRjOTJhOWJhNGVjMWI2YjcyN2M3MjI1YmIwMTlkMjVkYjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c097894547ab459e923652f867db9f21",
+      "statement": "The 'prod' Spring Boot profile is activated at container start via the JVM system property -Dspring.profiles.active=prod, which overrides logging, actuator exposure, and enables Kubernetes-style health probes.",
+      "evidence": [
+        {
+          "resource": "repo://docker/Dockerfile#L29-L29",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzMwOTNkNjEwYzc1OGMxYmRjOGVjZWM0MWI1ZjMyMWQ4MTFmYTZmYmUwODAwNDJmYTBlODg4ZWI2NWViNDY0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTNmNDI0NDVlOGY5ODY0Y2EzY2NkYTI2MjZmODhmMzIwYmM4N2VlNzRjNmE4YWU5N2Y2MGUzMmZmYTJmMzA2ZSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application-prod.properties",
+          "version": "repo-file-v1:sha256:4146dd24a7135e155a82024085671cf2bf6bfe8eb2e697f6a5a0aab21c200119"
+        }
+      ]
+    },
+    {
+      "id": "claim_cb2fceebf4444a12ab575c3507289cdb",
+      "statement": "The OPENPROJECT_URL environment variable sets the default OpenProject API base URL (default https://localhost). The OPENPROJECT_ALLOW_HEADER_BASE_URL variable, when set to true, trusts the X-OpenProject-Base-Url HTTP header from MCP clients to override the configured base URL, enabling multi-backend routing.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L62-L72",
+          "version": "repo-lines-v1:sha256:1c210b15d1250cd54ce952aa2cbbd63c8ab896660fc994ad07883fad3a412a1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkMGE4NDc1Zjg1NmM4NWM1NTgxZmIyZWE4YjE2NDdhODY5OWM2YTBjNmQ0MGQyOTUzYTBmOTAwNWQ4Y2EwYzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2MTliYjU3ZjJhM2E5ZmM3NWYzMWM3MTM3MmMyMWY2MWVmNzFiMDExOWM1ZDY1MDA2ODMxNTJlYWI3M2MzN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyNzk0Yzc3ZWQ4MWMxYjhiM2ExNDFlODA3ZGM3MWI4MjJkOTJmNDZkYzVlZmRjZTE2NGRlZTkxOWY0N2NhM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2NGU0Njc3N2MwZWYzNWNmM2I5ZGE1MDY5ZTMxMTk5NTNlNzAwOWM4ZmIxMmQ4MTYyYTAwZDJmMDMyODg2MzkifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/HttpHeaderOpenProjectConnectionResolver.java#L24-L25",
+          "version": "repo-lines-v1:sha256:a0d1e322086cd05bbdde2c4ad8fb8997284ca7228839a5f28e59777a9628f6a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQwMDRkNTY2ZjlkODE5M2Y4NWUzMzg4M2E2ZTEwYjc4MDg3ZmYwZDg1NzUwYjdkNTA0NzlhMTBhNjU3YjhlNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmIxODdmN2E3ZDkwMDQ2ZmEzODAyMGQyZTkxMmMyNzRhNmU3YmM0MGViZjZiY2E1NDdiNDdmMWM2MGEyY2FlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTIxNjE0NTFlYTQwOTVlY2MyMTY2OThhMDBkZDNjMjQ1M2YwYzQzMzg1MTIxZjI3MzEzN2I2ODczYjJjMGJjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDUwM2IyM2IwOTUyYmRkZDFlZjFhMDk4ZTliZTAzMDhlODRlYTdhMTg0NDU1MzE3ODFlMDRjMGI0YTc5MTNiZiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/HttpHeaderOpenProjectConnectionResolver.java#L38-L44",
+          "version": "repo-lines-v1:sha256:40986ca190c54fd82726883530720eab924dfdf0c6db6f3957a92df43dde94c4:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGE4YmU5MmNhOTI5YWE4NzA0ODczMTA5ZjA4Y2NjZmQ4MWIzMzIwODE2YTc0NjJlNTk0MjRiMjQ4ZWViNTNkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjk2NGQ0ZDk5YmVmNGNmNzBlMWM3YTY2MzFmMDJiYzRlOWU3OTBhNzEzMGNjZjA1MTYwNjdmN2MxZGE4YjRhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTg4NGY2ODY3OWJlNDRlMWYwN2M4OTRjYWI3MDY5MDgwNzVkMDk4MmMzZDdiYjRkM2Y1MDA3NGFlZGEyOGFkYyJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L22-L23",
+          "version": "repo-lines-v1:sha256:cc22d1c3655eed62536bed89ec26e4eff9b88b1058784567c4cd373d61f49afa:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdiMmJjZDNmMTg2M2Y2ZTlkNGUxNTk4ZmI0YmVjMjFiZTAxOWY0NTZiZThhZGUxYjczNjRhM2JlN2U3ZmMxZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTM4ZTc5MTc2OWFjYWRhZGZhYjlmZGU3NDliNmNjYzM0NTc2NDY1MzliOTEzZjkwYTNhYjNlZWEzMDY1YTM1NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmM3ZWM5ZDRhNjYxZjczM2FlY2Y1ZmY3OTM2YTM4NGExNmM2ZjliYjNkNDE3ZDgxNjZjYzJiOTU3MWE3NWQ4NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_24472dc2a3434725816b97e05e8a966f",
+      "statement": "The Docker HEALTHCHECK queries the readiness probe at http://127.0.0.1:8081/actuator/health/readiness every 5 minutes with a 3-second timeout, 20-second start period, and 3-retry threshold. The management server runs on port 8081 separate from the main HTTP port 8080.",
+      "evidence": [
+        {
+          "resource": "repo://docker/Dockerfile#L25-L26",
+          "version": "repo-lines-v1:sha256:8f50d0680d40ec0509f36872d8b9a91b27644874596164fe36e6562d8cd6d904:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI5MGNiMzY5MGFmZWM1MGQ0MGMzZDExMjA3MTMwMjhlMzY1MGUwMTRmMWM1MmMxYjg5ODQ0YjFmYzk3NThhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWZiYTQ4MjFiZGZiZGFiYTgzMWJhZTI2NTI4OTBlMzlmNGYyNThhNjgyM2Q4NzY2ZmMzZTc4NmZkODFhNGQxMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTdkOWQ2MTE3NjhjOWQyYjExOWJhMDMzNmFhZDY0MTNiNzA5NTQ0YTQxYWY4OWFiNjVkOTM1MjljZjBkYzMzMyJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application-prod.properties#L5-L7",
+          "version": "repo-lines-v1:sha256:5bcd3a6181a00647cda52145d2cc44116c5860fe0c3a46e85df2d3b31bfe9ef8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjk3MTlhZTZjMGU5NDg1OTY2MDg4NDdlNjRhMTUzNmJjZTY3NmIwNzgwNWM1YTliMDU5Y2UyOGMwZjA4NjhmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc0MzI4M2NiNjRiODBlYzhkODU2ZTJkZTY2ZGY3OGFmZWY0ZDRlZTg2YTc1NThhNWYzYzRjNzY5MTQ1Mjc2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODlkN2Q5Mzc1OGQ3YzFiOTA3ZDhjZDhhOTA4NGMyZmNmMjc2Y2MwZmYwYmViZTBiMzZjYzUwZWYzMjVhY2M4MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmJlMTY3OWQ5Nzg3Mjk5OTg5NTcxZWVjODIwMjAyMjUyMjI0NjJmYTk4YWU1YTcyNGVlNWU0NWFjNGYyYWQzOSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L4-L4",
+          "version": "repo-lines-v1:sha256:4b1030b0ed2a4bf6e55e739c9d54893d9b63d50b96d2bae940fdeb98c7616257:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxMDMwYjBlZDJhNGJmNmU1NWU3MzljOWQ1NDg5M2Q5YjYzZDUwYjk2ZDJiYWU5NDBmZGViOThjNzYxNjI1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxMDMwYjBlZDJhNGJmNmU1NWU3MzljOWQ1NDg5M2Q5YjYzZDUwYjk2ZDJiYWU5NDBmZGViOThjNzYxNjI1NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjY4MDllNWMzYzI3NDc3Y2RjODFhN2E2NDQzM2NkZjgzNDBiZGIyYjdkMmYwMzA4YTE5ZDdiMzFhYTU0MGFhYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE3ODY0ZjQwMjgzZGY1ODEwYWRiMzg2ODJiM2FkMTc5ODU1NGJmNmQzODViMGI3ODgzNGEzYWZiNzIzM2VkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3a0fcbc3936f4b8985980e97a6db917c",
+      "statement": "The actuator endpoint on port 8081 is secured with basic authentication: /actuator/health and /actuator/health/* are permitted without auth, while all other actuator paths require the ACTUATOR_ADMIN role. The default credentials are username 'admin' with a placeholder bcrypt hash.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L58-L66",
+          "version": "repo-lines-v1:sha256:e72be95108dc53f732afc4ef12941ad8297cef3116d5442a1d388e78d62f2e6f:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjk1NjE5M2U1Yjg0ZDVkYmZkMjA0NDhlYzY3YmUwMmZiMzg0MjYyZjUzZjdkNWJmM2Q1ZjU3NGNjNGI4MmJlYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDYwYzNiMjk4NGMyOTY0MDRjZTc0ZjVmYTYxNGVmMjE3NDUzZWI5YzYyMTgxNzE2NzNkNTMxZDJmNmEyMzU3NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjcwZjg4NDc0NGQxMjE5Zjk0MmUwZTM4MzhhYjllZGFhNzk1YWU1NTc2MTEzNWQwODkwYzcwMzgxMzAxNTA5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTU1OWFmNzg3Mzc0OTlhMDE3NDIzYTY3NDljNGZjYzgxMWI1YjM0ZmNlOTc2NjE4OWMwNzExODljZmYxMjM0NiJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L24-L26",
+          "version": "repo-lines-v1:sha256:bc7ec9d4a661f733aecf5ff7936a384a16c6f9bb3d417d8166cc2b9571a75d84:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY3YWUxYmVlZTNhOTYzMWZkMDEyMTE1MzZkZjkwNDg2MDY1YTRlMGFlYjY2MDkzZTZkZTQ3Njg2MTNjMjQ3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZThiMjFiZGZhMTg0MWU2OWNmOTM4NWFmMzEyYTNmZDIyMTU5ODhhMjlhM2Y0Nzk0YjJhMjk1YWRmMDg0Y2NiZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTE5NDk3MGUzZTQyNzRlM2Y5ZmQyNjIyZmEzZDI5ZDg2YjFhMzBkNTEyNzBjMGRhOTFiYTllNjJiZDhjNjBlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE1ZmM5ZDc0MWYyMTM1MDM4Zjg4NmU1MGI5MzY1N2Q1OWM5YmI2NDZkNTAzMWNlMjBjYzc0MTU2ODgyMjAzYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0136816c44b8406094f713f22d35fde2",
+      "statement": "MCP endpoints on port 8080 (/mcp, /sse) use bearer-token authentication via McpBearerAuthenticationFilter, which validates the Authorization header against the OpenProject API. The filter is explicitly excluded from global servlet registration so it only runs within the Spring Security chain.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java#L29-L33",
+          "version": "repo-lines-v1:sha256:8c74d27c973e4e2d827e6ddacfeb0f76e369b26b81f8317e0e9c295858d89c3f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzFlNjkwNjBlZWViMDkzZDNkMGI5NzU0NzUzNjkzOTIyYmQwYjIyZDMwZmY3YzRmNTVmZmU1MzJhMjIyMTJjMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjFiN2M5MmY0YmE4ZjYxYzBjMDE4MDYwOTgzOTNiNjBiYmU3MGQ5ZTUyYTc5ZTJmMTQwZmY4ZDg1YjEyOGEwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDE4ZjI3ODhkZDIyNTcyZTAwYzc5MjIzNTY2YmI2Y2M3MTE1ZmMzYjFmY2ZhMTU3NTQ1Y2M4ZTA5YTQ1YTI3NiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L46-L55",
+          "version": "repo-lines-v1:sha256:594b8a22a6c9a95d90dba2b6114f61ef6d5f469462f168b9bf1015328de6da6a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyYTFmNGEzMzg3NzdjOWVkYjMyNGI5ODUxOGNjMTI0MjlmN2JiYzFjNDcxYWRjYzk2NzY4YmZmY2M0YTUyN2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNzIzMWQ1YmQ0ZGVhM2NjMTgyYjcxYTU3MThlYmE3MWM5ZDdlZTU2NWNmZTEyNTAxM2I1Mzk4YjAwZjIzMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQwOTZjNzUwNjg0MzNkZGU3MzA1ZjJmZWI3NDA0ZjEyZTU2MGJjNDliMDVkYWFhZTZlNTBmOThiZGUyNmViMTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYwM2RhZGFjY2Y4YjBmYjE0NTY2ZTk5ZTQ1MjJjZDNhZjU2NzVkY2RkNTVjMmFkZTVhMDliMTU3MjFjOTliNjgifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L70-L78",
+          "version": "repo-lines-v1:sha256:9d0e350dc36394c6c99edc2ca6924c83894f56a9d023dfd30809227b26eaf47e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E2N2MwMDRkYmMwMDY5MTJiZGRlYmJhZTIzOTU5NDU5OTM0MmU5NzA4YTQ3Yzc2Mjk1ZTdhNmJmZTMxMTgxMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTU1OWFmNzg3Mzc0OTlhMDE3NDIzYTY3NDljNGZjYzgxMWI1YjM0ZmNlOTc2NjE4OWMwNzExODljZmYxMjM0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmM1NTlhOWE3YjQ4N2ZmNDc2ZDY2MDEzOTU0MjQzZjk2ZGM2NDIwYjhiMGNiMDhkZDVmZjAyNDRjZDAzNjRjMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3d9eb80fd61b4e11847cfa784357a90f",
+      "statement": "User API tokens are never stored in the container. The OpenProjectTokenValidator validates tokens by calling GET /api/v3 on the OpenProject API and caches the result for 60 minutes using a Caffeine cache named 'auth-validation'. The cache key is a SHA-256 hash of 'baseUrl|token' — the raw token is never stored in the cache.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L7-L7",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDI4ZmRjZjliNzFlMjhkNWVjZjE4YjQyNjAzMmM0ZDlmNWViMjAwN2IxZGNjMzhiMmU3ZTBhNDE1MGNjMGNkNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTg2MzE4MzMwNzkzNWViY2Y3MTdkMmRhZTA0NjRkZTZhMDYzZjI5MTg0ZTY3ODJmMjE5MGUzZWNkYTc4YWIxNSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidationCache.java",
+          "version": "repo-file-v1:sha256:463691a95d56452e92b00608609c20d3615cdda4607b3ed363f2f5ec49ec44d9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidator.java#L44-L45",
+          "version": "repo-lines-v1:sha256:d76b2e45668339206510c92c9014d8d1ad2ad0b5f77b3e99a54016497118697a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTcxMDZkZWNiY2JlOTkyZGZmN2VlNWQ5OTlhOTQwZTAxNTRkNDVkYTkyYzQ5MzdjZWYxOTM1NzI5NzM1ZjUxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWU1MzlkZGUyNWExOWE1MzkyYmNhOWRmZDU2MTYzMjNjZmNmMzcxZjk2ZTdjZjcxNDk3MDJkNDZlODk0MzFiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZmZDU2M2EyNDYzMjFjMTg0YmY0YTRkNThkNDA4NjIxYzYxNzU1YzhkMmEzYjYwOWIxNzM4ZTlkYjBlZTQ0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWE5MjkzZmQ4MDU0YjZlNDcyNDgzNzNmMzlmNGRkNzc4MDAxMDVlYjc1ODM0ODY4NzI1NDI4NWNkMTI4MmI3OCJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L6-L8",
+          "version": "repo-lines-v1:sha256:9c84661fad5157385d068fb81c02aba99cd47b698e506d6530332bd3ffa38718:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzIwYWI5OWE5MWUwYWVhMWVkMmMxYWNiNGFmMDA5ZDFhNmNhY2I2MzJkNDZkNGIzNzc5MDgxM2ZlNzBmZGYwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxNWFhOTlhYTU3NzAwYTBiZGRhMGUwMWRmYmQ1ZDgxZjNkNjExOWU4ZmJmYTZmMWViNDJiZTA3NTBlODA0OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDEwZmE1MDUwY2UwZDk3MmJjOGI4NDc3NWI2MzNlMGFiYWVkMTAyNTllZDBiOGRkZDM4YTk2NmQ3YmUxYjlmNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDU2MTI5Y2E2NmQ5M2NkOWVjMjk2N2RkMDBlZGI2MTc2NjUxMzRlZjM1OGVkZjA2NzYzZGQ1M2UzNTgzMjhkNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fd43d32fd20542f983cfa019a1d9aaa0",
+      "statement": "The MCP server defaults to the SSE (Server-Sent Events) protocol, which exposes GET /sse for server-to-client streaming and POST /mcp/message for client-to-server communication. The alternative STREAMABLE protocol uses a single bidirectional /mcp endpoint. Only one protocol can be active at a time.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L79-L88",
+          "version": "repo-lines-v1:sha256:be1a49fecd5b93ea90a99cc6390b9c5cdf0d19c3ab4fcaac7c7d35f0f31bacf1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiMzBhMjJjYjdjNzI2MTA1NGI0ZGQ2NTdiNWRiMTQ2ODE4YzNiZGRjZDE0ZjlkMmUwZGZiNGZkN2Q5YjVjZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyMGJhYTljMzY0MTM0MzE3ZDdlOGNiMDU2MDEzM2RkYmRmYTM2ODc2YTRhZDhlMTJmNzQ1OTg3MmVjNDU3YTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzYTIyNDRhM2ZiOGM5ZjI4OGFmZDFjOWNlYWU3MTc4OWY1MWY0YmU0NjZhOThhNzA2M2Y5YTEwYjg1MzUwMjIifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L18-L18",
+          "version": "repo-lines-v1:sha256:a777fdc1bcbcde6e626a5598a9b76580926acbc1fecb203bceb0500f6bad28c8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTc3N2ZkYzFiY2JjZGU2ZTYyNmE1NTk4YTliNzY1ODA5MjZhY2JjMWZlY2IyMDNiY2ViMDUwMGY2YmFkMjhjOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTc3N2ZkYzFiY2JjZGU2ZTYyNmE1NTk4YTliNzY1ODA5MjZhY2JjMWZlY2IyMDNiY2ViMDUwMGY2YmFkMjhjOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDMxNDFhMDMwZTVlNjVjNDczYjM2NWY4NDJjNWI5MjA1N2QwOTlhMmIyZWM0OGVmYWYzNTNhNjgxY2UzOGQ3MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTM4ZTc5MTc2OWFjYWRhZGZhYjlmZGU3NDliNmNjYzM0NTc2NDY1MzliOTEzZjkwYTNhYjNlZWEzMDY1YTM1NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e97de1aa93334af089324b787bbc47d4",
+      "statement": "The application has been tested against OpenProject versions 14, 15, 16.6, and 17.7. It uses direct JSON value mapping with MapStruct instead of a generated OpenAPI client to maintain compatibility across OpenProject API version differences.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L11-L11",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTg2MzE4MzMwNzkzNWViY2Y3MTdkMmRhZTA0NjRkZTZhMDYzZjI5MTg0ZTY3ODJmMjE5MGUzZWNkYTc4YWIxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGFiZmZmNzg1OTExYjU5YzIzMDQ0OTA5MTE3ZTY4NjlmYjI0OTU1YzQ5YzBkYTA1OGMxYjhjNDA0ZDhkODMyMSJ9"
+        },
+        {
+          "resource": "repo://README.md#L93-L103",
+          "version": "repo-lines-v1:sha256:332f4f4287ae897c7984306275f4ca01a9715ec302bcbcf87371694a18f93217:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1OGI5ZmQwYzlmY2UzMjlhOGFlODdlMWQyNjMxMTU3ZjRmZWI1NmZlZjc0YjlkOTViZDlhOGYxYzQ3MGI1NmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyMTUzN2UzNzRhNmUwM2ExODg3YWY3YzY3MTRhZTFiZTljZGQ1MGFiNjljZTNlNjRkOGIyMGRmOTk0NWQ1MmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZGQyNGNkZTJmMTBlMWNiN2E1N2JhODBjMjczYWNhM2YyMWZjNzQzOWI0NmYzYzdjNGM4ODJiYjQ1YTQ0NTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyYmE2YmQ2NjViODVkZDFhNTAxMDI2OTdlYjk4MmMwNmQyZTc0MjlhYWRmYWUzMDZlYzI0N2I2Y2VkMGM1ODMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7bd183d882bf4afca5b729373ab37720",
+      "statement": "Integration tests run against a real OpenProject container using the STREAMABLE protocol to avoid leaving open SSE streams during test teardown. The test profile configures container tag 17.7.2, port 18088, and disables automatic container shutdown.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L74-L76",
+          "version": "repo-lines-v1:sha256:f8c980720c79bd6e547b5ec9778547d90eca494eea0886227d26b341a904e2a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDRmZjFlMzZlZGE1MWVlZTJhMTY5ODNmYTIxZTU2M2QyMWRmOGM3NjVjZDZjOTgzNjM0NDFmYTI4NDc3NzU1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzUyZDg1MGVlZTY0Mzc1OTlkOGZjMzQzYTdkMzMxNDkxMDI2ZDg0OTQyMTNkMzg1YzNjMDBjMjYwNjk5MTEyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjg5N2Y1NGFhNDExZWE4OWJkZGMyODNlODNiZDBhM2U1ZTMzNDE5YjBlZDQ4Yjk1NWYyMTFhNDY2ZDQyM2UyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2EzN2M0NDI3N2VjZDY0YTI4OGExYTUwNTg1YmYzMDhlNGY5ZGVhNGZhZjUxYjU0YjY2NmJjODQxYTFhMzNkMCJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPingIntegrationTest.java#L22-L22",
+          "version": "repo-lines-v1:sha256:09e773da6143f4a59d719653b8a25bd4e051be60fcbb7db03aeec87b2e1c1f79:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTEwZTcyZDU3MDllNzIwOTJjMGY2NTdjNmJiYzQxMDU4ZjlhYWQxYTE5ODU5YThmYmRjMTFmYTg5MTYyMThjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGJhZTdmMGZiMjcwMmMxODRkNWE2ZjU1MWMxMzBhMGNmYTc1NjZlNDJmNjZhMDM3NmIyMmRlMTk4YTNmNDUyOSJ9"
+        },
+        {
+          "resource": "repo://src/test/resources/application-test.properties",
+          "version": "repo-file-v1:sha256:feed1fcdd7009814f5aa55ab34d23d7429d453b9b0483bd6c728168a18e07d45"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

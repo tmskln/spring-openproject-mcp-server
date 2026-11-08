@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:a2e688539c6442bc22318fc099c9f291cb3df9bed9ffceb879b85f24062be6d3",
+  "claims": [
+    {
+      "id": "claim_32e36e9439694c56a81dd5e9d1278fd3",
+      "statement": "The project is a Java MCP server that proxies OpenProject's REST API for managing work packages, projects, priorities, types, and relations.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L1-L5",
+          "version": "repo-lines-v1:sha256:e57cb9dff7cc7b782b5f65e0ef206fca36891172a5fbb7e4d18e98e4f8409f72:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzkxYzJkZGMzZGRjN2U1MjRiYTEwOGY0ZDg4NDJhYzQ2MGZiZmZiMzZjYTczM2JlZjMzOGJjN2YzOGZmM2FjYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc5NGU2ODIwZTQ1OGVjMDk1OGFlZjhkMTFkODY1MjJlZWFlOTg0ZDdkZWUxYTAwY2ZhOTExYWY3MWIzZjYyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTA1ZDA1NWRkYjQ3MTgwMGMxYTAwYjkxZWI1OWJiZjIyNjE1NzQ2ZjcwZjY5MzdjMTY4MmI2ODdhOGY5NTZiMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_78822b0d80e344018f678015082fd9c8",
+      "statement": "Authentication uses a user-provided OpenProject bearer token passed in the Authorization header; the token is never stored in the container.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L5-L6",
+          "version": "repo-lines-v1:sha256:356dea5c34cdc4402b7cfd5cbcc85625d956811c09d3382ca4a91e2a9b201b48:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc5NGU2ODIwZTQ1OGVjMDk1OGFlZjhkMTFkODY1MjJlZWFlOTg0ZDdkZWUxYTAwY2ZhOTExYWY3MWIzZjYyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTg5YTEzZDEyOTliZTBmN2ZmMzNjMTlhMWMyNmM5ZjY3MTU3ZjRiNGMwNWYxMjk4MzQxNjIxYWE3YTBjNWE2MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmYxYzhmY2RjMmI0Y2I3ZmY2NGE0MDkwNDYxMzI1MzcwYmJmZTAyMjZmNTE4Y2ViYjNmN2ZlNWI0NTY0YmQ1NSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L63-L77",
+          "version": "repo-lines-v1:sha256:1fe25e6721420ce7c55b5c9458f6c58789275f21d6a517d917cf8e0fa0bf6df3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhODdmNmYzNDZhZGJjM2M2MzkxNjIxM2YwYzNmNWY4MjdmZjBkYzNiMGU3M2I4MGRhOWJkZGRkY2VjM2NkMTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkOGZiYmUwMWFlZjY5YjAyZTQxYzE2MjIzYjc2YzY4Mjg1NjFiNWZmN2QwNWMzMmJkNGU0ZGZkNjMzOTk2ZmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyM2YxMTM5ODdiZDZjMDg1NDVhY2I5YTg4NTE0MWIwZjdmYmJkNjJiNzUxYjM1OGU2NzFlMGFhMTExODI5OTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ3NmFlYzQyMDJiNGZkMTE4ZjMzMzI4OWRlYTRhNDczOGE2NWNhNTM5YzE3NmQwNjkxYmRmODBkOTgyMGE0YzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9090d83c61a649c8a031e96fe5974bed",
+      "statement": "The stack is Spring Boot 4.1.1 with Spring AI MCP Server 2.0.1 on Java 25, with Tomcat 11.0.26 (pinned for CVE remediation).",
+      "evidence": [
+        {
+          "resource": "repo://pom.xml#L17-L18",
+          "version": "repo-lines-v1:sha256:3a80a7e97b9898245fa19f2f064671a99bee0184674317bd74e0fe8dc26cb245:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmVhNmNhYTYwMDc3MTIwNmU5M2JmYjkzYWU1MDljYzQwODJmZTU1ZjI2ZGE3YjI5Y2RjNmI3YzExMmQyNzQzMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWE2OWEyYTY2MzNlMDQ5MjJiNmQwNTE1MDQ5MzQ1Njk2MGNmYjIwOWJiNjIwYzA0NWEwYTVmYmI3YzAwYjAzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDI4OWU0MTU5OWYzMTM4ZTc4ZTVjNTUyODFhMGMxYzI5YmYzMjI0MmZkNDcxZjJkMTZjZDRjYmY4OWUwNWJhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU0NTcxYmExMTY1ZWEzOGNmNmFjNjQwYzUxNDM4MWQ4ZTQxNDc4MzNlYWZkMDg1MTE1ZDY3NTA5NDViODk2YSJ9"
+        },
+        {
+          "resource": "repo://pom.xml#L21-L22",
+          "version": "repo-lines-v1:sha256:aa0253d87e3dd584cd44a5a3454ba79629d84a33b8566e65a8bb4cfeb00057dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGI2N2YxYjY2ODgwNWUyYTU3ZmQ3YWUyZDMyN2UyYmQwM2MxMmFiNmY4ZjNlNDIwMzgyYmRmZjA4NTYzMzYyMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQ5ZDA1Yjg1ZjBmZDMzNjBiNGJjMjNmZjI1OGJiNWY3MTE1NjBmMTQxNTk2N2M1NDZlMTVhNWNhYTU1MzU1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGM3MzdhNDBjNmIyZjVjMzRkYjg5MjA4ODNlMTkyNTE5MzlkNDdmNDEzNTUyZDA0MjRmMzkzMjlhOGZiZDJlMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQwZTkwOTg2YTg1OWFiYzgyYTIzYzEzOTgxNzM3NWMxYmE5MzZlZTIwMDM0YzI5ODBiY2Q2ZTdjYmNlNjYxNiJ9"
+        },
+        {
+          "resource": "repo://pom.xml#L47-L48",
+          "version": "repo-lines-v1:sha256:954250e2c8142c799ae11ef40aece5fa313f5d4a938b19c7b603e20a6de34d5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzY4NmY0YjA1MzJhZWY1MDhhZmNjZDhmOWFkZGNkMjQ0MTU5NDE0Mzc1NDI4YTczN2I0MzA4MDZlYWJkMzgzOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDNmODFjNDNlMjIwYWYzMTAzYjQzMWUyNmRiZWFmNmY1M2M3ZGUzYWE4M2ZkZDIxYmIzNmY4YTFmYzAxOWI0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQxMGE3OGVlMWVlYjlhZjRlODg4YmJiYWJmMzBhZDI3YzMxNGRiNTQ5OWFlM2E1M2ZiYzRjN2JhOTRiMzJiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmY2NzFmZDQyMzY3YTIxYjM2M2Y3OTQ5YjRkMGRjNDQyOTQ5YTc1YmM1NjM0NTE4YmYzNDM0NmUyOTk3NmYyZCJ9"
+        },
+        {
+          "resource": "repo://pom.xml#L54-L56",
+          "version": "repo-lines-v1:sha256:dc4795c46ff37898a4414e9758367c2c1ac7b4d05edb1c8b97d30528bf8f19ee:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjlhZDcwNTdiNTFlZWI3MmY0MGQ4NzY2ZmU2Y2U1NThkZDBiZjU3YjlmMzJkOTE2ZDlkMzIzZmU0Yzc0OTQ2OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2IxN2EwYzJkMjE2MDUxZDA4MGVhNjAzYTJmZWM2MzMwM2JiMjU1MWEwYWU1NWUzODNhOTM3NDYxMzkyMGQ4YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTA2NmUyM2RlODEzMjFmNDliZWMzNzc5M2I1NDc1MDFhNzRhMTU1MjUyZGFhZWZlYzRlNjI0NjQwMDY4MjVmMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzZlYzkwNmNiYjE1NTJhNjdjYjQ4NDliM2ZkMGRjMjA2ZTgxNmQ2MGU5OGQ1NTc1MDhkYTA3MzA2YmU1ZWQyZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1eac353564c949f2891ca3e892b0b32f",
+      "statement": "The application listens on port 8080 for MCP traffic and port 8081 for the Actuator health endpoint.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L2-L3",
+          "version": "repo-lines-v1:sha256:a7347868bee99a96dcebfa59fbbf118420d16eb0926f269b7534149ab48f7cb7:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU0YzA1MDdhMTM1NTNmZGYzMjkwOTcyNmU4ZTIxODQwYjI3ZTk2ZjQyMmY2MWFjM2FhNDNiM2UwZGI5MTZkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFlZmViNzgzOTAzYTNhNDU5YTA3ZjBmYzU5YzkwMGJjMmY3N2E0OTI5N2U1ZjRjYWRmODlkN2UxZmM3ZmMxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjEsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzIxOTlkZjc2NTk1ZWY5NTZlZDkzMGRhYTExMWEyZDJmYTUwODEzYjhhMDFhNjViODczZjkzM2M3ZThmZmQ1YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDMzMmY0ODhkODcyMGExZDYyMDJkODQxNGIyNDEyMmM4YzRjNWI5MTlmM2EwZDQ5ZmUxYjJiNjA2OGY1OGIyMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4144e86724334a39a9ac4cda2ee269db",
+      "statement": "The MCP transport protocol is configurable between SSE and STREAMABLE via spring.ai.mcp.server.protocol; SSE is the default.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L80-L93",
+          "version": "repo-lines-v1:sha256:5f4687bb2c74535c6289f6ec7187cea953b7a17a2a4b9ae0319d790ee75b123b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1OGI5ZmQwYzlmY2UzMjlhOGFlODdlMWQyNjMxMTU3ZjRmZWI1NmZlZjc0YjlkOTViZDlhOGYxYzQ3MGI1NmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhMzdjNDQyNzdlY2Q2NGEyODhhMWE1MDU4NWJmMzA4ZTRmOWRlYTRmYWY1MWI1NGI2NjZiYzg0MWExYTMzZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU3NTU4NDhkOWEwMTA2ZmI2YjAzMjM5MDI3OTQwMmE5Yzk5NzFhYTA3OGI0NWM0NzFkZGNjOWU0ZjMyMjFlNjMifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L16-L17",
+          "version": "repo-lines-v1:sha256:3275c87da032574c169a754a1e61bbe4f340ccefe03bf2c3bab18404edab28f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjk3ODJjZTMyMDdlNDVmOGJmMDBmMzM5YzRiMTUyZjI2ZWUzODBmNWM4ZDUxNzFkNjhmZjMwYTY1ZTgyMjgwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWIxNWIyZjBiMDUyNTMxZTU0MzcyNjA3YTI4MjY4Y2M0ZTI5NzAzYjJkNzNmNGFjZGJlMDljNTgyMmFhNjkzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU5NDYwODZiY2U3NjlmN2Y1MTE3YjYzYTA1ZDJjZGExMGQwYTMxMTExMDViNDM0YTE0N2YyMTE0M2Y5MzhjMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2NjMzliNDkyMDVjOGRiZThiNzc3MGMyOTNkODBjMmVkNWFkMzhlNzYxYmI4MGJiMzgzZWQ3YTIyNzcxM2VjNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_14c75a53349c4e61addfb1ed83a183c5",
+      "statement": "Spring Boot profiles dev, local, prod, and test are provided via dedicated application-{profile}.properties files.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application-dev.properties",
+          "version": "repo-file-v1:sha256:98e49766566a5ead3d0dd54a7595c025d79720b9145ca72eea36858b2d445ad8"
+        },
+        {
+          "resource": "repo://src/main/resources/application-local.properties",
+          "version": "repo-file-v1:sha256:192505a38c308ebdef90b6c858b26101c10917d5d06b50e5ab4cc32cd0b21230"
+        },
+        {
+          "resource": "repo://src/main/resources/application-prod.properties",
+          "version": "repo-file-v1:sha256:4146dd24a7135e155a82024085671cf2bf6bfe8eb2e697f6a5a0aab21c200119"
+        }
+      ]
+    },
+    {
+      "id": "claim_559907a3b4c947c28ca98bcdf66a36d2",
+      "statement": "The server is tested against OpenProject versions 14, 15, 16.6, and 17.7.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L10-L10",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmYxYzhmY2RjMmI0Y2I3ZmY2NGE0MDkwNDYxMzI1MzcwYmJmZTAyMjZmNTE4Y2ViYjNmN2ZlNWI0NTY0YmQ1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGI2ZTI4MjVkN2JhMWFkNjE5ODI4NzRlZjU4ZDQyMTI1OTFiMmEyN2Y4YjljMTJhODVlNmRhYzMxNjMxZWY1MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_89980cfde924400d9ed4a307e676d703",
+      "statement": "The OPENPROJECT_URL environment variable sets the default OpenProject target; OPENPROJECT_ALLOW_HEADER_BASE_URL enables per-request URL resolution via the X-OpenProject-Base-Url header for multi-tenant deployments.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L68-L78",
+          "version": "repo-lines-v1:sha256:5a6fb2d542df99e49ec44a0aff67d7c150403570cb3d53c569114895f3c4f882:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMGMzYjU5ZDVlOWUyZDhhZDc4ZTI5MjU4ZTEzYjVjZjQ4MDc5MTllYmI1YTUyM2MxOTllOGRhMWNkYTkxYjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjMDhjYjdiODU0OTI2NGYxNWIyNGMyM2EzOTJiOTQ2YjM0ODM1ZTMyMDg1NGUwYWM1YTA1MzNjNTZjOWMzNmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyOGY4YjM3MGIxODBmZGI4OGM1ZDFhOWVmZDkxOTE2Y2UwNTRkNDA5ZGVkNjk0NjIyNWMxMzEyNWFjNGFlNTcifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L20-L21",
+          "version": "repo-lines-v1:sha256:3b0711b52e53d4f9baf44c63d0aa5773b7d228ea6070a9bb6c05caa26804e046:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDM5N2RmNjdhYWFmYmU1NjRkZWY4NGJlMGZiNGYyNzk3MjhlZjQxMTQxYzNhMGI5NDIzNDRkMjZkMmJkMTY0YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDhiMDMxM2I4YzEyODEzNTk5ZDlmMTBhNjhjYmJhZmViZDJjNjc0MDJhYTA4YjM1MTM2OGUwYjUxMDdjODQxZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODYwYmY1MTY2MWI3ZTRlZmEyNTY2YjhlYzRkNWYyNjY4MTU2MzAwMDRiZDAyMzE0NTM5MDMyODcxYmM1ODcyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzhiZjYxZjMxNmM5NDI1NjM1MGJkZjEwMGRiOGU3M2ZkNGRkNDExNWZiODFhZWUzZjllODYzYjVhYmM1YmMxMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_63fce31353364c148d00aaa964a12dfd",
+      "statement": "The Docker image exposes a health check on the Actuator readiness endpoint at port 8081 and runs as a non-root spring user.",
+      "evidence": [
+        {
+          "resource": "repo://docker/Dockerfile#L19-L20",
+          "version": "repo-lines-v1:sha256:105d64d41a068481d1fb61aafd4bc0c92aafbe9d10b67999fbc46d41004e60bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTUwZDRhZjFkNDA1ODY2OTg5OTQ3MGJmNGQ1MjdkODhiMWZlNDkyZjliZDkxNTYyMDk2MjJiNDdhNmU3MzliYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzVjYmUzZTQyZjQ0ZDg1ZDhhMGFjMTk5M2MxMDY3NzEwN2ZmMTJmNTQ5MDAyZDZhNDIwOWYyMGZjM2Y4NjQ0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGU0ODBlN2VhZWUyODA5ZDY4ZGQzYzFiNTczM2VkZjc4NzU3NjYyYmRmYTZkNjE0NDJmODM1NzNjNGNhY2IzYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTlhN2MxZjllODI4MzFlNTk3MDcwYzUyMWE2NDhhMjM4YThlOGMwMDQxNmY0ZTZlN2M2YTA0ZDdmZjI5MGFlNSJ9"
+        },
+        {
+          "resource": "repo://docker/Dockerfile#L24-L26",
+          "version": "repo-lines-v1:sha256:cc6794f118c3efddda1ec67dd5c4f84c92a9ba4ec1b6b727c7225bb019d25db8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjI5NTA0NTU5YTRkYzIwZGZjZGUwZDUwN2Y0MmEwZDllNmEyZTQ4MDhmNWY1NGU0YzI2ZWIzM2JlOGI5MzI1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTlhN2MxZjllODI4MzFlNTk3MDcwYzUyMWE2NDhhMjM4YThlOGMwMDQxNmY0ZTZlN2M2YTA0ZDdmZjI5MGFlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTdkOWQ2MTE3NjhjOWQyYjExOWJhMDMzNmFhZDY0MTNiNzA5NTQ0YTQxYWY4OWFiNjVkOTM1MjljZjBkYzMzMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_169adea991624fffa073568cad3cf1e2",
+      "statement": "The OpenProject REST client uses HAL+JSON parsing with MapStruct mappers and Freemarker templates for request payload rendering.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L96-L109",
+          "version": "repo-lines-v1:sha256:be00a635dccfc533bbc09bfe8029cdc80d016142a357696cb5b71ac7791ff2dc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlZmNjNmU1Nzg1MTgyNWZlMGEzM2QwMWFiNDdjMWQ4NmU2MjkzYmJiMTUxMjJlNThiZGQxOGMwODZmZjMxOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImExZmQxYjJhYmZlYWZkY2RkYzQ1MzFiNjI3ZmE0N2JmMGRkZjU4ODBmYjg5Mjg5YTA2YmY4YTQ4YmQ3ZmNlMTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0Y2M1ZDAwZDJlMTM5NDE1YzI5ZTExZmJmNmExZjZiZWU1NjljNDAxY2ZkMGFiNTk2YTA2MjMwYmVkYmM3MzkifQ"
+        },
+        {
+          "resource": "repo://pom.xml#L83-L85",
+          "version": "repo-lines-v1:sha256:692a5ff486d59e32cbd8242ececf95bea56913c57d7bd824c150cac7bcdbf619:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzViZGI1NzRlNDhkY2UzMzhhYTNjOTBiZDEyMDQyNDcyZDFjZTUzYjE3NGRmNDQxNmRlYmMwZDYxZjhhYzU1MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDdmYTJkMWE0MmE2NjIzMjcxOTI5OTlhZDBhZDA4ZTM1Y2Q3ZDYyOGE3MzJhOTkyMjU3Mzg2Nzc1MzgwNDE0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNlYzM2ZTAzMjliN2U3ZjgwZjNjNWFjODVkMjFjMjZiMjg3MTgyY2FiMGIwYjdjMjYyYTk1OGEwYTVlOTE1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTY4YTYxZjlmYTJjYTBiZjJmMjRhM2NmNTAzODA0MzJjNGIxNjdlNmU0YTNmNWY4MzlkOWRmOTc4NjhjYmUzZSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/create_work_package.ftl",
+          "version": "repo-file-v1:sha256:d255bddf3602f990c6f82d6a57f2ca503d8a4f827d332d32e2a29f51e787d62c"
+        }
+      ]
+    },
+    {
+      "id": "claim_cdd370cd33f84d46815ac5300f8b9a8e",
+      "statement": "Caffeine caches validated OpenProject user tokens with a 60-minute write-expiry for fast authentication rejection.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L5-L6",
+          "version": "repo-lines-v1:sha256:49eb984fa7a3e8518e72dc751468251c8c95ba72488a853c7cbc9167d1d5052b:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzIwYWI5OWE5MWUwYWVhMWVkMmMxYWNiNGFmMDA5ZDFhNmNhY2I2MzJkNDZkNGIzNzc5MDgxM2ZlNzBmZGYwZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODVlZTIzNzNmM2E0ODE0ZDJkYjQ0NWM1ZDUxNTU0NjI0NTdkMWE4ZWZhZGRlNTA4N2NiYTQzZWExNTc0NzVmNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGM5MGMxZGQzNDY3MTYxNGM5NzgwYmY1ZjNjMGE0NzU4YmMyYTY4ZTE3MDRkYTI2YzU4Yzg5Njk4MWZlMTM4ZCJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

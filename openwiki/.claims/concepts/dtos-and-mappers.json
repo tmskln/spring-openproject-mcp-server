@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:53cb8622edd89dc4355bc1c35718acac5a951ec0eb5f9a7fc6ab20857067b0d7",
+  "claims": [
+    {
+      "id": "claim_434ea93146954f828789c559ee84d537",
+      "statement": "All DTOs live in the de.tklein.tklab.openproject.mcp.dto package and all mappers in de.tklein.tklab.openproject.mcp.mapper; OpenProjectApiClient is the sole consumer of every mapper, receiving them via constructor injection.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L38-L46",
+          "version": "repo-lines-v1:sha256:954f166787dbbe486d0309b79e48928a9104aef1f524a7bc0e0d0e7a1fc083dc:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmIzMzZjNDJiMmY1MjA3Yjc3NWU1MGE4ZGFjZTJkNmQxNWIyNmY2MWU4Y2RhMmNhNGQ0M2ZjZTRhZTQ4NDRmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmI1MzU0OGIxMjczNTRlMzIwYmNkMGU0ZWViZGQzNDYyOTI3MGY5NjBiZTE1MmI1NzQ4ZDRjNjU2OGFkMDI1NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWJmYWFlNmI2MmU4ODZkZjcxOGY0ODAxNTc3MjgxYjVmMmY5NjhlODY5ZDk4ZGFkZmZlNGUxNGNkMzQ1ZGE0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTMzYTcxNGE5NmU0NWJmNTMyOWI4MDZjN2Q3NDZhNWMxYWY3N2I1NmViZTFlNGU3ZTQ5MzkxOTc2ZWI3MDY0OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_34504352f23b4f6f828166634a78191b",
+      "statement": "All DTOs except RelationValuesDto are Lombok classes annotated with @Getter, @Setter, @With, @NoArgsConstructor, @AllArgsConstructor, and @JsonInclude(JsonInclude.Include.NON_NULL).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/PriorityDto.java#L11-L19",
+          "version": "repo-lines-v1:sha256:94eebb4ca4b30349ed382351bbed7a42858a5d50d72c2693552c581b11c62b00:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRhZTY5ZDA5NDVmZTVhNmMxMDE0NmE2NzBiNzlhMDYzZDI3YjhlYTc0OGEwOGM3NzRhNjVhMjU5ZTBjMThiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDc5MzQ0ODc0OTBjOGU1YjQ2NDQ1OTEyMDI2MGMyMjM4NTQ1YzdmOTNmZDk5YWQ5NjVmMGM0ZjIzMzRlZmZmMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWYxNjhlNzA3MzAwMzM3ZDgwNjE5OTBkYmVjNThiMjk3YTkyYWQ0NjgyMTE1NWEzOTNhY2FkOTg2MmVjYTA5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTVlNmM2NmY0NzM4ZmU0ZDJkNTg5ZjM0NzFmODNmZDk3Y2Y5NWM1YTNlZjIwZTkyMGM2NTBjMjY2YzdmZGJhYyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/ProjectDto.java#L11-L19",
+          "version": "repo-lines-v1:sha256:4f61bfaf7c165440dc143b6f6ce468f661bb98e54d282c0c4e95c87702a115f2:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGY4OWY5ZjVhZDJjMjhiYjY5ODI2YzQxYTNiZjdlZTYzZDU2Njk3NGVhMWU5YmYzNDY0NGEyZGVjZTRkYzAxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODkwODk5Njg2ZjkyODdlZmUwYmZjZGE4YmM3MDk2YTkxYWM1ZWNmZjM0NDUzZThiYzVmYjkwNDYyZjIzNDk3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmIwOTFjZjhiMGQ1NWUwOGFlM2Y4YmUwM2EyMTJmZjBmYzBiZTU0MjA2OTE3MjQ4OGFjZDA5MWM4MjIwMzE5MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2U1ZDI2NzdlZDkwY2ZiMDNjYmU0N2FlZDlhOTBkMjk4MjVmYTI2NDgwMzUyNjczYmVjOGY2MTNkNmM5Yjk4YyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/RelationDto.java#L11-L19",
+          "version": "repo-lines-v1:sha256:c02a82b1319e659415b074e89f28a4823d32716425ff907661124ec3c9b4ec0b:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRhZTY5ZDA5NDVmZTVhNmMxMDE0NmE2NzBiNzlhMDYzZDI3YjhlYTc0OGEwOGM3NzRhNjVhMjU5ZTBjMThiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzg2MzRlNjM0ZDU4ODRiNWU2OTU5NzY5MGNlMWM0NDcwMmI3YjRiOGRlMGY1YjZlZDUyNmE4YWVmNzg2ZjA3OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWYxNjhlNzA3MzAwMzM3ZDgwNjE5OTBkYmVjNThiMjk3YTkyYWQ0NjgyMTE1NWEzOTNhY2FkOTg2MmVjYTA5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGFkZTAzZmJkMmE5M2Q4ZjZhODA1ZDAzNjgzY2Q5MmUzZTJlMWNmYTFkZGIzN2EyM2E5NTVjNGRhYTY2Y2M3OSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/TypeDto.java#L11-L19",
+          "version": "repo-lines-v1:sha256:4f61bfaf7c165440dc143b6f6ce468f661bb98e54d282c0c4e95c87702a115f2:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGY4OWY5ZjVhZDJjMjhiYjY5ODI2YzQxYTNiZjdlZTYzZDU2Njk3NGVhMWU5YmYzNDY0NGEyZGVjZTRkYzAxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODkwODk5Njg2ZjkyODdlZmUwYmZjZGE4YmM3MDk2YTkxYWM1ZWNmZjM0NDUzZThiYzVmYjkwNDYyZjIzNDk3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmIwOTFjZjhiMGQ1NWUwOGFlM2Y4YmUwM2EyMTJmZjBmYzBiZTU0MjA2OTE3MjQ4OGFjZDA5MWM4MjIwMzE5MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTA0OGIxMDg0NDFkMDM4YzI4NjJhNDc1NTIwZjcwYzlmMDA2N2Q2YTFjZTM1OThiOWRhY2U1MDg0OGU3ODkzNCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/UserDto.java#L11-L19",
+          "version": "repo-lines-v1:sha256:1d54882297d9ee55e4bb9b5cf199958bc8a70cebf330ae44f5965f150632dbe6:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTRhZTY5ZDA5NDVmZTVhNmMxMDE0NmE2NzBiNzlhMDYzZDI3YjhlYTc0OGEwOGM3NzRhNjVhMjU5ZTBjMThiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhhZDEwMjMwMWFmYWNhYjA1NDI4NGVlODkyYjhiZjc4NGIxM2JjMGE4MDc3ZmViMTg0ZWE1NTk5NzVkZGI2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWYxNjhlNzA3MzAwMzM3ZDgwNjE5OTBkYmVjNThiMjk3YTkyYWQ0NjgyMTE1NWEzOTNhY2FkOTg2MmVjYTA5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2FhNTA2NDM5MGQ3NzE1NmY4YmNlZWY4YzY2ODQ2ODc2MTQxMmM5Mjg1YmExOWFiMjA5MTQyMzFlMjJjMTcwZiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageCreateDto.java#L11-L18",
+          "version": "repo-lines-v1:sha256:d407879b0575e9080233a1d021f46e045d14da7e7cd8fef0eab00006edf180ab:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM3NzRkMzZlNjM4MzA4YzhjNmQ2Mzc5MTY4NDViYTViMDBhN2I4M2EzNjhkOWQ5YzVlNWY0NWY2YWVlMzEyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE0ZTlhMWYwNmViZjlkMDBhMWM5OTY2ODBjMWI3MTI2N2VlZTBmM2Q5MzAzZWJiNDBkYjNlM2VmMjQxNTRjYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjRmNzdlMmQ2MTVjYWQ0ZjI2ZjNhYTBmN2U4OWM2MWJiNzMzMGM3ZjY1ZGIwODk0NTJkYmFmYmEwNTBiZjJlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWFlZDA1ZTE0ZmUwMWFkNGE4YmJiNWZmNGY3OWNiNGQ3NTRjYjhlYjA3ZGQ4Mzc3NDg4NjVjYWJkYmZkYTcwYiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageDto.java#L11-L19",
+          "version": "repo-lines-v1:sha256:9ebb7e1862a87436514672b1b247ea2a4929c087701acc1f18b99a66b73ac0ca:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNmOWViYjFmNjhjZjgxYTE2NTgyOWE1ZDAzMGRmNmZkMmQ3MjFlOTExNTdlZjIwZjlhNzM4YTBjZjY2NjgxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDA5OGQ0OWMzZDZkZjg4NTg0YTRkZTBhZjE5MmM0MGQwZTI4NjQzMTBiNTNjNDM0YmQ2OGE2NDgwYWVhZjFjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2Y1N2E4M2YwZDg5NTBhODY5NDg0NGFlMmY3MTBhMGMzYzY0ZjVlYmUyMDIxZmVlOTc1YWFjZGE5OTlkOTc5NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjg4M2MxODdhYjFiN2M5NjQ5OGM5ZTljYzQ0NmU2YmI1NzUxNWNkMDA0YzVlMjNhMWY2Y2VjMWRlYTY5M2JkMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d264c3eb8d0b457b82e9b2be14d2af53",
+      "statement": "PriorityDto.position is nullable when the API omits the field; PriorityMapper checks isMissingNode before calling asInt() to avoid defaulting to 0.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/PriorityMapper.java#L22-L22",
+          "version": "repo-lines-v1:sha256:412ca345ccf75bf9c0806bce695be8de808b79984251a7a54d202cf6101dd451:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzFlYTVmYTcxMzliYzMyYjU1MDVlMzllYWQ2MTQyOGI4NGU4NjQ3NzIwZTVhMTJjYWQ5NTcwN2IwOWE1ZGMxYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b9a91a71a5ad409a907a24af56bf0c82",
+      "statement": "ProjectDto.isPublic is mapped from the API field 'public' (not 'isPublic'), and ProjectDto.status is read from statusExplanation.raw.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/ProjectMapper.java#L24-L26",
+          "version": "repo-lines-v1:sha256:6898638e8cac68fcd2c24c35dbfc6a2054e534c21f140fd4b10563eb859f5e10:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjYzYTNjNDZhYzNhOWJiZTA0YmNhOWY4MjVhNDJiMjZiMDRhZmU5YjRhOGIzZmRmZmU4ZGQ1YWI3ZjU4YzMwYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3YTAwMzJiNmFjZDU3N2NhZjhhYzY1YzQ0MDQwOWExNzc3ZDMzMTRmNTY3ODE3Zjc4NGYwY2JiN2NhMzA0MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGI4YjBhYzA2N2I1MWQ4MmFmZWNmMWQ5YTUxODFmYTZkODg3ZWZjYjBhNjg4Y2U5NjZjNTA5NWM1NmJmZmI0NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2ViMzg0YmQ5NDAyNDExOGVmNmM3MzY5MTNhNzQ0ZWI3ZTUzNTdkNmUwYjM5YWQ2NTNmNzBlZDQyOTBmYmQ2MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7c93efff8ce1413694a7bf4f836ce88b",
+      "statement": "TypeDto.defaultType maps from the API field 'isDefault' and TypeDto.milestone maps from 'isMilestone'.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/TypeMapper.java#L20-L21",
+          "version": "repo-lines-v1:sha256:62c8309e7996c040467cba619d2f61f8af54e764624280e2cabd6156515c6bcd:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjYzYTNjNDZhYzNhOWJiZTA0YmNhOWY4MjVhNDJiMjZiMDRhZmU5YjRhOGIzZmRmZmU4ZGQ1YWI3ZjU4YzMwYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2ZjYjE2NjliNmQyMzBiMWRhZjYxYjMzNTI3OTU1ZGMwN2NlMDUyYzQ1MWMzYzk2YjRmMWY5MTIwNTcwMTc4NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDE4ZTc5YzMxMTI4ZGI5ZjM2ZjY0NDEzZjQwOWYzYWQxYTdkOGQwNmJhMWZkMjVjOWNjZmUwYjFiZWNmNmRmYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e3eb5bb3f91d4b899955ab35038b7322",
+      "statement": "UserDto extracts href and name from the API root response (/api/v3) at _links.user.href and _links.user.title; UserMapper uses StringUtils.trimToNull to normalize empty strings.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/UserMapper.java#L16-L23",
+          "version": "repo-lines-v1:sha256:bec1aeef1e78bdc5bb8131d8a10f943256a841423580cba6c6c14678e441b338:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU3MTEyN2Y3ZjVmMTcxN2I5NmU3ZTk3NjkwYTdkMTgxYTUwNzIzN2ZjYWQxODg0MGJiYjA5MzQwMjJhOTIwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUwYWZjM2MzYWMwODViYTBmY2E3ZjRhMGRmYmU1ODM1YzAwN2VkMzljOWMwZThjY2UzOTAxMzZiNDM5ZGE3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQwN2YxMmZiZDg4YmU5NGQ1YWExNmFlZTk0YmQ0MDdkZjk4MTZiMzNjOGIwMDE4ZGUwNGM4NjRlMjFlNmNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGY3MzlhMDZjMWNiYjEyNDRlMzM2M2QzOGJjZjlmYTUwY2U4NGZlZDM5OWMyMTkzYTNjN2YwOGQ1OTkxOGIyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9bebfe5e09b04444b6c766e50aa6392a",
+      "statement": "RelationDto is constructed via two paths: fromRelationElement for explicit relations from _embedded.relations._embedded.elements[], and fromWpLink for derived relation types (parent, children, ancestors) from _links; derived types always have id=null.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/RelationMapper.java#L16-L46",
+          "version": "repo-lines-v1:sha256:ca6371308ec4492d2e86da4c8d297591df3a44f8e0eabb43a08260894211807e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ0NzdlZTcyZTJjMjA3OTk2NjgyYTc5NjlkNDA3ZjdlZDU4ZTRmZjE2MGRmNzIwYWQ5NzMyODI4OGRiMjcwMzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExZGU4OTZhN2IxZjlmNzhhMGE2ZjY3YzViZWY5YmE1NzEyMjgwZTAyODBmY2I2MjlkMTkyNGJmYWFmMjA4MmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5MjQ3NzZkM2U0ZGUzNmI1OGY2ZDE3MTM0MmE0ZDdiZmM0OWFiNDA2YmNmM2ZmNzljYzQyZDRlODc0ZjY1MGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcyMmUzYzgyYWRhMzU4OTFjZTJiOTM1ODNjNzgxYmRiOTBmZTkxMDljYWM4ZmY0YWI3MzMxNmZlNGZhMDEzMWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8e00a398031f4a1cbcde735f08b0b1c5",
+      "statement": "RelationValuesDto is a Java record wrapping a String[] of allowed relation type values (relates, blocks, precedes, duplicates, includes, requires), populated by RelationTools from the RelationType enum.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/RelationValuesDto.java#L3-L3",
+          "version": "repo-lines-v1:sha256:b0e69fdcae20cbdee4f9de1826bad99b607fac8bac7ab1f55a37f22d4c26203c:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjBlNjlmZGNhZTIwY2JkZWU0ZjlkZTE4MjZiYWQ5OWI2MDdmYWM4YmFjN2FiMWY1NWEzN2YyMmQ0YzI2MjAzYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjBlNjlmZGNhZTIwY2JkZWU0ZjlkZTE4MjZiYWQ5OWI2MDdmYWM4YmFjN2FiMWY1NWEzN2YyMmQ0YzI2MjAzYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzI0MDRiMzcyMDllZjViY2FkMmViYTYxNjY3Njc4ODJiMDhhZTExNmVjN2MzMGU1NTkwZGEzNzM5ZTg4OTNkYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA0Zjg5ZmMwZWM5OGM5ODI0MTgzZTc5NWQzZWRkMTllOTMwZjdiYzQ3MWY5MDEyYWEzZDUwM2JlMmY4OTc0YiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/RelationTools.java#L28-L40",
+          "version": "repo-lines-v1:sha256:ce74ee97a1de4c892af7f65e90fca7aede0589055548eece38677aad22cfb0a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2MjAwYjc0MDNhYjgxY2I4Y2ZhOGQxZmFmNzQwZjIxZGY5NWI4Y2VlZTlhZGEyOTdmOTIyNDg3YWY1Nzc3MGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwYTNhOTFjOTU0MjQyNzQxM2IwMjY0NTNhZGUzZjY1YmIxMThjN2M2NDM5YTU4YjdiMjhhYzBhNzVlNmZiYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlhMWM3MTAxN2NkNjU4MGUyMGRkNjBlMjhmYzY3YjFiNWE1YTJhMGVmMTljOTE2OTY2NDAzYmQ3MmY5ZDA4MjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ec7b4efa4b634b1b946b1d89d18d7dfb",
+      "statement": "WorkPackageDto.type and WorkPackageDto.priority name use a two-source strategy: first checks _embedded.type/_embedded.priority for embedded data (single-work-package responses), then falls back to _links.type.title/_links.priority.title for list responses.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/WorkPackageMapper.java#L53-L67",
+          "version": "repo-lines-v1:sha256:65abebbe81f1b081836f8556bd0357effd86715c62925dcea8f5d0f41262bcc8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3OWQ0N2MyZDMyYzUzMzFlNjMzMjEzNWI0M2FjZTVkOGNiOTJjZjdkMDM1YTcwYWU3MzEzYTM0ZGZkMTIxYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyZWVkNWZiZGJlZGVjZjI1YWY1ZjlhZDVhOWZlMTA3ZjQ4NWE1YzY0NGZlYTA3ZGU1N2Y0Y2FlMTAxNzE5MjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMxZWE1ZmE3MTM5YmMzMmI1NTA1ZTM5ZWFkNjE0MjhiODRlODY0NzcyMGU1YTEyY2FkOTU3MDdiMDlhNWRjMWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a03fc773fefa461cacf735700c133ca7",
+      "statement": "WorkPackageCreateDto.subject is @NotBlank in validation group OnCreate and WorkPackageCreateDto.typeId is @NotNull in group OnCreate; WorkPackageCreateDto.storyPoints is @Positive.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageCreateDto.java#L29-L44",
+          "version": "repo-lines-v1:sha256:4ed7bbdbd44dc59dcf4a58306dd6198b62a3ca60e62fb2687a27102d90712154:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkwNjc0ODdjMGVhOGI5MWEzMTAxNjVjYWY2OGNmYjU0MzZjOWY3NjU4YzE3MThjNjZiZmU2MWUwYjc2ZDVhY2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxNmY3MjNhNGUxYzQ4MjEwYzg1MWEzYTczNzMyYmUzZGNmZTA1MGUxNDhhOWU3MmRmZTkxNzQ1YmVmYTE1ZWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY3ZmNjZWFmNGM4MTA0MmViNWVhMzIyMTNhOTllZGZiNTkxNDVkNjU5OGFkMWM1M2IzMTU1ZGMxNzNkMTdmNzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg4MGQ5ZThmMzBkY2ZkOTE1M2YzMTEwNWIzM2U2ZGU3MDYyOTJlYmJlYTZkYjFmOWVlNDNhZWE1NGUzY2E2MDEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_643f77da3a6e42b4b4114c1a4eae0268",
+      "statement": "WorkPackageUpdateDto extends WorkPackageCreateDto, adds lockVersion (@NotNull), and overrides subject and typeId to remove the @NotBlank/@NotNull constraints inherited from the superclass, making them optional for partial updates.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageUpdateDto.java#L18-L33",
+          "version": "repo-lines-v1:sha256:600521354a6ffbf58ab64811b551f831be14cc0a2bba67316fda8d0d721e1194:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiYzFmOTI4MGU1Mjc2ODc4MmFjMTllZTI0MTI1YmU4MTllZmM3MjYwYTk5MWQ5ZDc3OWNjNzI5OGI3NDk5OGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhmZmJlNWMyMjA1MGUxOTdiYjVlZjQzZjUxODQ5NmZjNzVlMGFmYzRmZGVlNDVlNmZiZDYyMTA3ZWExYzY1ZDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ae85eae660564494a0f32b1003b02893",
+      "statement": "All mappers are MapStruct @Mapper interfaces with default methods that perform manual JsonNode field extraction; none rely on MapStruct-generated implementations.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/PriorityMapper.java#L9-L11",
+          "version": "repo-lines-v1:sha256:29e51b7a9d007add5e063a31bd266aa98ec59c1cd64038600e5a18a708b5d0b3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODNhODY2NjIyM2E2NTU4Y2E1NDk5MmIxMGJkY2FlNmVmNDgyOTYzMTQ4ZDczZGFhMWU5MTI3YTcwZmRjY2M1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzg5ZGQ1MTI1Y2E3ZjQ2ZWM1ZDg3YTgyNjFmNDA4MzUyMmZlNjdiZjVjZDgzNWE3ODMzNzNiOTQ2ZWFlZGY2OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjkyNDc3NmQzZTRkZTM2YjU4ZjZkMTcxMzQyYTRkN2JmYzQ5YWI0MDZiY2YzZmY3OWNjNDJkNGU4NzRmNjUwYiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/ProjectMapper.java#L11-L13",
+          "version": "repo-lines-v1:sha256:26ea1c70afd445f6d651a91f2d99b474f2f4939c61db783c06e70571cd37e9e1:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUxZDVjYzZmZDkwMmY2Mzc0YzVlYTA2OGNiOTVmY2VhZjUzMGI0YmE3NzQxODFhZDAzZGI1YzU3OTgxYmEyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmY5YjI5NjE3NTIxYjFlYjllMjI4YzVlNDEyZjg5ZDhiNzBlMmY1ZmZmZGZmOTBmNWMxOTI4YjcyMjVhNzgwOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjEwMmViZDU5Mjg3NmUxNjI5ODA3YzQ3MmM5NTY5ZjFiODc4NmRiMTNhODczZWE3MjZmNTI5NGU0MTNmNDNiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTk5OThiNmM5YjE3Y2IyZGRmMGIzZjNiMzYwNmRlN2ZiYmY1N2RhYzY4MTY4OTIxODlkYjU2OWM0OTMyMDA0YSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/TypeMapper.java#L9-L11",
+          "version": "repo-lines-v1:sha256:7d6de506f6625a0c3e5941b2490120a4f6ae69438f797c6325b97e64a3f5053f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjNlNDBmZTJjODEwZTBmNDQyOGE0ZTZjNTkyYzFjY2JkNzEzNjJmNGM4NjNhNzNlODkxYjYzYzY4ZTRlMjcwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzgyMzUxNWQwMDNkYjI4MGJmZWJlZTMxYzI1ZThkNmE1NTVhYTQ2YjE0NTE4ZDkyNDAwY2Q3YmI2OWVhMDdiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTNjYzhkNjlhZWFkZmYzNzMyYTgyYjNhZmUyZTBjZWU1NjM4ZDFjYjA0NzY1YWNhOTI2ODVmMTYwYzQ3ZGZjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTU0ZWVkMDZmZTc5Mzk4OGU2NzA1ZDEyYzBkM2NlNGE2NWM3NDU3ZDQ0MWU3OTg2OTI0ZDg0ZGJmZDk3MTZlMiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/WorkPackageMapper.java#L11-L13",
+          "version": "repo-lines-v1:sha256:b3b14045fa7fae4632d18c911a3a0db54693cfd8685b54173d48986066a3b84e:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODNhODY2NjIyM2E2NTU4Y2E1NDk5MmIxMGJkY2FlNmVmNDgyOTYzMTQ4ZDczZGFhMWU5MTI3YTcwZmRjY2M1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDU5ZmI5MzIzZGZmNzNjMTUwNTE0ZDgxODdmYzc0MDE1ZTY2NTIyODJkMWQ3MGNhNjMzMWU2MzNiZWEzNjc3ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2ZmZjZhMTlkZDMwMjE1ZTEwZGNiYmZkZTZlMDRlZDczMzVhMjg1NDE4NWQzZDA5YjI1ZmU5OTE3YmMyNTU4YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4cd4efda83064c04a42898d9cc9eeda3",
+      "statement": "RelationMapper.extractWpId strips the WP_PREFIX (/api/v3/work_packages/) from an href string and parses the remainder as an integer; returns null on parse failure.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/RelationMapper.java#L48-L57",
+          "version": "repo-lines-v1:sha256:0a54357c92ddaf20193881abbcfb76b57cf08d10f061388d279c6fd45c814dbe:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2OWQwMDk5YzU4ODJlMTU1YzVjMzEyODZkODVjMzJlNzY5YTg1MzYyMTVmYTA0M2NlZDlhYWVlM2Q0NjM4MjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwNGY4OWZjMGVjOThjOTgyNDE4M2U3OTVkM2VkZDE5ZTkzMGY3YmM0NzFmOTAxMmFhM2Q1MDNiZTJmODk3NGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ca0b5a78156a4a05b832006d9aa9b29b",
+      "statement": "OpenProjectApiClient uses RestOperations.mapEmbeddedElements to iterate _embedded.elements arrays and apply the mapper callback for collection endpoints (workPackageList, typeList, priorityList, projectList).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L137-L137",
+          "version": "repo-lines-v1:sha256:807180b7bcb72af61270a7bd1853600cbf0abb9676df8b04eeb5b644983a6e5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODA3MTgwYjdiY2I3MmFmNjEyNzBhN2JkMTg1MzYwMGNiZjBhYmI5Njc2ZGY4YjA0ZWViNWI2NDQ5ODNhNmU1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODA3MTgwYjdiY2I3MmFmNjEyNzBhN2JkMTg1MzYwMGNiZjBhYmI5Njc2ZGY4YjA0ZWViNWI2NDQ5ODNhNmU1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWI5YzBmMzM0NzE2ZWUxMmUxZWYxOTJkYTkzM2YwMDUxMTIyZWUzODc3MzNhMzY2ODYwNDQ4ZDAyNzhmMmE0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjFmNGIxOTA0M2ExYzEzNmU4NWJlZTNiYzM5YjI5NmUxOGI3NzdlMWM5YjJkNmI4YjczZTE4ZjdjNzVjYzI5YiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L141-L141",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjFmNGIxOTA0M2ExYzEzNmU4NWJlZTNiYzM5YjI5NmUxOGI3NzdlMWM5YjJkNmI4YjczZTE4ZjdjNzVjYzI5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQ5ZDZiODZmZDU5OTEwNjdkMzBhMjNkZGQ3ODY2ZWU5NWE0OGNhYjNiZTdkZWMwMTVmZjc2ZTdhYWNkZTQ0MyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L145-L145",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzQ5ZDZiODZmZDU5OTEwNjdkMzBhMjNkZGQ3ODY2ZWU5NWE0OGNhYjNiZTdkZWMwMTVmZjc2ZTdhYWNkZTQ0MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzlkZjgxODQ2YzJjZmFlYzNiMDhhMTJiYzU0MTkyNTAzZTRhZGQwM2YzYjliM2U2MTI1N2JkNjRjMGM3YjBhYSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L60-L60",
+          "version": "repo-lines-v1:sha256:9a96626676cf1203ad07ebd0b526f234563c5ddb18a66e96bec5b879df8d6ae8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE5NjYyNjY3NmNmMTIwM2FkMDdlYmQwYjUyNmYyMzQ1NjNjNWRkYjE4YTY2ZTk2YmVjNWI4NzlkZjhkNmFlOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE5NjYyNjY3NmNmMTIwM2FkMDdlYmQwYjUyNmYyMzQ1NjNjNWRkYjE4YTY2ZTk2YmVjNWI4NzlkZjhkNmFlOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGY2N2U1NGQ4YTNjNzNkMTA1NTUwYzE3ZDNjODk1ZDY2MWExZThhYzRmMzlhMzk5YTZhODY2YmE4ZmVmMjFhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjYyN2YyZGVhOGM1YTViOTllZmQyYTVmNTA4MTE1Zjg3NmFkYjJjMjk1NzRmNmFmMmJmNjI0ZGEwMGRjOGFhNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b52b85916bcc4245994877953d86f802",
+      "statement": "WorkPackageTools and RelationTools are @Validated; constraint violations on WorkPackageCreateDto/WorkPackageUpdateDto/RelationTools arguments are enforced via ConstraintViolationException, verified by integration tests.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/RelationTools.java#L25-L25",
+          "version": "repo-lines-v1:sha256:edbde7e82ecfc8c8c0ac60d036621feea7eeccc11d99d55b567d7ff335008673:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRiZGU3ZTgyZWNmYzhjOGMwYWM2MGQwMzY2MjFmZWVhN2VlY2NjMTFkOTlkNTViNTY3ZDdmZjMzNTAwODY3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRiZGU3ZTgyZWNmYzhjOGMwYWM2MGQwMzY2MjFmZWVhN2VlY2NjMTFkOTlkNTViNTY3ZDdmZjMzNTAwODY3MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODFhMzUxZTM4MDRjYWE1ZDUxYjQ1YzgxOGMyYjE3ZDk1YmUzZGRjZjVlNDMzZjMzZDVmYzMyODQ0YWFlMTc1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTBiMDIxMGRiMDAxYzIxZDk5MTQzOTdhMGMyMTBmZjcyMzAwZTc2OTVjNTYzOWIyNTk0ZTYyNDBmMWM2YTlkNiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageTools.java",
+          "version": "repo-file-v1:sha256:6d2c9e96a1daa38070d90acf83d92461a2d377a34ee79538a471eb6746a25cde"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/RelationToolsTest.java#L30-L59",
+          "version": "repo-lines-v1:sha256:9632515e06544de0e5784a8c1ff67f1de4460e22f573a0b1f0e1c4ba7c03f133:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ5MzU5OWIxNTI2NjU1OTU0Yzk5MDNiMTg3YWIyODFlOWRlZWQyNGZiNzFiM2E4ZWI4YzdjZGQ0ZDk5MDg4Y2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwNGY4OWZjMGVjOThjOTgyNDE4M2U3OTVkM2VkZDE5ZTkzMGY3YmM0NzFmOTAxMmFhM2Q1MDNiZTJmODk3NGIifQ"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java#L37-L96",
+          "version": "repo-lines-v1:sha256:4ef972735c2ebd275020ae8ba6cea41dd14d70ff19f32ae0a390ced8595fc3ba:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ODIxN2EzZDA1OTgwMmI4NWUwN2ViMDEwMjNlYzE1Zjk4ZWQzYWQ1N2EzYmU1OGIxZjU5MThiMTU2Njk0OWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2ZWFkZmIzMGFmMmQ3ZmQxMzZkNzA3ZTYzNWNiYjRlYTA0NjRhODg2NGM1MTAzMWUxMzc1MGU1ODNiOWU4MmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkxMDIwNTQ1N2QwYzhmODY5MTQxNTlhMjA5YjEzZTU2YzdlMzEyYTkyY2ExNzdlYzJmMTJkYzk1OWE3NzJiYTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBlOGJjM2JiNzliMDc3NGQ4NTVlZmM0NjMxZGRlMGUxNTJlZGQ1YTQ5NWRjOGNkNjY0YTRiNWFjYTMyNTQ5MmYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5600b181c8d4490598b2dcf958691fdc",
+      "statement": "PriorityToolsTest and ProjectToolsTest use Mockito to verify delegation from tools to OpenProjectApiClient; WorkPackageToolsTest and RelationToolsTest use @SpringBootTest for constraint validation testing.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/PriorityToolsTest.java#L16-L18",
+          "version": "repo-lines-v1:sha256:1cf034502174dc2048794d0f381fee408c5c18e4b0d0ba13a5ad07a560f23fc3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTZhODJjYzExNTJlYTRlN2M1OGJiNDZkOGUxNmZjNTQ0ZDM1ZWMyOTEyMDEyMGQ2YjFjMmQ3MGYxMWZiMDVkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjYzYmJkOGI2ZTQ1MDRmNzI2ODVkMDAxZTVkOGYxNjUwMjk5MTFmZGRjZWE0Y2E5OWZlNzBiMjA4NGNiMmEzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWU0OTlhM2NmMTRkZmVhZmM5ZWI5MmJkMjZkYjgyZmEwZDU3MWJhYjI1ZmJmZWY0YWZlM2Y2ZTljNjcyZGMyNyJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/ProjectToolsTest.java#L27-L29",
+          "version": "repo-lines-v1:sha256:ce40ff75e2fabecd9012e44d31f6c172f475f3c9a1bff17b4d1edb8c1604e941:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmMwODE1OGY0YTBlYzNhYTJiNzc5NWYxYzg5MGI4ZmJiOTlkZjFhMzVjNjcxMzhmMTJiMTM3NjIyOGFkN2ExZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGI5ZTI3MWU0NzA3MWNkOWIxMDQxY2Y1Nzg4ZmQ0MGVkYzEwNjFkNmFjZDg3OGVjMmVhMDE3Nzc1MDQ3NDNhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTE5OTg1NWZmYzRiMzRjMWFmZmIzYTI0ODZjMzFlNTZjNjY1ZDIzMzFlYTJhNDA5OWNmMzcxNmM2YTM1YTRkMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDMwMzdjYTM3ZDk5M2M3NzIxZjNkODEyMWYzMWM2YzYwZjE1YTdjNGQ2Y2ZjYzM0YTI5NjdjMzlhMTk0NWNlNyJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/RelationToolsTest.java#L18-L18",
+          "version": "repo-lines-v1:sha256:469fd33548ba103f8a954f661f17203f33a61666d75846cb4b0a4aeaa693317e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY5ZmQzMzU0OGJhMTAzZjhhOTU0ZjY2MWYxNzIwM2YzM2E2MTY2NmQ3NTg0NmNiNGIwYTRhZWFhNjkzMzE3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY5ZmQzMzU0OGJhMTAzZjhhOTU0ZjY2MWYxNzIwM2YzM2E2MTY2NmQ3NTg0NmNiNGIwYTRhZWFhNjkzMzE3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWEzMzIzNzk3YTE1MmYyYmRlODFhZWE1ZDIxNmNlZWRlN2NjZDYzZjRjNDA1MWM0OTNiYzU0NDlmYjlmYzZlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDQzZjJjYjdiOTUwMzZhMWRiOTI1Y2FkZWI1YzY4YWE4MjRkNDUzNmUyNzQ0ZjVlMWUwMWZjYzNkZTY1YjNjYyJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java#L30-L30",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTU4MTFjYzNiZmJhNTM5YTVkNzQxZjQ2YzA0N2YzZGMzOTFlZDJlMGQzYmFlYTM0ODA3NWMwYzIxODYxYjE3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmU5ZTdiZDY3MjRiN2QwNjdmMjA4NTRhYmM5ZWNkN2ZhY2IxNGQ2ZmM0MjhmM2EzNDY3NTRjNDU3OGNjMWUyZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b2426f5b6f4a4459b69c013c0c736d77",
+      "statement": "WorkPackageCreateDto.subject and WorkPackageCreateDto.typeId are required only for validation group OnCreate; WorkPackageUpdateDto overrides subject and typeId to make them optional for partial updates.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageCreateDto.java#L29-L31",
+          "version": "repo-lines-v1:sha256:6e0c1b1e7285d946751e50a2ff36b140972e004ca97df6e5fa4e21c4cbd21317:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTA2NzQ4N2MwZWE4YjkxYTMxMDE2NWNhZjY4Y2ZiNTQzNmM5Zjc2NThjMTcxOGM2NmJmZTYxZTBiNzZkNWFjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNmNDEwNzhlNGY4NGJhNWJkZTY5MjlhNjllY2IxMjQ5NjQzNjNhZDU0OTAwYjZiYzc4ODUzYjcwM2I1YTI3YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjdmY2NlYWY0YzgxMDQyZWI1ZWEzMjIxM2E5OWVkZmI1OTE0NWQ2NTk4YWQxYzUzYjMxNTVkYzE3M2QxN2Y3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWFjODgwMDIzYzc3MDY0MzkzODhhMmU0OWFhMzQ2MjRhMWNiZTg4YzQzOGVmOWUyYTc5ZmU4ODAzYzJkNTZkMSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageCreateDto.java#L38-L40",
+          "version": "repo-lines-v1:sha256:71fa7c3449dc04d8286f8915771106eee4327ca46b950cde48a4121c5ae7f245:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTA2NzQ4N2MwZWE4YjkxYTMxMDE2NWNhZjY4Y2ZiNTQzNmM5Zjc2NThjMTcxOGM2NmJmZTYxZTBiNzZkNWFjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjgxMjNiZjY5M2I4ZDM4NmNiZTI3MjRjNTE5MDM2MjIyOWE1YWZlZDJhMDk2MzQ0ZTQ4Nzg2MmY5NWNjMzdkOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2IxMGM0NjkzNGIxNzY3MGJlYzIwOTdhZmNhYTliYzFiZmJlY2Y4NDYxYWRlNjg4ZGY2MzJkNDU3ZTJjMjgwYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2VhNGZhMzJhOTgwOThiNmRiZTg5MjVjZTMyYjU4YThmMzNlMmU1MmFmYjM4YzJkMDEzM2MyNzAxYTc4ZGI2ZiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageUpdateDto.java#L23-L31",
+          "version": "repo-lines-v1:sha256:282808a5efa6a7877176d1c1ff8c6978ffe5fc9685b44c38de2871c59a06f193:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q1MzlmYjg5NGY2NTFjYjRhNzc0YzQyNDNhODMxNjY4ZDI4YzFkMGE2YzdjNjAyN2VhYmM2NDQ1ZDA3YWU2MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZkMzhmM2FhNmY4ZmY4OWQxYTc0YTBlY2I1Mzg2NjY4N2FlMzdlODRiNThjODM1N2EzNGY1NDZjNzc2ZGE2ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTM1NjAzYWQ2Yzg1YzFkMTBmZjljNWE3Y2M5OWM4MmQwNTgwOWIzNzM0Njg3OThiZWI4NGViOGU2OTc1YWY4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzVkOWUyYjZmMmFkN2E2YmU4MmEwM2JjMmU5YzBlOWE2ZjUyOTQyMjYwNTk5NjlmNDNhOWZjM2ViYjUyNmRkZSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java#L86-L92",
+          "version": "repo-lines-v1:sha256:07041d6577834eb4e4a7236c5b29914edf8913ade21132387b93e2fb4dc8fbf4:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWI4NTdiMjA2ZmU1MTA5ZWY1MWU3ZTExN2JlMWE5YzFlZmE2OWFkODE2YWEyNjE4YTRkMGRmZTc2MTQyYTQ0NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmYyY2I5YjUxOGMwMjBlNmE2ZmM1ODEwZWNlMzAzYmQ1NTgyZDY5ZDI0YzE5MTFkN2Q1N2NlYTI1ZWJmOWFkMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDZjZjkwZTc3MmZhNDY1NmVjMGE3NDhmMGMzYjkyOGMxYTU1YmE1MDZmZGFkN2Y0ODMwYTJjZmU3NjNhMzE4NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2YyN2M4YWQ2OGJiNDA2NzYzZGY3NmY2ZWFjYjE0ODVjOThmMDQzMDQ0NjVhN2YxZDU5YTkyZTMyZDQ2ODJjNSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f197a60883cba66cf89598826a88b1c59a7b464be55a91c226ee245d91710e7f",
+  "claims": [
+    {
+      "id": "claim_38fe417801864fc7837a19ed5180001f",
+      "statement": "The Spring OpenProject MCP Server is a Spring Boot 4.1.1 application that exposes an MCP server for managing OpenProject work packages, acting as a thin proxy between MCP clients and the OpenProject REST API (/api/v3).",
+      "evidence": [
+        {
+          "resource": "repo://README.md",
+          "version": "repo-file-v1:sha256:b8efbb0841bb86df11f6dc88c7b6bbcaa819b118eb6b1ddca960335b577a8ee8"
+        },
+        {
+          "resource": "repo://pom.xml#L14-L16",
+          "version": "repo-lines-v1:sha256:d289e41599f3138e78e5c55281a0c1c29bf32242fd471f2d16cd4cbf89e05bab:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBjZDE1ODU4ZDk1ZGFkMjQwYmY5OTQ0NmFlYTEyMDhkNjNkNmNlZWUzZThmM2I4ZjkwOTYzMDU4YTc2MjIxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFmNDk1OWUyZDNmNzc5MTRiNGNjNjk4OGRiZThhZDJmMzg4YWQwMDM4NDZmYTMyNDMwNjNkYWFhYmE1Zjc4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA5OGM3NDAzMDQ3NDhmMDUwN2Y2YjI5ZjQzNTM3MzgyMTYxNTE2N2JjODdmNDQ1MTBmNGM2NzM3MmQxMjU3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGM5YWVhZTkxMzJmNjI1ZTg3OTBiYTc3NjgwMGQ4YjIwZWNjNDZjZjUzNWE1ZmJjMTQ4M2ZlNTkzZDMyZDU2ZiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/SpringOpenprojectMcpServerApplication.java",
+          "version": "repo-file-v1:sha256:235eddb97bc0a9ed51dc55eaa61c701738b8b5eda54ad21f61997f6aeb75bd0b"
+        }
+      ]
+    },
+    {
+      "id": "claim_6e38e770f32e4e329f52676974f99174",
+      "statement": "The server supports two MCP transport protocols configurable via spring.ai.mcp.server.protocol: SSE (GET /sse for server-to-client streaming, POST /mcp for client-to-server) and STREAMABLE (single bidirectional endpoint at /mcp). The two protocols cannot be bound simultaneously because the transport defines the wiring, endpoints, and message routing.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L84-L94",
+          "version": "repo-lines-v1:sha256:d51dacd5acf2c13fc6bc58e4f026f90e5bd044e8fe9d0a859a3301436c41b4a9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5ZjRlMTdlM2JkMGI5MWVlNWY2NDVlYjk3MTg1YjZhYWQ5OGJkMzU3N2Y2MWZiZTE1YzViZGQ3ZGZmNTkyY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjN2Q2NTJmNTk4MDU0Yzk3ZjRjMzJiMzRlYzM2MTg2ZjhjOTZlMzg0NDNiNzVkMmYzMDg1Y2VhNzJmYWI0YWUifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L21-L22",
+          "version": "repo-lines-v1:sha256:be48aa9481f7beae01d85f353b6a7588c23844d8534583a72fb30b7c451fdd4f:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDhiMDMxM2I4YzEyODEzNTk5ZDlmMTBhNjhjYmJhZmViZDJjNjc0MDJhYTA4YjM1MTM2OGUwYjUxMDdjODQxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2NjMzliNDkyMDVjOGRiZThiNzc3MGMyOTNkODBjMmVkNWFkMzhlNzYxYmI4MGJiMzgzZWQ3YTIyNzcxM2VjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U5ZWU1OWY5MmJiZDAzNWY3NGM2N2YxM2I4YTZjMDQ5MDhjYTEzMWM5OWNjZmE5MTRlMjIwMmU1NzAxYmM3NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f3a0583783c9428c877a45de880818d4",
+      "statement": "The application runs on port 8080 with a separate management (actuator) port at 8081.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L3-L4",
+          "version": "repo-lines-v1:sha256:dcbb5b3ddd80e4d8341c4c8a9588cfa8b13325324caf4c8a91c6ee02e9672af6:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFlZmViNzgzOTAzYTNhNDU5YTA3ZjBmYzU5YzkwMGJjMmY3N2E0OTI5N2U1ZjRjYWRmODlkN2UxZmM3ZmMxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxMDMwYjBlZDJhNGJmNmU1NWU3MzljOWQ1NDg5M2Q5YjYzZDUwYjk2ZDJiYWU5NDBmZGViOThjNzYxNjI1NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjljNTNkZDIzZGI2OWIwMWVhNGIzOTU0NDM1ZmQyMzU5YTY1ZmYzNjFjZTM2ODk0YmQ3OTg2MGNjMDA1YjZkZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjE3ODY0ZjQwMjgzZGY1ODEwYWRiMzg2ODJiM2FkMTc5ODU1NGJmNmQzODViMGI3ODgzNGEzYWZiNzIzM2VkMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fada18adadc74e379203da7fb81b5837",
+      "statement": "Authentication uses a two-layer approach: McpBearerAuthenticationFilter extracts the Authorization: Bearer header from MCP requests to /mcp and /sse, then OpenProjectTokenValidator validates the token by calling OpenProjectApiClient.root() (/api/v3 endpoint). The validated bearer token is converted to OpenProject's Basic auth format (apikey:<token>) by OpenProjectAuthHeaderFactory for all outbound HTTP requests.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectAuthHeaderFactory.java",
+          "version": "repo-file-v1:sha256:2e584bd921739068a22082fc6336f70b67b9aab35d5f9b1eefdedc83453420e8"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java",
+          "version": "repo-file-v1:sha256:3996e945fb43d4496d07d77aaac26182fade71f750e75b935328fc69d45140d8"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidator.java",
+          "version": "repo-file-v1:sha256:e75ec6276d60ee6eff5e70c16cafe74ae29cc5c7bb3a1dad78af4e2fbec9a876"
+        }
+      ]
+    },
+    {
+      "id": "claim_e500abcd6d1241819337e2212f6cb867",
+      "statement": "Token validation results are cached in a Caffeine-backed store with a 60-minute TTL. The raw token is never stored in the cache; only its SHA-256 hash (of baseUrl|token) serves as the cache key.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidationCache.java",
+          "version": "repo-file-v1:sha256:463691a95d56452e92b00608609c20d3615cdda4607b3ed363f2f5ec49ec44d9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidator.java#L38-L42",
+          "version": "repo-lines-v1:sha256:111e9c534330eccf3040349fd07ed0b0cb5f356d6515a625485118c66a583859:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjYwYzk3ZTllM2M2MTc0N2Q3YzYyODRjZmZjYjFlYWVlY2ZiMzgzMTMxM2I1ZWE0Nzk1Y2RlYzAwMGVlYmEyMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTc4YzBkMTM1YTljZmNmNTljNDliODZhMDk5NDExZjRkYTQ4M2ZiOGZkMmM0OGQ1YzhkODc1NTk2Njc1ZTE1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjkyYTQwZGQyY2E3MWFhYjhhYjJmNWE2OTdiYmEyYjU2ZWMwZjRmMTFjY2IwMGE2NWQxYjI2ZDg5ZjQ3ZGVlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmNlNzY2ZDYyYWY0ODZmZDFlNWQ3MDIyNTY3MDcwZGIyZmNiMGRmZDY1MDBiNGU4NTljNzZhNjRhNDVhNjk3ZCJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L8-L10",
+          "version": "repo-lines-v1:sha256:655c29003ecba11e1e2633ec12f069dc9c0044d59b1bfe217b235e7c351e8c52:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxNWFhOTlhYTU3NzAwYTBiZGRhMGUwMWRmYmQ1ZDgxZjNkNjExOWU4ZmJmYTZmMWViNDJiZTA3NTBlODA0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjE3ODY0ZjQwMjgzZGY1ODEwYWRiMzg2ODJiM2FkMTc5ODU1NGJmNmQzODViMGI3ODgzNGEzYWZiNzIzM2VkMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDlkODY0ZTRjMTU4YjQ3ZDk5MDMwMDE0ZGIwOWRmYzE4YWQ0NGY1MmUzNWRhOWQxYWJjZjE5NjgyNDg3MmVmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_391c66a99f364f1eb5c532b0773f1102",
+      "statement": "The OpenProjectConnectionResolver interface abstracts how the OpenProject base URL and bearer token are obtained. The active implementation HttpHeaderOpenProjectConnectionResolver reads the base URL from the openproject.url property (default https://localhost) or the X-OpenProject-Base-Url header when openproject.allow-header-base-url=true. A secondary EnvOpenProjectConnectionResolver exists but is commented out, providing an environment-variable-based alternative.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/EnvOpenProjectConnectionResolver.java",
+          "version": "repo-file-v1:sha256:321d88c5375d4f1d9b9108070643ba600b959a06d2c2f636c00fd70d18a84d51"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/HttpHeaderOpenProjectConnectionResolver.java",
+          "version": "repo-file-v1:sha256:5e582eae0ec2eacf94547ca5b39fd67f75d9bc2ff73c05aa247409686893d1c9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectConnectionResolver.java",
+          "version": "repo-file-v1:sha256:7a9b212e5d14646307b6743de1206b99d6dec3b279c8ff01ccc19ee19d3df7b0"
+        }
+      ]
+    },
+    {
+      "id": "claim_8473b4ce713d4feca8e346c39219bd06",
+      "statement": "Spring Security configures two filter chains: actuatorSecurity (@Order(1)) protects /actuator/** with HTTP Basic auth for an admin user; mcpSecurity (@Order(2)) protects /mcp/**, /mcp, /error, and /sse with bearer-based authentication. The McpBearerAuthenticationFilter is explicitly registered inside the Spring Security chain via FilterRegistrationBean with setEnabled(false) to prevent global servlet filter registration.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java",
+          "version": "repo-file-v1:sha256:43463bc66cf6c35cd90f09baf25bb532bf7fe255500b9fd5bb05bb80c8c08841"
+        }
+      ]
+    },
+    {
+      "id": "claim_b6557e8cf4fb40b3b3cfc42e2173eca2",
+      "statement": "The server exposes five MCP tool beans (WorkPackageTools, ProjectTools, PriorityTools, RelationTools, TypesTools) and one MCP logging handler (Common), all annotated with @McpTool or @McpPrompt and registered as @Component beans with constructor injection of OpenProjectApiClient.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/Common.java",
+          "version": "repo-file-v1:sha256:5d8ef0ad7c6700cd7c1b13f43184ecc996ec2b12972351ed96f1eda107efc1f3"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/PriorityTools.java",
+          "version": "repo-file-v1:sha256:8c3ad045af0dd2b3f8ee7128ecd9d7159e96f8813a89a195498814cb833549c2"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/ProjectTools.java",
+          "version": "repo-file-v1:sha256:cb99b1ddee423417d3e8215ec14d7849f0bdff37c2e97dd61ab0cb2769edf93c"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/RelationTools.java",
+          "version": "repo-file-v1:sha256:9b394a880a729e2b09d67574d282e4836cf94a545a016a0b01f9592e4f0998d0"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/TypesTools.java",
+          "version": "repo-file-v1:sha256:b6d15f539bb5a3bd91a196a58fbdae3d61859f1f65138e2c0ff2b1fd2151b46e"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageTools.java",
+          "version": "repo-file-v1:sha256:6d2c9e96a1daa38070d90acf83d92461a2d377a34ee79538a471eb6746a25cde"
+        }
+      ]
+    },
+    {
+      "id": "claim_681262dd3d6f47fbb51c44824145e785",
+      "statement": "WorkPackageTools includes a safe_edit prompt that implements a diff-based safe editing workflow with lockVersion concurrency control, requiring explicit user confirmation before applying updates.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageTools.java#L94-L142",
+          "version": "repo-lines-v1:sha256:bcbe703dd3f956d15c99814aeec7795424ba9af1cc1db5ef336758ae6efffff3:eyJzZWxlY3RlZExpbmVDb3VudCI6NDksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiNzU0OGFiNDRiYzJiZTM2MTNmYzdiZTMyODAxZDQxZWZmMDVlMGQzNDc3ZjFmMjUyMzgwMDcwMGM4YTAzNTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3ZjY4ZTkzNzhmYTIyNjU2NDQ4MjJmZDgwNWY2NWVjNTZkOWUwNjlhNDA3NGM5YTI0NjMwODJlYjUyMTRjMTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_76a24567fc764ba8a900babf8a8f1ae0",
+      "statement": "OpenProjectApiClient is the central service translating MCP tool operations into OpenProject REST API calls. It delegates HTTP requests to OpenProjectRestOperations, which creates a per-request RestClient via OpenProjectRestClientFactory with the current connection's base URL and auth header. All API communication uses application/hal+json content type.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java",
+          "version": "repo-file-v1:sha256:fd8e2e766082362dfea0977a97da9f1977b30cfb7ad9349350c4c5215133d7e8"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestClientFactory.java",
+          "version": "repo-file-v1:sha256:7269cc63b1269e8330e4007dea83bb58cd5b6ebffffe893157098cd13b7e032b"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestOperations.java",
+          "version": "repo-file-v1:sha256:cb062d694a72a1f1ec0719eb5f4b2df56139be270e24f9177908bdcaa54a6da4"
+        }
+      ]
+    },
+    {
+      "id": "claim_c465821e1703408ea021ec6745b849e6",
+      "statement": "For write operations (create work package, update work package, add parent relation), the client uses FreeMarker templates to generate JSON request bodies. This avoids the brittleness of a generated OpenAPI client while maintaining compatibility across OpenProject 14, 15, 16.6, and 17.7.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L96-L111",
+          "version": "repo-lines-v1:sha256:4f33e5ef07b969c3041a229d47854708f3ac8c84d11a978d2e3549a50705b57e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlZmNjNmU1Nzg1MTgyNWZlMGEzM2QwMWFiNDdjMWQ4NmU2MjkzYmJiMTUxMjJlNThiZGQxOGMwODZmZjMxOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjODVjYmNkYzcyMDEyMTY4YzY0ZTMxMWQxYjMyMmU0OTRmMDQxN2EwODBhZjAxNDJmMTRiZTI1NTk4Y2NjYTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImExZmQxYjJhYmZlYWZkY2RkYzQ1MzFiNjI3ZmE0N2JmMGRkZjU4ODBmYjg5Mjg5YTA2YmY4YTQ4YmQ3ZmNlMTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ0YTUwNTRhOGJkODQxMTZkOGQzN2YzZGNmM2Y0NzUzNjYyOTBiMjVhYTk1ZGZjODM1MzQxYzY4MDYyZWZjMGIifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L60-L68",
+          "version": "repo-lines-v1:sha256:6e21c081d567cf0b08cb108f82d720758557cf0f9920fbab119f2999a6118e86:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE5NjYyNjY3NmNmMTIwM2FkMDdlYmQwYjUyNmYyMzQ1NjNjNWRkYjE4YTY2ZTk2YmVjNWI4NzlkZjhkNmFlOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjBjNDYxN2FmZDBjZjBiMmEwZWJhZDdjNTMwYjYyY2VmZTYzMWI4MjhiNjVmMDZkZmUwZjNhODU5NzEzYjI0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGY2N2U1NGQ4YTNjNzNkMTA1NTUwYzE3ZDNjODk1ZDY2MWExZThhYzRmMzlhMzk5YTZhODY2YmE4ZmVmMjFhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTE1YjIxM2U3ZDI2YmRjZjViY2NiYzA2OGEzODBjZmIxNmU0YzY1N2JjMmNjYjVkZDhkM2M1NWJhNTY2YjJjNiJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/create_parent_relation.ftl",
+          "version": "repo-file-v1:sha256:475b2ec1d791025b4503bd620c638bc46b084d0eec4a83b03c63fb44b0cb9e53"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/create_work_package.ftl",
+          "version": "repo-file-v1:sha256:d255bddf3602f990c6f82d6a57f2ca503d8a4f827d332d32e2a29f51e787d62c"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/update_parent_relation.ftl",
+          "version": "repo-file-v1:sha256:7408e7466411a730a31b24df7dbcc9e23ec57d1df1d7d19b5f1ab2f14fdfb5cb"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/update_work_package.ftl",
+          "version": "repo-file-v1:sha256:f01641a9ca0a62ed78fae4834de682b2e2f782288ccea6b0914df7c2197d4a21"
+        }
+      ]
+    },
+    {
+      "id": "claim_448f36375fb145cf9015d3ccc34149b7",
+      "statement": "MapStruct mappers convert JsonNode (raw API responses) to DTOs for WorkPackage, Project, Priority, Type, Relation, and User entities. Mappers use default methods for custom mapping logic (nested path extraction, date parsing, missing node handling) and are registered as Spring beans via @Mapper(componentModel = spring).",
+      "evidence": [
+        {
+          "resource": "repo://pom.xml#L224-L228",
+          "version": "repo-lines-v1:sha256:2197f2eff0b6b06c84d49cb780eaccd77985f9f56a50c5246ecb23cc31d7e55e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjZiZTVjYTNjOWM2MTE3ZGNlZjBkZDBhNjFlNjRiYTQ4OTAxOTk1ZmI5MDUwOGQ2M2JlYWZiYWNhZjU4YmRhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjJhNDQ4MjFiNThmYzQ0ZGVkM2QyMzQzY2UzZjBlZDBiYmE4MGI3Mjg4NmYxY2IwMTU4ZDc3ZmEwMDY4YzZkNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDlhNTQ3NWExNjI2MzI2Mzk1ODY2MDQ4ZjVmNTBiZDQyNWU5NGU0MmQxY2MyMWEzMTdmNjY3ZWVkY2NiODZiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTU3ZjVmZWEwMzVlMDlhNmE5OGM0NWRkMDk0OTRhNmU4NzY1YzM3M2Q1MjYzZDAzOTc5ZmIzZDNhZTVmMWM4MSJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/ProjectMapper.java",
+          "version": "repo-file-v1:sha256:b4cc7488dd71168051ad1f545303fbcd09e0a02ae66e8bbdffa1a5d69da566b0"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/RelationMapper.java",
+          "version": "repo-file-v1:sha256:1a850ac086948bd7781e3bdca1626ea6fc35d0e7c4c481901e4489561b8eeb32"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/mapper/WorkPackageMapper.java",
+          "version": "repo-file-v1:sha256:a6fc7b501034dafb812a6a853f87d4a47ca51db8521b13b943432fba6815be6d"
+        }
+      ]
+    },
+    {
+      "id": "claim_3d3a54ac808e419a9ae226b7fe479d01",
+      "statement": "DTOs represent all OpenProject entity types: WorkPackageDto (with optimistic lock version), WorkPackageCreateDto (with OnCreate validation group), WorkPackageUpdateDto (extends create with lockVersion), ProjectDto, PriorityDto, TypeDto, RelationDto, and UserDto.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/PriorityDto.java",
+          "version": "repo-file-v1:sha256:63a62c05db9205dc2e4c0a856965a5def6300a18f4a133147543433eff97a9a3"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/ProjectDto.java",
+          "version": "repo-file-v1:sha256:85e78a43b2891101f1286a878863866b0cd27566f3bb2e51419abdbfd1fd2a1b"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/RelationDto.java",
+          "version": "repo-file-v1:sha256:6177adbb81d73c8bec93f74ea472563d49e1525098bf7efb38c75660856683a1"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/TypeDto.java",
+          "version": "repo-file-v1:sha256:9541d0e6b496c46b6f2ceabed95f23b97b3d5d84822668c21d1a06595ac78937"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageCreateDto.java",
+          "version": "repo-file-v1:sha256:b3dce285e2b1c0a6438c3a7af6add8969d3a0a72288b9cef35ddc3b9385c10a0"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageDto.java",
+          "version": "repo-file-v1:sha256:50e5eef89c190845a22b1b94e31967e632456767c94e995cfd7244b0dde7a1ce"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/WorkPackageUpdateDto.java",
+          "version": "repo-file-v1:sha256:5a5b1796939bec94246394efed94e8244e21bb1c035fca42c8f25bcbcf560528"
+        }
+      ]
+    },
+    {
+      "id": "claim_9f650b0da0134467a5a89a760a403b35",
+      "statement": "The PatchMap utility provides a fluent API for building maps with optional null-value filtering, used to populate FreeMarker template models with only the fields that have non-null values.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/util/PatchMap.java",
+          "version": "repo-file-v1:sha256:29d93765fdaa630e5adcf25a4ef8ceeec98072b9214efc0c0cc2dd40ac15cf12"
+        }
+      ]
+    },
+    {
+      "id": "claim_784cf5a09dff4def9576c615feee69d5",
+      "statement": "RelationTools supports six relation types (relates, blocks, precedes, duplicates, includes, requires) and manages parent/child hierarchy through dedicated add/delete methods.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/RelationTools.java#L23-L30",
+          "version": "repo-lines-v1:sha256:98c210baf31e5f3b99bed50d262a2ee9e8f33e18f744ee5638b874a52da8b54a:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjk1NzNhOWRjYjkyNTUwYzExMmE1MTIyZmVhNWJiZjRhZDQ4ZDcyYTY3NjlkZGU2NTg2MDQ2MTEzYTU0NzYxMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVmY2RlZjYzODI2YmFiYzhlMTczNGNlYjA5MTIzYmEyMTZjZDNjN2Q3NjE1NjljMzM1NTYyZTU4MTc2MmMwMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTJjYjcwNmZmMDNhMjU4NWQ5ZDI0OTQ0OTMyMDBkYzJmNTM4YjNhYzQyM2QwY2E2MTUwZmM1NjEzM2U2ODVlZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWVjMDg1NThmNTQ4MDFkNDg4YTBiM2JjYTNhOGNjZTZkNGU3NjZhZmQ2MzJiZWJkNjBmNDY2YjkzNDZmZjJlZCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/tools/RelationTools.java#L74-L91",
+          "version": "repo-lines-v1:sha256:82eff6b6a40264baaa94bf89cb39913bb50ae7bc16d7fe2ffa3bb53b3bfedcb7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZWQ2YjU2N2VkMGQxYjY1NmQ3Y2FhYzNmZTJmMjMwMzdlMjZmYTc2Njg1MDcyNTRhZThiZjAxNDVkNDNmYWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFiNjVmNzdkYTUzODFlYTRlN2U1MGYxZDk1ZDBkZTI2ZDRiYzc1YTFiOWY4MDdkNDI4YTg2NjQwM2U2MjdjMTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fe7568f5350949839adf1538d54c2555",
+      "statement": "The server is tested with integration tests against a real OpenProject Docker container, MCP protocol tests verifying tool discovery/prompt generation/ping via raw HTTP, security tests parameterizing auth scenarios across initialize/tools/list/ping endpoints, and unit tests for individual components.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L65-L67",
+          "version": "repo-lines-v1:sha256:1c08cb7b8549264f15b24c23a392b946b34835e320854e0ac5a0533c56c9c36d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI2MmY2MGQ4NTkwYTU3OWNmNDZmOGQ2NzM3OGM0YzU3MmI5NjJjZWNjZGI5MGM3YTVmN2I0MmI5NjA3ODJhNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzRkZTc5OWU3NTk2ODE2ZTg0YzRjOWZhMzQzOTg5NTI1MDQyNGViZjI0YjcyOGZiYTk2ZDUxNzAyYWYzZDdlZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODgwOTE4YWM2NDMwNzA0MDMwMDQzMjc4YWJiMTY3MDAxYzY4MzQzZmM1YTNhZGY3ZjgyYjYxNjk1MjliODRhZiJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpSecurityIntegrationTest.java",
+          "version": "repo-file-v1:sha256:56e01a0f50158e3679c671f9219041ee7d1d0f7e1d087501ec74f8180dacc6e2"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsHelper.java",
+          "version": "repo-file-v1:sha256:825ead1738a670936e6816f4df77f7c8206311f60330b5d6e030936257bf8e82"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java",
+          "version": "repo-file-v1:sha256:31dd148e47172c2545f354db87a18f60c876ea09882fd6f1ac2e6323f2b4180d"
+        }
+      ]
+    },
+    {
+      "id": "claim_37a55af269fa4dbd8d93b4e99c33d83d",
+      "statement": "The Docker image exposes port 8080 with --tmpfs /tmp to prevent temp file leakage between container restarts. The API token is passed per-MCP-request via the Authorization header and never persisted in the container.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L11-L14",
+          "version": "repo-lines-v1:sha256:eb6b57e72697bc3cc163faf99e34a3f1fce0de0d04c1ce7f269256e1185d84dc:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA4YzU1MjE1OTUxOWZiZTRkNGVjNTdmODczNGViOWFlNzA4MjZlMjk3ZGM0ZGQwMjBjNDE3MWE1OTY1ZmJmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTg2MzE4MzMwNzkzNWViY2Y3MTdkMmRhZTA0NjRkZTZhMDYzZjI5MTg0ZTY3ODJmMjE5MGUzZWNkYTc4YWIxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzA0ZmJjY2UyNzFjZDFjNWEwNzM2NWY2ZWI4YzgzNTY4NTU2YmU0MGQzNjdlNTA2NmU1OGQxOWYzNWJkMDdjNCJ9"
+        },
+        {
+          "resource": "repo://README.md#L53-L55",
+          "version": "repo-lines-v1:sha256:5d9dd9d59aa4ac9ac5d8946f53f61929cd928ccad9377b673dff879ccbb564c4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRlMmY1MzI4ZWU2ZTgwNTBlOGFhZmQ4ZGM4NjlhMDY5Y2Q5NTg0ZWRhYWY1NGZlNTg5ZDczYzNiN2RjZDc5OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2U4ZGY5YjVhZmI1NGI3OTdlNjAyNmFlYjc4ZjJjMmIyNTU4MTU2ZDI3MjBmYTNmODJhMzY1NTFmOTVhNTY0ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJiMmY3ZTVmOWZmYmYyMTlhMTM0MjI3ZGEwOTUzMGZhOTljYTNkZGJhZGVhZjA2ZWZlM2ViMGMxYWNlMmVlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b1425ed9c77241e0ae6503fa204a5b80",
+      "statement": "The application is licensed under MIT and tested against OpenProject versions 14, 15, 16.6, and 17.7.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L119-L120",
+          "version": "repo-lines-v1:sha256:a4f38f5d77b130029deb48e90a84a8bb63aef8ae7001df3cb8f2083ad958d0c8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg0MjRiMjczNGRjMTgxMTk0ZTE3NjAyOTc2MGZiZDMxMzhmOTEwMDQ0ZTljMTRlN2M1YThmMzg1MWIyMTRjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDYwYWEyZDFhMDM2MDFkNDE3Yjk2NTg3YmQ0MDc5NDI5ZGY0MDFjYTJkN2RlMjFiNDY1MGI0ZTQ4OWRkNDQ3OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://README.md#L9-L10",
+          "version": "repo-lines-v1:sha256:663d5a1465ac8f7589d62df133a22ff459083779678819b82fcd340558f2dc8c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODMzOTViMmFjYTk3ZmE4ZjdhNzQzYjEyZTAxNTRhNGNiZWI2YWViMGI5YjZlYjA1ZDhlYzcwZWY0NWQwMjc2OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA1ZDA1NWRkYjQ3MTgwMGMxYTAwYjkxZWI1OWJiZjIyNjE1NzQ2ZjcwZjY5MzdjMTY4MmI2ODdhOGY5NTZiMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGI2ZTI4MjVkN2JhMWFkNjE5ODI4NzRlZjU4ZDQyMTI1OTFiMmEyN2Y4YjljMTJhODVlNmRhYzMxNjMxZWY1MyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

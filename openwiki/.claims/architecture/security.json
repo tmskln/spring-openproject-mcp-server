@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:1e243fd286943076b67ced534542c2a7746afb003e84ffdf0dd390468e31655c",
+  "claims": [
+    {
+      "id": "claim_bf24f99ca8ac47f198ca347641763977",
+      "statement": "SecurityConfig defines two SecurityFilterChain beans: an actuator chain (order 1, /actuator/**) using HTTP Basic with InMemoryUserDetailsManager, and an MCP chain (order 2, /mcp/** + /sse) using bearer token authentication with CSRF disabled and HTTP Basic explicitly disabled.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L1-L84",
+          "version": "repo-lines-v1:sha256:43463bc66cf6c35cd90f09baf25bb532bf7fe255500b9fd5bb05bb80c8c08841:eyJzZWxlY3RlZExpbmVDb3VudCI6ODQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MjFjMTVjOTgzMGI2MjE0NGYyNjg2M2MzN2U5NDFlYTM2YzNkZWY0ZGZiNDQ1NmIwZjEzNGQ5YjI0MDgyNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bbbd67d44752424aaeead68e0d8f7484",
+      "statement": "McpBearerAuthenticationFilter is a @Component that is deliberately prevented from global servlet filter registration via a FilterRegistrationBean with setEnabled(false), and is instead injected explicitly into the MCP SecurityFilterChain via addFilterBefore.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java#L1-L73",
+          "version": "repo-lines-v1:sha256:3996e945fb43d4496d07d77aaac26182fade71f750e75b935328fc69d45140d8:eyJzZWxlY3RlZExpbmVDb3VudCI6NzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MjFjMTVjOTgzMGI2MjE0NGYyNjg2M2MzN2U5NDFlYTM2YzNkZWY0ZGZiNDQ1NmIwZjEzNGQ5YjI0MDgyNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L42-L53",
+          "version": "repo-lines-v1:sha256:b45c53efffe40b33674799c24ec6e963fd21eb3ba45fe92c6f6167f3c8bcf4b8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiOWQ1ZTkwNjg3ZGVjM2NkOWFjYzgyNWMxN2U1MTRlYWMwYTJhMGVhM2NhYTZkOTk1YmZlNGNlOTM5MDIxZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIxOWRhNDMyMjUwMDFjZjlhZjYxNTBmZDVhZjNlMjllMzdhMTE5MWE2Mzk0MDZmYjU0M2E5OTFhOWI3MjdmYjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJhYjRlZjM0Y2NhYzViZTBhMmFmMDkyOTY4NWRhOTE4MzVlYWE0M2U2ZmVmMThkZWIyNzVlOGZiMDFkMTFlOTkifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L64-L65",
+          "version": "repo-lines-v1:sha256:53b7bcdd40e8a73853d5426a14606bbe592102856ece215aa0cbae30c81cfc4a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM4NTE1OWMwZGYyNDYzYmQ4MjA0NmIzZDgyODczZjU4ZjFkZmE3Zjc5YTcxMzg2OTg0Y2RiNTA2ZDIwYzUyZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzc2NTBhODJjMDIxYjBiYzEwYWI5YjRjOWJkMTk4Y2YyNGU3OTg3YTEyODgxZTEyYjIwMzE0NDUwN2M0YjNlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTgxZDEwMWE5OTJhOTU0YTU0OTkxMjAxN2FjY2Y3NGRjNDExNmQxZTU4ZTAzYzVjMjQwYzZlZmY5NDhjYzhiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWZlYjE5NmZmZDUwM2VlZjIzMzg5YmYzOTc5OGMyMTFjYWU2ODFkNWI5NDU2MDlmNzI5OTQ5Y2VkZTBkOTQ1YyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d1bb40046c7145588a31026755fcbd10",
+      "statement": "McpBearerAuthenticationFilter shouldNotFilter() only processes requests to /sse, /mcp, or /mcp/ paths; it overrides shouldNotFilterAsyncDispatch() to return false so authentication runs on async dispatches used by the SSE protocol.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java#L32-L44",
+          "version": "repo-lines-v1:sha256:14c64b747d2756a9326715e0b3d5ac1a1df71a7514556ee518212cebddcf0e3d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3MGUyZDI4YmY2NWVhMjYwZjdjOTVhYzYzZjZlMDdlNjNjMzMzYzc4YzhmYjFlMGU3MjZlMDc2ZTYyZmIxOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZiYTMxNTUyNmQxMmE1MWExZWQ1OTU3OGVkNmZlMDUxOTAwNzUwMWY4YmRjZThhZTgyMzFiMGI5MjFlZDIzYTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzNzdmYjUyYTU5NWQ4YWI3MGUzYzU5YjY4ODc2OGZhZjFjNWI3NWUwNDNmN2RhOGQyZjhhNjk4YmUzNWFmNmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_982cd41c16944bbb9bb37268fa82cfef",
+      "statement": "OpenProjectTokenValidator constructs a cache key by SHA-256 hashing the concatenation of baseUrl and bearerToken (separated by '|'); the raw token is never stored in the cache.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidator.java#L44-L46",
+          "version": "repo-lines-v1:sha256:5c7622161a4ffd259e0634c2d2cd9fc4731aa94575c2d089ac66c08c8b31817c:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTcxMDZkZWNiY2JlOTkyZGZmN2VlNWQ5OTlhOTQwZTAxNTRkNDVkYTkyYzQ5MzdjZWYxOTM1NzI5NzM1ZjUxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZmZDU2M2EyNDYzMjFjMTg0YmY0YTRkNThkNDA4NjIxYzYxNzU1YzhkMmEzYjYwOWIxNzM4ZTlkYjBlZTQ0MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2QzYjlhZDg4MmUyMjUxMWRhNmY3MDhiNmMwOTE3OTQyMjE5M2UxNzA4OWU4MTNjNjU3YjFlZTljNmQxNDE1OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ff94b4ce5b984d54a3a47d46f6153224",
+      "statement": "OpenProjectTokenValidationCache is a @Configuration with @EnableCaching that uses Spring's @Cacheable on the 'auth-validation' cache with key=#key; the cache is configured in application.properties as Caffeine with expireAfterWrite=60m and recordStats.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidationCache.java#L1-L23",
+          "version": "repo-lines-v1:sha256:463691a95d56452e92b00608609c20d3615cdda4607b3ed363f2f5ec49ec44d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MjFjMTVjOTgzMGI2MjE0NGYyNjg2M2MzN2U5NDFlYTM2YzNkZWY0ZGZiNDQ1NmIwZjEzNGQ5YjI0MDgyNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L8-L11",
+          "version": "repo-lines-v1:sha256:46403069d13446e756f7bea9f28e64340f674cd4661b11619f2996b697e535a7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGIxNWFhOTlhYTU3NzAwYTBiZGRhMGUwMWRmYmQ1ZDgxZjNkNjExOWU4ZmJmYTZmMWViNDJiZTA3NTBlODA0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODQwYmZlMzdmYjExYTNjOGE3MDgzM2ZkNzhmMWYxY2I5OWQ0ZmI5YjNhM2ZmNDgxMGU3MmU5MzEyMWY3NGNkNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjE3ODY0ZjQwMjgzZGY1ODEwYWRiMzg2ODJiM2FkMTc5ODU1NGJmNmQzODViMGI3ODgzNGEzYWZiNzIzM2VkMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWVmMjM5YjI1NmFlZjlmZWJmZmNhZWI3NWJmZWI2MWY0ZDJjNWFmMTk0MDgyMDA3MmY2MjE3MzNkZmRkNzVmMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7725d9bb598e4738b48c62f24a73a69c",
+      "statement": "On a cache miss, OpenProjectTokenValidator invokes fetchUserFromOpenProject() which delegates to OpenProjectApiClient.root() performing GET /api/v3; the response is converted to ValidatedOpenProjectUser containing the user's href and name.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L71-L74",
+          "version": "repo-lines-v1:sha256:836a2a3285a922b1e21c3f4c49e6c3163718239062511006d1f524e49b864532:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjg1YzNjYjExOGJhYjAyMjk4YjkwYzU3ZTUxYjQ2N2U3MGQzZThiZWVmMzU0Zjg3ODJmNWQ3ZDRjOTRmMGI1OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQyNWZjYmVjYTY5NTA5YWJhODY2ZjhmZmYxOTBlN2UwZjExYmYyZWNjMDg3OGE0NTAxMzI4ZDg3ZmUwMzg3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjIyZThkMTc2Yzc3NzFhMDFjM2ZmMzFkZTQ1YWEwYWI1NGQwODMxZjAyMmJjODMyYjRkM2FmYWY4MTljMzQ5ZCJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidator.java#L54-L70",
+          "version": "repo-lines-v1:sha256:e33e99e3fbc5bf6f83f657444522c408255de487432aebf9acefb453faa82660:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyMmNhZGY5M2VlYTJlYzcwMDliMDEzM2MwNGJjMmQ4ZTdjYTk3MTNkOWZmZTcyMTlhY2Y4YzUwOGZhZjQ3YzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwNmZjNmNmNjVjZGNmZWE1ZjZhNjgzNmJmYzk4ZGUxYzhhNWI4ZTdhYmUyYWVlNDkxYWY0ZWY2YzM4ZTk1ZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzN2Q3NDMxNWQyMjBhMjdiOGJkNzdiNTRjMTAxZDE2ZGIwYzdlM2ExNTQxZjliNDFjZDI2YjRmODY1YmQxNDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2MTYwZDA3ODJiMWI4ODQzZjU2ZWIwNjViY2U4NmNiZWVhYmQxOGU5OTViOTk4M2M5YTFmYzI0ZWFiZjIyZGEifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/ValidatedOpenProjectUser.java#L1-L11",
+          "version": "repo-lines-v1:sha256:dfbb833823b93043a0dcfa75fef27380d8bf916c386540ac6979c87e83dbb770:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MjFjMTVjOTgzMGI2MjE0NGYyNjg2M2MzN2U5NDFlYTM2YzNkZWY0ZGZiNDQ1NmIwZjEzNGQ5YjI0MDgyNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0dea03331e24cc88b766e9b0be82962",
+      "statement": "OpenProjectRestClientFactory creates per-request RestClient instances using OpenProjectAuthHeaderFactory to convert the bearer token into OpenProject's Basic auth format (base64('apikey:<token>')).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectAuthHeaderFactory.java#L1-L18",
+          "version": "repo-lines-v1:sha256:2e584bd921739068a22082fc6336f70b67b9aab35d5f9b1eefdedc83453420e8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestClientFactory.java#L1-L24",
+          "version": "repo-lines-v1:sha256:7269cc63b1269e8330e4007dea83bb58cd5b6ebffffe893157098cd13b7e032b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6b303e72d204458d8bf01eb53169c203",
+      "statement": "HttpHeaderOpenProjectConnectionResolver is the active multi-tenant resolver that reads the bearer token from the Authorization header and optionally overrides the OpenProject base URL from the X-OpenProject-Base-Url header when openproject.allow-header-base-url is true; EnvOpenProjectConnectionResolver is commented out and intended for future STDIO deployment.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/EnvOpenProjectConnectionResolver.java#L1-L18",
+          "version": "repo-lines-v1:sha256:321d88c5375d4f1d9b9108070643ba600b959a06d2c2f636c00fd70d18a84d51:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/HttpHeaderOpenProjectConnectionResolver.java#L1-L60",
+          "version": "repo-lines-v1:sha256:5e582eae0ec2eacf94547ca5b39fd67f75d9bc2ff73c05aa247409686893d1c9:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L24-L25",
+          "version": "repo-lines-v1:sha256:ca842eb6ec6f791061f30915cbd00bc59e9d9d16dc7847b424c03e3b2b669a1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY3YWUxYmVlZTNhOTYzMWZkMDEyMTE1MzZkZjkwNDg2MDY1YTRlMGFlYjY2MDkzZTZkZTQ3Njg2MTNjMjQ3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTE5NDk3MGUzZTQyNzRlM2Y5ZmQyNjIyZmEzZDI5ZDg2YjFhMzBkNTEyNzBjMGRhOTFiYTllNjJiZDhjNjBlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjgxMDJlNDYxZjViNDFmMWIxODc3NmJjZjNiMTAxZTBiMDk5ZGQzNTFiMjU1YmY1ZGMyYTY2MTI3ZjRiMTNiYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1fc02d5940fd4f0c8c098e16299258b0",
+      "statement": "On validation failure, McpBearerAuthenticationFilter catches UnauthorizedException, clears SecurityContextHolder, sets HTTP 401 status, and writes {\"error\":\"unauthorized\"} as application/json; on success it stores the validated user as a UsernamePasswordAuthenticationToken with ROLE_MCP_USER authority and persists the SecurityContext via RequestAttributeSecurityContextRepository.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java#L50-L70",
+          "version": "repo-lines-v1:sha256:b592f1c1e7019501e2a8a991e17bdf6c8063756448be9d9657e40520f16e2aa4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjODc5NTYyNmEzZmJmOWI4NmVmMjBmOWZlMzYxMGZjZmNkZTgxZjU4NDY4MGYxMDA3MTFmNzQwODZjNDA4YTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MzIxZDRjMzg2OTFjYWQxOTI2MjU4NWEzMmFjZWI4ZDE0ZDYxYWY4OWYzZjVmNjNkNTUwNDIzNDU3MzVhZmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRjM2Y2YjBhZTc4MjU5MmRhM2E5MjcyYmU2NzNiYzRkNmU0M2MzZjRiMzg3ZjQzMmFlNzQzNDE5NzU5MTkxYTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0Yzk3MTk3ZDU2MzBiMjUxNmQ4NzMxZGY0ZDIzMWZjMDJiN2NlMmI5Yjc0M2I5NjEyNGU4NzhhZWQxODcyOWEifQ"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/UnauthorizedException.java#L1-L8",
+          "version": "repo-lines-v1:sha256:e20d079269ebf639e529433fef979c500176e63bd3bcc419d7e7aada6d23b2c0:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTUyMWMxNWM5ODMwYjYyMTQ0ZjI2ODYzYzM3ZTk0MWVhMzZjM2RlZjRkZmI0NDU2YjBmMTM0ZDliMjQwODI3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_39fc22ad81fd4de1b403cc6f7c581a0b",
+      "statement": "The Caffeine cache uses expireAfterWrite=60m with no explicit invalidation; a token that was valid at validation time remains cached for 60 minutes even if the user is later disabled or the token is revoked in OpenProject.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L10-L10",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGM5MGMxZGQzNDY3MTYxNGM5NzgwYmY1ZjNjMGE0NzU4YmMyYTY4ZTE3MDRkYTI2YzU4Yzg5Njk4MWZlMTM4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDlkODY0ZTRjMTU4YjQ3ZDk5MDMwMDE0ZGIwOWRmYzE4YWQ0NGY1MmUzNWRhOWQxYWJjZjE5NjgyNDg3MmVmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1c06b1c3b7bc41708434d16694921107",
+      "statement": "McpSecurityIntegrationTest validates the authentication flow end-to-end with a stub OpenProjectTokenValidator that accepts 'correctToken' and rejects all others, covering initializeMcp, callToolsListRequest, callPingRequest, and callPromptsListRequest with valid, invalid, and missing tokens.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpSecurityIntegrationTest.java#L1-L136",
+          "version": "repo-lines-v1:sha256:56e01a0f50158e3679c671f9219041ee7d1d0f7e1d087501ec74f8180dacc6e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTM2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIxOGViMGMzYTc0OTFjNDk4ZWVmNGVmNTZhYmZiNGMzNzYxOWY2OWZjZjVhZDUyOTViNzU1Zjc0MTBiNTg1MTZlIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJkMTBiMzZhYTc0YTU5YmNmNGE4ODE4NTgzN2Y2NThhZmFmMzY0NmVmZjJiYjE2YzM5MjhkMGU5MzM1ZTk0NWQyIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

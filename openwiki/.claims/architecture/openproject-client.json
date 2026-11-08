@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8ebc3326953eca5a32586d8a4af9c4a25905e7e06a07385fbd4be3424a631d31",
+  "claims": [
+    {
+      "id": "claim_33bdeafb89bb494fb21cba9adf012e60",
+      "statement": "OpenProjectApiClient is the central @Service for OpenProject REST operations, depending on OpenProjectRestOperations, OpenProjectTemplateRenderer, and six mappers (WorkPackageMapper, ProjectMapper, TypeMapper, PriorityMapper, RelationMapper, UserMapper).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L1-L35",
+          "version": "repo-lines-v1:sha256:d337fb1dee4d6c9fc2a5add50fb41b92c30aa6c28c98476d52d9e432fd14419b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiNTA5YzUxNzA1ZTMyYjBjODhmYTZlMDRjZTJiOTBiYTNiYTQ0OGRiMmM2NTA2OTNkOWRmMDU0ODljNjUyNTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQyZmUxZGJmMTQ1NzBkODIyNWI4NGE5Y2MyY2ZiMzc5ZTljZTk3ZDg5YmIxOTZlM2QzMzg2NDYwNjY5MTNlZGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2e2b0e83d95943799358f88d6a08be89",
+      "statement": "OpenProjectConnection is an immutable record holding baseUrl (URI) and bearerToken (String) with no validation or transformation.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectConnection.java#L1-L7",
+          "version": "repo-lines-v1:sha256:6833c333886048c37e95c43bf573f74eedc506c1febe653224cb47002a66073f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg2NmJhNDYzN2FiOTRjODAzYTIwYWQyMjNkNWQ4ZGFlMzQ5MmI1Y2U5NTM0NGJlMjIzMzMzN2MwZGUzMjlkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7df0aec13e004d77b197f6ddd0f56f37",
+      "statement": "OpenProjectConnectionResolver is a single-method interface (resolve()) that enables per-request credential resolution rather than startup-time configuration.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectConnectionResolver.java#L1-L6",
+          "version": "repo-lines-v1:sha256:7a9b212e5d14646307b6743de1206b99d6dec3b279c8ff01ccc19ee19d3df7b0:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg2NmJhNDYzN2FiOTRjODAzYTIwYWQyMjNkNWQ4ZGFlMzQ5MmI1Y2U5NTM0NGJlMjIzMzMzN2MwZGUzMjlkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwYjM2YWE3NGE1OWJjZjRhODgxODU4MzdmNjU4YWZhZjM2NDZlZmYyYmIxNmMzOTI4ZDBlOTMzNWU5NDVkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cab5762195964ddc89a6ddf2dbf05048",
+      "statement": "HttpHeaderOpenProjectConnectionResolver is the active resolver by default; it reads X-OpenProject-Base-Url and Authorization: Bearer headers from the current HttpServletRequest, falling back to openproject.url config and openproject.allow-header-base-url:false property.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/HttpHeaderOpenProjectConnectionResolver.java#L1-L60",
+          "version": "repo-lines-v1:sha256:5e582eae0ec2eacf94547ca5b39fd67f75d9bc2ff73c05aa247409686893d1c9:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3cfedadc338c49798ddb273d95820cab",
+      "statement": "EnvOpenProjectConnectionResolver exists as an alternative resolver reading OPENPROJECT_BASE_URL and OPENPROJECT_BEARER_TOKEN environment variables, but it is disabled (commented out @Component).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/EnvOpenProjectConnectionResolver.java#L1-L18",
+          "version": "repo-lines-v1:sha256:321d88c5375d4f1d9b9108070643ba600b959a06d2c2f636c00fd70d18a84d51:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9a4587e4efa94d5ca3751b68f3d2152b",
+      "statement": "OpenProjectRestClientFactory.createClient() calls connectionResolver.resolve() and authHeaderFactory.toOpenProjectBasicAuth() on every invocation, then clones the shared RestClient.Builder to set baseUrl and Authorization header per-request.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestClientFactory.java#L1-L24",
+          "version": "repo-lines-v1:sha256:7269cc63b1269e8330e4007dea83bb58cd5b6ebffffe893157098cd13b7e032b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a45a7531d3f34d85a02ac7afb27f0e85",
+      "statement": "OpenProjectAuthHeaderFactory converts a bearer token into OpenProject's wire format: Basic base64(\"apikey:\" + bearerToken), validating the token is non-blank.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectAuthHeaderFactory.java#L1-L18",
+          "version": "repo-lines-v1:sha256:2e584bd921739068a22082fc6336f70b67b9aab35d5f9b1eefdedc83453420e8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bac0103aea264a04818cf6ffff9f4e47",
+      "statement": "OpenProjectRestOperations provides getJson, postJson, patchJson, delete, and postMultipart methods that delegate to the per-request RestClient with HAL+JSON content negotiation (application/hal+json).",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestOperations.java#L1-L75",
+          "version": "repo-lines-v1:sha256:32470c5668ddf9ba22f5746e4d785a3806b5a2da5c8e3741f6659feb44c0f1f0:eyJzZWxlY3RlZExpbmVDb3VudCI6NzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJkYzc2OTFiYzNmMmMxMzBmZjVjOWUzYzcwZGU0Yzc2NWNkN2Q2ZDU1ZWFiNWQ0MGUwM2ExMmMzMzZhZTFhYTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a21b7c8a6a114793b978e081612b7a4c",
+      "statement": "OpenProjectRestOperations.buildMultipartAttachmentBody constructs a two-part multipart/form-data body (metadata JSON + file ByteArrayResource) for OpenProject's attachment upload API.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestOperations.java#L90-L112",
+          "version": "repo-lines-v1:sha256:a59309c5b738747d230ee36ffff75cefac0b377a31cc4bdcef3d162514e664e9:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNjJmNjBkODU5MGE1NzljZjQ2ZjhkNjczNzhjNGM1NzJiOTYyY2VjY2RiOTBjN2E1ZjdiNDJiOTYwNzgyYTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJkMGEzMGE3ZjAwZWVmMGMxYzJiNTExN2QyNTIxNGIyYzMyZWRhNWZlNGE3MDY3OGE4OTRhNTVhZmU5MjY3MjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a3786073c7a5493aa0626cc0a806685a",
+      "statement": "OpenProjectRestOperations.mapEmbeddedElements navigates HAL+JSON _embedded.elements[] arrays and maps each node through a caller-supplied Function, returning an empty list for null/missing content.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestOperations.java#L105-L112",
+          "version": "repo-lines-v1:sha256:29b1c1d5895985d2d02dcb5f37a31599f15240c1ea05ca4c9aaa0a0ac011ebec:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTZmN2Y0NTFlZjA2NmJmN2E0OGE1ZjcyZTU4NjJkNTE2ZmU5OTJmZDhlYmU3NTY4YzgxZGIyMDFjNmM1ODRkMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwYjM2YWE3NGE1OWJjZjRhODgxODU4MzdmNjU4YWZhZjM2NDZlZmYyYmIxNmMzOTI4ZDBlOTMzNWU5NDVkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTViMTE3YmRjMzZhNTkyODk0ZjM4NzgxNmVkYmI0NmZkZjU4N2NjZTM1NWY0ZDQ2YTU0YjgyZmZiMjIzODc3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_928ae5c4d0b84d3e8a7e1e637f3f7281",
+      "statement": "OpenProjectTemplateRenderer wraps FreeMarker Configuration to render JSON payload templates; it catches IOException and TemplateException and wraps them in InternalError.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectTemplateRenderer.java#L1-L27",
+          "version": "repo-lines-v1:sha256:86306f386b35e97cc994324ec1155420d2bd7ae3f8a1201b256018c03bf19a5d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NjZiYTQ2MzdhYjk0YzgwM2EyMGFkMjIzZDVkOGRhZTM0OTJiNWNlOTUzNDRiZTIyMzMzMzdjMGRlMzI5ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ce78ada2e7f647e786c876b642091734",
+      "statement": "Four Freemarker templates exist under src/main/resources/templates/: create_work_package.ftl, update_work_package.ftl, create_parent_relation.ftl, and update_parent_relation.ftl, all using PatchMap models with ALLOW_NULL_VALUES and FreeMarker conditional syntax.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/templates/create_parent_relation.ftl#L1-L9",
+          "version": "repo-lines-v1:sha256:475b2ec1d791025b4503bd620c638bc46b084d0eec4a83b03c63fb44b0cb9e53:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/create_work_package.ftl#L1-L59",
+          "version": "repo-lines-v1:sha256:d255bddf3602f990c6f82d6a57f2ca503d8a4f827d332d32e2a29f51e787d62c:eyJzZWxlY3RlZExpbmVDb3VudCI6NTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/update_parent_relation.ftl#L1-L8",
+          "version": "repo-lines-v1:sha256:7408e7466411a730a31b24df7dbcc9e23ec57d1df1d7d19b5f1ab2f14fdfb5cb:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTZmYjA4ZmRhMWFjYjk1N2I2MTE2YmQzNzgxMWExZmU0MWEwMTYxMWMwNjMxZWRiZjc4NmQ2ODg5YTI3YTU1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwYjM2YWE3NGE1OWJjZjRhODgxODU4MzdmNjU4YWZhZjM2NDZlZmYyYmIxNmMzOTI4ZDBlOTMzNWU5NDVkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/templates/update_work_package.ftl#L1-L33",
+          "version": "repo-lines-v1:sha256:f01641a9ca0a62ed78fae4834de682b2e2f782288ccea6b0914df7c2197d4a21:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2ZmIwOGZkYTFhY2I5NTdiNjExNmJkMzc4MTFhMWZlNDFhMDE2MTFjMDYzMWVkYmY3ODZkNjg4OWEyN2E1NWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cc7686a3777548b98b6982da11a7a011",
+      "statement": "OpenProjectApiClient.listRelationsForWorkPackage aggregates relations from four sources: _embedded.relations._embedded.elements[], _links.parent, _links.children[], and _links.ancestors[].",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L142-L185",
+          "version": "repo-lines-v1:sha256:0dacec67d8ac607ad36918524958425c460792e3bd5d7175fc8e79110de54997:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUyOGE3OTkyZWY2MjlmYzdjZDliODZlODIzMTc4NGFhYTNjMjliOGY1M2U1NDY1ZmZlOWM4YjMwNDhhNTE4YTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzM2I0OWQyNzIzY2Y2YjVlZTIyZDExOWZmYzQ0YTQ5NzBhMWVmOWU1MWQwNGZhYTg2Y2E2ZTYwMmUyMjZhOTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZhYTY5OTc0NTBmMjE5Y2ZjODdjMTM5MGYzZGJiNTIwMjAzNDEyNmZkNGFiODYxMTUzMmU4Njg5YjdkOTZiMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ2MTNmYzIzNDMzMmM5YjU4MWRlYjI3NWYxYzYyZjlkZjBmZTZhMjg3MGM3MGUwNzkyYTU4NmUwM2VjNTY5MzUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d76bf642a17044a7bc575f1b3d089c4c",
+      "statement": "OpenProjectApiClient.workPackageShow returns null on 404; relationDelete returns false on any exception; other methods propagate RestClientResponseException.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L207-L213",
+          "version": "repo-lines-v1:sha256:541c68d2063009ce85ee498b3ea0db8fc5a00999d9c9127016e29610ffed485d:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiZjM1MGYyMWZiZTBmMDBiNmM3YjZhMjY1YzVjOTE1MzNlZWZkODllMzk1YWEwODQ0NDEyNjk4MmQwNGU3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGU5NmU2OTUwNzFlN2RlODQ4Y2VjMWU1ZGU2NmYwYjUyZTIxM2QzZGJmN2JmNGVlNmZmNGIzOTBhNDJhZTI5MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDBmOTU1NmY4ZWY3M2UxOTNjYjJkZmMwZTcwYTlmMGI5YmYwYzUxY2Q3YWQ5MjNmOTk3MWUxOGRhOTExMmRmMiJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClient.java#L61-L68",
+          "version": "repo-lines-v1:sha256:a6d3425d3c1a97cf7c426ab93429344c86c42d30931574d7e84c830d170ede22:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzkwZGNiMGI5ZTg2OWQ2ZTFkNjc5YjAzOTgwNDg2ZjBmMGQ4NDJiNjNlMDk5MjZkZWFlNmU0OWMxNzk5YTcyMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjBjNDYxN2FmZDBjZjBiMmEwZWJhZDdjNTMwYjYyY2VmZTYzMWI4MjhiNjVmMDZkZmUwZjNhODU5NzEzYjI0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTRjYzg1NDkxNWFmZDdmZDUyMmYwNGM1YTQxMzM4ZDMyMTcwMjBhOTZhYjQ0Njk2ZjYxNWQ0NjY3NWZhODEzOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTE1YjIxM2U3ZDI2YmRjZjViY2NiYzA2OGEzODBjZmIxNmU0YzY1N2JjMmNjYjVkZDhkM2M1NWJhNTY2YjJjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fa7ffce27be04f1baf1ac3d239082b06",
+      "statement": "OpenProjectTokenValidator validates tokens by hashing baseUrl|token with SHA-256 for caching, calling openProjectApiClient.root() for live verification, and caching ValidatedOpenProjectUser results.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/OpenProjectTokenValidator.java#L1-L76",
+          "version": "repo-lines-v1:sha256:e75ec6276d60ee6eff5e70c16cafe74ae29cc5c7bb3a1dad78af4e2fbec9a876:eyJzZWxlY3RlZExpbmVDb3VudCI6NzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MjFjMTVjOTgzMGI2MjE0NGYyNjg2M2MzN2U5NDFlYTM2YzNkZWY0ZGZiNDQ1NmIwZjEzNGQ5YjI0MDgyNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fb54ee63539c4104adc3215672715508",
+      "statement": "McpBearerAuthenticationFilter filters only /sse, /mcp, and /mcp/* endpoints, calls tokenValidator.validateCurrentRequestOrThrow(), sets ROLE_MCP_USER authentication, and persists context via RequestAttributeSecurityContextRepository for async SSE dispatch.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java#L1-L73",
+          "version": "repo-lines-v1:sha256:3996e945fb43d4496d07d77aaac26182fade71f750e75b935328fc69d45140d8:eyJzZWxlY3RlZExpbmVDb3VudCI6NzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1MjFjMTVjOTgzMGI2MjE0NGYyNjg2M2MzN2U5NDFlYTM2YzNkZWY0ZGZiNDQ1NmIwZjEzNGQ5YjI0MDgyNzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxMGIzNmFhNzRhNTliY2Y0YTg4MTg1ODM3ZjY1OGFmYWYzNjQ2ZWZmMmJiMTZjMzkyOGQwZTkzMzVlOTQ1ZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d9380c0ae59b48cc9c6beffd9487877a",
+      "statement": "OpenProjectApiClientIntegrationTest provides a @Primary OpenProjectConnectionResolver with hardcoded container credentials and runs a full docker-compose lifecycle with real OpenProject instance.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java#L95-L105",
+          "version": "repo-lines-v1:sha256:594c898d95703123b5ef13995990f52c67386d7cbe2848c2a54f977971301918:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMTQ1N2E1ZWU1Yjg0NWQ5NGFkMzU0YzBlOTI5MmVmMGMyZmFmNzI0NmI3ZDM0NDdlODAwOTBiNWY1ZWExODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmMmEyZjk5NmYwOGU2ODBiZDI5MjEzNWE2ZmE0OTc4YmRhMjZlNjAyZDg0ZjMzY2IxZDU5NDc3NWQ0MzA0YjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0MGMyMmY5MWVlMDIyZTcwMTM4NTkzNjliODVlNWZmYjdlODU2ZjhjODQ5NmVlOGJiNTkzN2FjOTY1OGYyZWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxZDRlZDc0OTkzMmY2Y2U0NmM2YzllMzg0OWEyZjc4MGE1ZmU3YWZjYzc1NjYzZDdhNTMxNzkzY2E1MDk1NDgifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}

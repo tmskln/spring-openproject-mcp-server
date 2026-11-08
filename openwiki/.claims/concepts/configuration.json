@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:be8eb78517c6af420c9e07b6f460559b714af206140d83f97242cd1065314b9b",
+  "claims": [
+    {
+      "id": "claim_92265abdc8944139a4c51d55cf371565",
+      "statement": "The OpenProject MCP Server defines five Spring Boot profile property sets: a base (no-profile) configuration, dev, local, prod, and test, each in its own application-{profile}.properties file under src/main/resources or src/test/resources.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application-dev.properties",
+          "version": "repo-file-v1:sha256:98e49766566a5ead3d0dd54a7595c025d79720b9145ca72eea36858b2d445ad8"
+        },
+        {
+          "resource": "repo://src/main/resources/application-local.properties",
+          "version": "repo-file-v1:sha256:192505a38c308ebdef90b6c858b26101c10917d5d06b50e5ab4cc32cd0b21230"
+        },
+        {
+          "resource": "repo://src/main/resources/application-prod.properties",
+          "version": "repo-file-v1:sha256:4146dd24a7135e155a82024085671cf2bf6bfe8eb2e697f6a5a0aab21c200119"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties",
+          "version": "repo-file-v1:sha256:77909f76178f58fc2877dc7e83ff997ff830a94bc83cd1cfabe1075e9af99244"
+        },
+        {
+          "resource": "repo://src/test/resources/application-test.properties",
+          "version": "repo-file-v1:sha256:feed1fcdd7009814f5aa55ab34d23d7429d453b9b0483bd6c728168a18e07d45"
+        }
+      ]
+    },
+    {
+      "id": "claim_7a762a2aae354a968b13717fd11d971b",
+      "statement": "Profile activation is controlled externally, not via spring.profiles.active in properties files: Docker uses -Dspring.profiles.active=prod (JVM argument), while IDE/local runs use --spring.profiles.active or the SPRING_PROFILES_ACTIVE environment variable.",
+      "evidence": [
+        {
+          "resource": "repo://docker/Dockerfile#L29-L29",
+          "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzMwOTNkNjEwYzc1OGMxYmRjOGVjZWM0MWI1ZjMyMWQ4MTFmYTZmYmUwODAwNDJmYTBlODg4ZWI2NWViNDY0ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTNmNDI0NDVlOGY5ODY0Y2EzY2NkYTI2MjZmODhmMzIwYmM4N2VlNzRjNmE4YWU5N2Y2MGUzMmZmYTJmMzA2ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_12fb304dc2954bdab27ab28252a21334",
+      "statement": "The Maven build excludes all application-*.properties files from the JAR; at Docker image build time, application-prod.properties is copied separately to the image root so it is available at runtime.",
+      "evidence": [
+        {
+          "resource": "repo://docker/Dockerfile#L13-L13",
+          "version": "repo-lines-v1:sha256:fea1d765d3a6a4db60bb406186637c534a95a030687696a370cca3a38aaf384d:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVhMWQ3NjVkM2E2YTRkYjYwYmI0MDYxODY2MzdjNTM0YTk1YTAzMDY4NzY5NmEzNzBjY2EzYTM4YWFmMzg0ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVhMWQ3NjVkM2E2YTRkYjYwYmI0MDYxODY2MzdjNTM0YTk1YTAzMDY4NzY5NmEzNzBjY2EzYTM4YWFmMzg0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTFiZGNkYjU4NzUzYTI1YTEyZWMyNTA1Nzk3NjExNDVmYWZjOWVjZTNlZjZlYzNiZWE0MzA2YjBlMzkxODBhZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWVmMjEzOTYwMTI4OWYxZDBjYTMyOTNlMWNiNWFjMWZjZTg3MGQzODA3MGM3YjA1MTIzZGMxOGRhNmFmMWVjZiJ9"
+        },
+        {
+          "resource": "repo://pom.xml#L278-L281",
+          "version": "repo-lines-v1:sha256:65ce2ac2a7e57cbd8e19724e52360538bfc764fe454bc689f6f4e702eb66402e:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU1NzhlZjg2M2FmOTA4NTc4Nzg3MWNjMGM1ZTNjOTkzNjM3ZTU1NDk2ZDkxNDI5YWQxNTIzMGUxYjU0ZDBhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmE2ZDUxYjZkZGZlZTU2NjAyZDI2YTZlODE0Y2FjZGUwOGQ4NDIyMjMxMzQ1YzY1ZGQ1ZDVkOWFiNWE4YTk1ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGI2YmVjMTFhOThlOTY5YjY3NzYzNmRhMmI3NzgyYTdhZjRhOWY2OWYyZjZmNzg1ZTkwYTdmOTZlODEyNzBiYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTU2NzAxMzgwYmQ0MWU2MTIyYzQ0N2QwYjE3YjBjNjc3N2Y1Mjc1NDUyNDE4MmU0MTJhMzA0MmU0NTEyY2UzOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_421a4f934157454b9638783d569e8c0c",
+      "statement": "The base application.properties defaults the MCP server protocol to SSE (spring.ai.mcp.server.protocol=sse) with tool capability enabled, sync type, annotation scanner enabled, and name openproject-mcp-server version 1.2.0.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application.properties#L14-L20",
+          "version": "repo-lines-v1:sha256:62258c46fc9e58cd960f1cca0b4529250f6a5047a577a43f071ddd777ee65a0a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDM5N2RmNjdhYWFmYmU1NjRkZWY4NGJlMGZiNGYyNzk3MjhlZjQxMTQxYzNhMGI5NDIzNDRkMjZkMmJkMTY0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDlkODY0ZTRjMTU4YjQ3ZDk5MDMwMDE0ZGIwOWRmYzE4YWQ0NGY1MmUzNWRhOWQxYWJjZjE5NjgyNDg3MmVmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTE5NDk3MGUzZTQyNzRlM2Y5ZmQyNjIyZmEzZDI5ZDg2YjFhMzBkNTEyNzBjMGRhOTFiYTllNjJiZDhjNjBlYSJ9"
+        },
+        {
+          "resource": "repo://src/main/resources/application.properties#L18-L18",
+          "version": "repo-lines-v1:sha256:a777fdc1bcbcde6e626a5598a9b76580926acbc1fecb203bceb0500f6bad28c8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTc3N2ZkYzFiY2JjZGU2ZTYyNmE1NTk4YTliNzY1ODA5MjZhY2JjMWZlY2IyMDNiY2ViMDUwMGY2YmFkMjhjOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTc3N2ZkYzFiY2JjZGU2ZTYyNmE1NTk4YTliNzY1ODA5MjZhY2JjMWZlY2IyMDNiY2ViMDUwMGY2YmFkMjhjOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDMxNDFhMDMwZTVlNjVjNDczYjM2NWY4NDJjNWI5MjA1N2QwOTlhMmIyZWM0OGVmYWYzNTNhNjgxY2UzOGQ3MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTM4ZTc5MTc2OWFjYWRhZGZhYjlmZGU3NDliNmNjYzM0NTc2NDY1MzliOTEzZjkwYTNhYjNlZWEzMDY1YTM1NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_10a734fa115a43dab1f8179c199d51eb",
+      "statement": "The MCP server supports two transport protocols: SSE (default) and STREAMABLE. Integration tests override the protocol to STREAMABLE to avoid leaving open SSE streams during test teardown.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPingIntegrationTest.java#L22-L22",
+          "version": "repo-lines-v1:sha256:09e773da6143f4a59d719653b8a25bd4e051be60fcbb7db03aeec87b2e1c1f79:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTEwZTcyZDU3MDllNzIwOTJjMGY2NTdjNmJiYzQxMDU4ZjlhYWQxYTE5ODU5YThmYmRjMTFmYTg5MTYyMThjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGJhZTdmMGZiMjcwMmMxODRkNWE2ZjU1MWMxMzBhMGNmYTc1NjZlNDJmNjZhMDM3NmIyMmRlMTk4YTNmNDUyOSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPromptsIntegrationTest.java#L26-L26",
+          "version": "repo-lines-v1:sha256:09e773da6143f4a59d719653b8a25bd4e051be60fcbb7db03aeec87b2e1c1f79:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTEwZTcyZDU3MDllNzIwOTJjMGY2NTdjNmJiYzQxMDU4ZjlhYWQxYTE5ODU5YThmYmRjMTFmYTg5MTYyMThjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGJhZTdmMGZiMjcwMmMxODRkNWE2ZjU1MWMxMzBhMGNmYTc1NjZlNDJmNjZhMDM3NmIyMmRlMTk4YTNmNDUyOSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpSecurityIntegrationTest.java#L28-L28",
+          "version": "repo-lines-v1:sha256:5a5359370ae41bf3bf78b2afd7ea71e2aec3053e9da46cb805dae9f7f0333bc4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1MzU5MzcwYWU0MWJmM2JmNzhiMmFmZDdlYTcxZTJhZWMzMDUzZTlkYTQ2Y2I4MDVkYWU5ZjdmMDMzM2JjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE1MzU5MzcwYWU0MWJmM2JmNzhiMmFmZDdlYTcxZTJhZWMzMDUzZTlkYTQ2Y2I4MDVkYWU5ZjdmMDMzM2JjNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGQ2NGI4YmJlNTFhNmEwMWY1MDBiNTM5MGM4YTgyMmMxOWZmYWI2N2ZhZjljMWQ2Mzc5MjQ1ZTVlN2QzOWY4MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGQ3ZWEwZGM1MmZjNWU5Y2ZkNWI0YTkyYmExMDgyNzk4Mjc2ZWEwZjgyZjdhMmRlMDU2MTBiMDM0NDY5MmU2YSJ9"
+        },
+        {
+          "resource": "repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsListIntegrationTest.java#L29-L29",
+          "version": "repo-lines-v1:sha256:09e773da6143f4a59d719653b8a25bd4e051be60fcbb7db03aeec87b2e1c1f79:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDllNzczZGE2MTQzZjRhNTlkNzE5NjUzYjhhMjViZDRlMDUxYmU2MGZjYmI3ZGIwM2FlZWM4N2IyZTFjMWY3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTEwZTcyZDU3MDllNzIwOTJjMGY2NTdjNmJiYzQxMDU4ZjlhYWQxYTE5ODU5YThmYmRjMTFmYTg5MTYyMThjNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGJhZTdmMGZiMjcwMmMxODRkNWE2ZjU1MWMxMzBhMGNmYTc1NjZlNDJmNjZhMDM3NmIyMmRlMTk4YTNmNDUyOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a5a591a7191b4abca8fcf2ea64ea6b5a",
+      "statement": "The production profile (application-prod.properties) reduces logging verbosity, hides the Spring banner, exposes only the health actuator endpoint, enables Kubernetes-style health probes, and disables disk-space and SSL health checks.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application-prod.properties",
+          "version": "repo-file-v1:sha256:4146dd24a7135e155a82024085671cf2bf6bfe8eb2e697f6a5a0aab21c200119"
+        }
+      ]
+    },
+    {
+      "id": "claim_fe9ea475b59340e988148d68345bb1bc",
+      "statement": "The dev profile enables DEBUG logging for Spring AI and MCP protocol packages and disables Spring DevTools restart to avoid interference with long-running SSE connections.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application-dev.properties",
+          "version": "repo-file-v1:sha256:98e49766566a5ead3d0dd54a7595c025d79720b9145ca72eea36858b2d445ad8"
+        }
+      ]
+    },
+    {
+      "id": "claim_31da7918302b4b18bf205ff97a13a33d",
+      "statement": "The local profile overrides openproject.url to point at a specific OpenProject instance and enables TRACE-level logging for the OpenProject HTTP client.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/resources/application-local.properties",
+          "version": "repo-file-v1:sha256:192505a38c308ebdef90b6c858b26101c10917d5d06b50e5ab4cc32cd0b21230"
+        }
+      ]
+    },
+    {
+      "id": "claim_d9eca2599c5047c99c100992f0797575",
+      "statement": "The test profile sets the OpenProject container image tag to 17.7.2, configures container port 18088, and disables automatic container shutdown for integration tests.",
+      "evidence": [
+        {
+          "resource": "repo://src/test/resources/application-test.properties",
+          "version": "repo-file-v1:sha256:feed1fcdd7009814f5aa55ab34d23d7429d453b9b0483bd6c728168a18e07d45"
+        }
+      ]
+    },
+    {
+      "id": "claim_9659973d2da348fd8203d9f697efe0a9",
+      "statement": "Configuration values are injected via @Value at key injection points: openproject.allow-header-base-url in HttpHeaderOpenProjectConnectionResolver and actuator.security.admin.username/password-hash in SecurityConfig.",
+      "evidence": [
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/HttpHeaderOpenProjectConnectionResolver.java#L24-L24",
+          "version": "repo-lines-v1:sha256:2d004d566f9d8193f85e33883a6e10b78087ff0d85750b7d50479a10a657b8e4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQwMDRkNTY2ZjlkODE5M2Y4NWUzMzg4M2E2ZTEwYjc4MDg3ZmYwZDg1NzUwYjdkNTA0NzlhMTBhNjU3YjhlNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmQwMDRkNTY2ZjlkODE5M2Y4NWUzMzg4M2E2ZTEwYjc4MDg3ZmYwZDg1NzUwYjdkNTA0NzlhMTBhNjU3YjhlNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTIxNjE0NTFlYTQwOTVlY2MyMTY2OThhMDBkZDNjMjQ1M2YwYzQzMzg1MTIxZjI3MzEzN2I2ODczYjJjMGJjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzQwNzJiOTc3MDQwNzExODM2NWIxYzEwNWJlMjQwN2VmZWY0ZThhM2RkOTBiZGE1NjdmOWI4ZDA3ODNjZDljNyJ9"
+        },
+        {
+          "resource": "repo://src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java#L32-L33",
+          "version": "repo-lines-v1:sha256:1c5a8e2bacf5103b993af88c9d5a90b6c1d67d7402fdfafbc66501d832cd7962:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2MzODI3ZmJiZDc3ZmE4MTBhMzQ5MWU0ZDUwNTM2YmJlOTlmNzg2MDUwZmIyYTZiYTJmM2M0ZGRjYjM2MjQ0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjcyYTQ0MGNmZDg5YTAyMzlhNWUyMGVkNzU5NmI4YTc0YzMyNGUxNTA5NmViNWZmOWEwNDhjMDQ2OWNiMjhiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjJhOTM3ZmE0ZTNjMjk2NDg4YmYyZDcwZTNkNDAzMDJiOGUzMjc4MGU5MTY5MmJjZmUyZDk5YjIzZDIwOWYyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGY4NDA1Yzc0YWIwYTJiYmIyNDAxYWM4NDA4OTAxMTk4ODEwNjZiMzE4MzZiMDIwNzQ5ZmIzNTYyNTk1ZjlkOSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.7.3",
+    "at": "2026-11-04T19:49:05.158Z"
+  }
+}
