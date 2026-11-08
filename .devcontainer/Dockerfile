@@ -1,10 +1,9 @@
-FROM devcontainer_debian_base:202608062122
+FROM devcontainer_debian_base:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
     apt-get install -y \
-        openjdk-21-jdk \
         openjdk-25-jdk \
         && \
     apt-get clean && \
