@@ -4,12 +4,10 @@ title: "System Overview"
 openwiki_generated: true
 verified:
   - by: openwiki/0.7.3
-    at: 2026-11-04T19:49:05.158Z
+    at: 2026-11-09T18:33:59.081Z
 sources:
   - id: openwiki-source-2355f81d7cf522f8dbdaabd4
     resource: repo://pom.xml
-  - id: openwiki-source-23775c3de52f3ab95a13cb8b
-    resource: repo://README.md
   - id: openwiki-source-a40609628d61114363565311
     resource: repo://src/main/java/de/tklein/tklab/openproject/mcp/dto/PriorityDto.java
   - id: openwiki-source-d6057cf625473e04f4e2c6be
@@ -44,6 +42,8 @@ sources:
     resource: repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestClientFactory.java
   - id: openwiki-source-148dc7b9fcf7c6f829f368f3
     resource: repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectRestOperations.java
+  - id: openwiki-source-2001e664458f3b19d51bfab6
+    resource: repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectTemplateRenderer.java
   - id: openwiki-source-142642e34cf2be342272c586
     resource: repo://src/main/java/de/tklein/tklab/openproject/mcp/security/McpBearerAuthenticationFilter.java
   - id: openwiki-source-6964ee234ef2765adb90b846
@@ -84,13 +84,13 @@ sources:
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsHelper.java
   - id: openwiki-source-a84d7252086c63f5a22f1a50
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java
-generated: { by: "openwiki/0.7.3", at: "2026-11-04T19:49:05.158Z" }
+generated: { by: "openwiki/0.7.3", at: "2026-11-09T18:33:59.081Z" }
 ---
 
 
 # System Overview
 
-The Spring OpenProject MCP Server is a Java application that exposes an [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) server for managing OpenProject work packages. It acts as a thin proxy between an MCP-compatible client (e.g., an LLM agent) and the OpenProject REST API (`/api/v3`), translating MCP tool calls into authenticated HTTP requests and returning structured results as JSON.
+The Spring OpenProject MCP Server is a Java 25 application built on Spring Boot 4.1.1 with Spring AI 2.0.1 that exposes an [MCP](https://modelcontextprotocol.io/) (Model Context Protocol) server for managing OpenProject work packages. It acts as a thin proxy between an MCP-compatible client (e.g., an LLM agent) and the OpenProject REST API (`/api/v3`), translating MCP tool calls into authenticated HTTP requests and returning structured results as JSON.
 
 ## Architecture Diagram
 
@@ -120,7 +120,8 @@ flowchart TD
         subgraph ClientLayer["OpenProject Client Layer"]
             ApiClient["OpenProjectApiClient"]
             RestOps["OpenProjectRestOperations"]
-            RestClient["RestClient (per-request auth)"]
+            RestCli["RestClient (per-request auth)"]
+            TmplR["OpenProjectTemplateRenderer"]
         end
         subgraph Mapping["Mapping & Rendering"]
             Mappers["MapStruct DTO Mappers"]
@@ -136,10 +137,11 @@ flowchart TD
     Filter --> Tools
     Tools --> ApiClient
     ApiClient --> RestOps
-    RestOps --> RestClient
-    RestClient -->|HTTP| OP["OpenProject API"]
+    RestOps --> RestCli
+    RestCli -->|HTTP| OP["OpenProject API"]
+    ApiClient --> TmplR
+    TmplR --> FTL
     ApiClient --> Mappers
-    ApiClient --> FTL
 ```
 
 *Figure 1: High-level component architecture and request flow.*
@@ -211,7 +213,7 @@ All tools are `@Component` beans with constructor injection of `OpenProjectApiCl
 - Uses `application/hal+json` as the content type for all API communication.
 - Supports GET, POST, PATCH, DELETE, and multipart POST operations.
 
-For write operations (create work package, update work package, add parent relation), the client uses FreeMarker templates (`repo://src/main/resources/templates/`) to generate the JSON request bodies. This approach avoids the brittleness of a generated OpenAPI client (noted in the README) while maintaining compatibility across OpenProject 14, 15, 16.6, and 17.7. The templates are:
+For write operations (create work package, update work package, add parent relation), the client delegates to `OpenProjectTemplateRenderer` (`repo://src/main/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectTemplateRenderer.java`), which uses FreeMarker to render JSON request bodies from templates in `repo://src/main/resources/templates/`. This approach avoids the brittleness of a generated OpenAPI client while maintaining compatibility across OpenProject 14, 15, 16.6, and 17.7. The templates are:
 - `create_work_package.ftl`
 - `update_work_package.ftl`
 - `create_parent_relation.ftl`
@@ -242,6 +244,7 @@ sequenceDiagram
     participant Cache
     participant Tool
     participant ApiClient
+    participant TmplR
     participant OP
 
     Client->>SSE: JSON-RPC (tool call)
@@ -313,4 +316,4 @@ Tests are in `repo://src/test/java/de/tklein/tklab/openproject/mcp/`:
 - The API token is passed per-MCP-request via the `Authorization` header and never persisted in the container.
 - Actuator admin credentials are configured via `actuator.security.admin.username` and `actuator.security.admin.password-hash` (bcrypt-prefixed).
 - OTel tracing, logging, and metrics are all disabled by default.
-- The `spring-openproject-mcp-server` is licensed under MIT.
+- The `spring-openproject-mcp-server` is licensed under MIT and tested against OpenProject versions 14, 15, 16.6, and 17.7.

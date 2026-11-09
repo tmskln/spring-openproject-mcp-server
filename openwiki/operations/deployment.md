@@ -3,9 +3,6 @@ type: deployment
 title: Deployment
 description: Docker container setup, multi-platform builds with SBOM attestation, health check probes, and runtime environment variables (OPENPROJECT_URL, OPENPROJECT_ALLOW_HEADER_BASE_URL) for the OpenProject MCP server.
 tags: [docker, deployment, health-check, sbom, multi-platform, mcp-server, openproject]
-verified:
-  - by: openwiki/0.7.3
-    at: 2026-11-04T19:49:05.158Z
 sources:
   - id: openwiki-source-7f1ca00753e95588bc8efa39
     resource: repo://docker/Dockerfile
@@ -29,7 +26,10 @@ sources:
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpPingIntegrationTest.java
   - id: openwiki-source-96b9468c207e0c94df548581
     resource: repo://src/test/resources/application-test.properties
-generated: { by: "openwiki/0.7.3", at: "2026-11-04T19:49:05.158Z" }
+generated: { by: "openwiki/0.7.3", at: "2026-11-09T18:33:59.081Z" }
+verified:
+  - by: openwiki/0.7.3
+    at: 2026-11-09T18:33:59.081Z
 ---
 
 This page describes how the Spring OpenProject MCP Server is built, deployed, and operated as a Docker container. It covers the Dockerfile layout, multi-platform build process with SBOM attestation, health check probes, and the runtime environment variables that govern its behavior.
@@ -95,7 +95,7 @@ The Dockerfile ([repo://docker/Dockerfile](repo://docker/Dockerfile)) follows th
 3. **Copy** — the application JAR as `app.jar`, plus `application-prod.properties` and both SBOM files
 4. **Create non-root user** — `spring` system user with group ownership of `/app`
 5. **Switch user** — `USER spring:spring` (no root privileges at runtime)
-6. **EXPOSE** — ports `8080` (HTTP) and `8081` (actuator)
+6. **EXPOSE** — port `8080` (HTTP)
 7. **HEALTHCHECK** — queries the readiness probe endpoint
 8. **ENTRYPOINT** — starts the JVM with `prod` profile active
 
@@ -210,7 +210,6 @@ The standard deployment command ([repo://README.md#L21-L22](repo://README.md#L21
 ```bash
 docker run -d \
   -p 0.0.0.0:8080:8080 \
-  -p 0.0.0.0:8081:8081 \
   -e OPENPROJECT_URL=https://${yourOpenProjectUrl} \
   --tmpfs /tmp \
   docker.io/tmskln/spring-openproject-mcp-server:latest

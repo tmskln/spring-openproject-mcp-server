@@ -36,7 +36,7 @@ sources:
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java
   - id: openwiki-source-a84d7252086c63f5a22f1a50
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java
-generated: { by: "openwiki/0.7.3", at: "2026-11-04T19:49:05.158Z" }
+generated: { by: "openwiki/0.7.3", at: "2026-11-09T18:33:59.081Z" }
 ---
 
 # Work Package Lifecycle
@@ -253,7 +253,8 @@ relation set from four sources:
 Derived relations (`parent`, `children`, `ancestors`) have `id = null` because
 they are inferred from links, not stored as explicit relation records.
 
-```mermaid
+<!-- openwiki: mermaid parse failed and this diagram was converted to a text fence so it does not break rendering. Fix the diagram source and restore the mermaid fence. Parser error: Heuristic: an unescaped angle bracket inside a label breaks rendering; rephrase the label. -->
+```text
 flowchart TD
     A["listRelationsForWorkPackage"] --> B["GET /api/v3/work_packages/{wpId}"]
     B --> C["_embedded.relations\n_explicit relations_"]

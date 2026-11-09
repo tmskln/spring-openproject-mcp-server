@@ -47,7 +47,7 @@ sources:
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpSecurityIntegrationTest.java
   - id: openwiki-source-fedd9a4e5dca22ccf60fefb8
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/McpToolsHelper.java
-generated: { by: "openwiki/0.7.3", at: "2026-11-04T19:49:05.158Z" }
+generated: { by: "openwiki/0.7.3", at: "2026-11-09T18:33:59.081Z" }
 ---
 
 # MCP Request Flow
@@ -221,7 +221,8 @@ Integration tests in the `tools` package verify the complete request flow:
 
 ## Mermaid Diagram
 
-```mermaid
+<!-- openwiki: mermaid parse failed and this diagram was converted to a text fence so it does not break rendering. Fix the diagram source and restore the mermaid fence. Parser error: Heuristic: an unescaped angle bracket inside a label breaks rendering; rephrase the label. -->
+```text
 sequenceDiagram
     participant Client as MCP Client
     participant Server as MCP Server

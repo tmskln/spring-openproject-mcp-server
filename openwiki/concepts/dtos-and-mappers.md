@@ -54,7 +54,7 @@ sources:
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/RelationToolsTest.java
   - id: openwiki-source-a84d7252086c63f5a22f1a50
     resource: repo://src/test/java/de/tklein/tklab/openproject/mcp/tools/WorkPackageToolsTest.java
-generated: { by: "openwiki/0.7.3", at: "2026-11-04T19:49:05.158Z" }
+generated: { by: "openwiki/0.7.3", at: "2026-11-09T18:33:59.081Z" }
 ---
 
 # DTOs and Mappers
@@ -71,7 +71,8 @@ mapper is the `OpenProjectApiClient` service (`OpenProjectApiClient`), which
 receives all mappers via constructor injection and applies them to JSON responses
 returned by the OpenProject REST API.
 
-```mermaid
+<!-- openwiki: mermaid parse failed and this diagram was converted to a text fence so it does not break rendering. Fix the diagram source and restore the mermaid fence. Parser error: Heuristic: an unescaped angle bracket inside a label breaks rendering; rephrase the label. -->
+```text
 graph LR
   subgraph "OpenProject REST API"
     API["JSON responses"]

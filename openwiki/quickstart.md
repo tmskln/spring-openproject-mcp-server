@@ -2,9 +2,6 @@
 type: "Reference"
 title: "Quickstart"
 openwiki_generated: true
-verified:
-  - by: openwiki/0.7.3
-    at: 2026-11-04T19:49:05.158Z
 sources:
   - id: openwiki-source-7f1ca00753e95588bc8efa39
     resource: repo://docker/Dockerfile

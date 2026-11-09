@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:073ab49a3c87d9edf9828df63b0561f76c632c0e72a3170a50194d2f14e19117",
+  "pageVersion": "sha256:527afc3c162764415dad8d6740dd7310bb9f7bda44c8387f46342954dd2b0b73",
   "claims": [
     {
       "id": "claim_e9a447d8b6c94d169a698d1744c8c7da",
       "statement": "The Docker build produces a multi-platform image for linux/amd64 and linux/arm64 using the Eclipse Temurin JRE 25 base image (tag 25.0.4_7-jre-ubi10-minimal). An SBOM attestation is generated via docker/scout-sbom-indexer at build time.",
       "evidence": [
         {
-          "resource": "repo://README.md#L45-L56",
+          "resource": "repo://README.md#L46-L57",
           "version": "repo-lines-v1:sha256:33ec929d55859470af120a0e33b27ad85bab42721d41616643bc07c46e1aaf86:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3NzUxOGIwN2UyYzRiY2E5NjEzNDMxMGViMGFjMjc0N2FhOTBhZGE3NjBiZTBmYWJhOTMxN2JmNzdlNTRkOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJkMzg4OGI3MWU3ODk5ODE4OWQ0YzZhNjk4YTk2ODVhMDBiOTJlMGUzMmNiOGYxZmUxNDUxNWE4Mzc4NWY2ZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZlMjdhMWY3N2IzNmVjYzlkYTg0MTIyYWNjNzBlYTM3OTFhNjM1ZmMxMjY0MmNlZDU3MzlmN2VjN2Q0MjYxNTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1MjI5YmNlODhiYzMzZWJmODYyMDFlOTM0Y2Q0NjU2NWMxYjhmOTJmZmY5MGQyYTFiNTA2OWQ4YTI0NjczYjUifQ"
         },
         {
@@ -45,7 +45,7 @@
       "statement": "The OPENPROJECT_URL environment variable sets the default OpenProject API base URL (default https://localhost). The OPENPROJECT_ALLOW_HEADER_BASE_URL variable, when set to true, trusts the X-OpenProject-Base-Url HTTP header from MCP clients to override the configured base URL, enabling multi-backend routing.",
       "evidence": [
         {
-          "resource": "repo://README.md#L62-L72",
+          "resource": "repo://README.md#L63-L73",
           "version": "repo-lines-v1:sha256:1c210b15d1250cd54ce952aa2cbbd63c8ab896660fc994ad07883fad3a412a1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkMGE4NDc1Zjg1NmM4NWM1NTgxZmIyZWE4YjE2NDdhODY5OWM2YTBjNmQ0MGQyOTUzYTBmOTAwNWQ4Y2EwYzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2MTliYjU3ZjJhM2E5ZmM3NWYzMWM3MTM3MmMyMWY2MWVmNzFiMDExOWM1ZDY1MDA2ODMxNTJlYWI3M2MzN2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyNzk0Yzc3ZWQ4MWMxYjhiM2ExNDFlODA3ZGM3MWI4MjJkOTJmNDZkYzVlZmRjZTE2NGRlZTkxOWY0N2NhM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2NGU0Njc3N2MwZWYzNWNmM2I5ZGE1MDY5ZTMxMTk5NTNlNzAwOWM4ZmIxMmQ4MTYyYTAwZDJmMDMyODg2MzkifQ"
         },
         {
@@ -139,8 +139,8 @@
       "statement": "The MCP server defaults to the SSE (Server-Sent Events) protocol, which exposes GET /sse for server-to-client streaming and POST /mcp/message for client-to-server communication. The alternative STREAMABLE protocol uses a single bidirectional /mcp endpoint. Only one protocol can be active at a time.",
       "evidence": [
         {
-          "resource": "repo://README.md#L79-L88",
-          "version": "repo-lines-v1:sha256:be1a49fecd5b93ea90a99cc6390b9c5cdf0d19c3ab4fcaac7c7d35f0f31bacf1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiMzBhMjJjYjdjNzI2MTA1NGI0ZGQ2NTdiNWRiMTQ2ODE4YzNiZGRjZDE0ZjlkMmUwZGZiNGZkN2Q5YjVjZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyMGJhYTljMzY0MTM0MzE3ZDdlOGNiMDU2MDEzM2RkYmRmYTM2ODc2YTRhZDhlMTJmNzQ1OTg3MmVjNDU3YTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzYTIyNDRhM2ZiOGM5ZjI4OGFmZDFjOWNlYWU3MTc4OWY1MWY0YmU0NjZhOThhNzA2M2Y5YTEwYjg1MzUwMjIifQ"
+          "resource": "repo://README.md#L80-L95",
+          "version": "repo-lines-v1:sha256:85f76fecdaaf38c79ce51ae446c6218f323c6978f3395c0864f8c52b52da12bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiMzBhMjJjYjdjNzI2MTA1NGI0ZGQ2NTdiNWRiMTQ2ODE4YzNiZGRjZDE0ZjlkMmUwZGZiNGZkN2Q5YjVjZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyMGJhYTljMzY0MTM0MzE3ZDdlOGNiMDU2MDEzM2RkYmRmYTM2ODc2YTRhZDhlMTJmNzQ1OTg3MmVjNDU3YTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIzYTIyNDRhM2ZiOGM5ZjI4OGFmZDFjOWNlYWU3MTc4OWY1MWY0YmU0NjZhOThhNzA2M2Y5YTEwYjg1MzUwMjIifQ"
         },
         {
           "resource": "repo://src/main/resources/application.properties#L18-L18",
@@ -157,7 +157,7 @@
           "version": "repo-lines-v1:sha256:01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTg2MzE4MzMwNzkzNWViY2Y3MTdkMmRhZTA0NjRkZTZhMDYzZjI5MTg0ZTY3ODJmMjE5MGUzZWNkYTc4YWIxNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGFiZmZmNzg1OTExYjU5YzIzMDQ0OTA5MTE3ZTY4NjlmYjI0OTU1YzQ5YzBkYTA1OGMxYjhjNDA0ZDhkODMyMSJ9"
         },
         {
-          "resource": "repo://README.md#L93-L103",
+          "resource": "repo://README.md#L100-L110",
           "version": "repo-lines-v1:sha256:332f4f4287ae897c7984306275f4ca01a9715ec302bcbcf87371694a18f93217:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1OGI5ZmQwYzlmY2UzMjlhOGFlODdlMWQyNjMxMTU3ZjRmZWI1NmZlZjc0YjlkOTViZDlhOGYxYzQ3MGI1NmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyMTUzN2UzNzRhNmUwM2ExODg3YWY3YzY3MTRhZTFiZTljZGQ1MGFiNjljZTNlNjRkOGIyMGRmOTk0NWQ1MmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZGQyNGNkZTJmMTBlMWNiN2E1N2JhODBjMjczYWNhM2YyMWZjNzQzOWI0NmYzYzdjNGM4ODJiYjQ1YTQ0NTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUyYmE2YmQ2NjViODVkZDFhNTAxMDI2OTdlYjk4MmMwNmQyZTc0MjlhYWRmYWUzMDZlYzI0N2I2Y2VkMGM1ODMifQ"
         }
       ]
@@ -167,7 +167,7 @@
       "statement": "Integration tests run against a real OpenProject container using the STREAMABLE protocol to avoid leaving open SSE streams during test teardown. The test profile configures container tag 17.7.2, port 18088, and disables automatic container shutdown.",
       "evidence": [
         {
-          "resource": "repo://README.md#L74-L76",
+          "resource": "repo://README.md#L75-L77",
           "version": "repo-lines-v1:sha256:f8c980720c79bd6e547b5ec9778547d90eca494eea0886227d26b341a904e2a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDRmZjFlMzZlZGE1MWVlZTJhMTY5ODNmYTIxZTU2M2QyMWRmOGM3NjVjZDZjOTgzNjM0NDFmYTI4NDc3NzU1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzUyZDg1MGVlZTY0Mzc1OTlkOGZjMzQzYTdkMzMxNDkxMDI2ZDg0OTQyMTNkMzg1YzNjMDBjMjYwNjk5MTEyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjg5N2Y1NGFhNDExZWE4OWJkZGMyODNlODNiZDBhM2U1ZTMzNDE5YjBlZDQ4Yjk1NWYyMTFhNDY2ZDQyM2UyZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2EzN2M0NDI3N2VjZDY0YTI4OGExYTUwNTg1YmYzMDhlNGY5ZGVhNGZhZjUxYjU0YjY2NmJjODQxYTFhMzNkMCJ9"
         },
         {
@@ -183,6 +183,6 @@
   ],
   "verification": {
     "by": "openwiki/0.7.3",
-    "at": "2026-11-04T19:49:05.158Z"
+    "at": "2026-11-09T18:33:59.081Z"
   }
 }

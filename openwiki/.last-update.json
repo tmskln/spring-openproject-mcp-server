@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-05T10:51:15.662Z",
-  "command": "init",
+  "updatedAt": "2026-11-10T16:26:28.297Z",
+  "command": "update",
   "model": "qwen/qwen3.6-35b-a3b",
   "status": "interrupted",
   "language": "en"
