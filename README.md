@@ -86,6 +86,12 @@ mvn test -Dopenproject.container.tag=17.5.1 -Dopenproject.container.port=18080
 Mind to remove volumes between tests 
 
 
+## Documentation
+- [OpenWiki](https://tmskln.github.io/spring-openproject-mcp) is generated in [./openwiki](./openwiki)
+- `openwiki code --update --print` updates the OpenWiki documentation in `./openwiki` since the last commit
+- `openwiki visualize openwiki --export docs/openwiki-visualizer` builds static website into `docs/openwiki-visualizer` including Mermaid diagrams and navigation.
+
+
 ## TODO
 - MCP OpenProject with OTEL
 - use results after patch JSON to avoid unnecessary GET requests
