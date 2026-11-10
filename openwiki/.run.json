@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runId": "ef4c399a-5512-4aae-9bb8-c99206fbbc6b",
   "mode": "update",
-  "phase": "generating",
+  "phase": "planning",
   "startedAt": "2026-11-10T16:26:28.291Z",
   "language": "en",
   "languageChanged": false,
@@ -20,8 +20,8 @@
     "/openwiki/workflows/mcp-request-flow.md",
     "/openwiki/workflows/work-package-lifecycle.md"
   ],
-  "sourceFingerprint": "sha256:c92a03f7a4dca0eb64e1aef6394e9bca7335645f910d82368fec3ea2c000766b",
-  "targetGitHead": "57e49a48c218fa4f4afc55b4a4d522eccb030417",
+  "sourceFingerprint": "sha256:2915fb02125f5bae89da0f33fcdcc89b4a2aef99aed1ffc24a77b4a2cccc4fc2",
+  "targetGitHead": "d1ae25075b6eaf4b8f600c32d6140ff43dfb2ef0",
   "actor": {
     "producerActor": "openwiki/0.7.3",
     "metadataModel": "qwen/qwen3.6-35b-a3b"
@@ -126,45 +126,5 @@
         }
       }
     ]
-  },
-  "plan": {
-    "pages": [
-      {
-        "id": "8b56cdc3-fe69-45d1-a6ee-1792028d3b6c",
-        "path": "/openwiki/quickstart.md",
-        "title": "Quickstart",
-        "purpose": "Fix stale claims referencing README.md project description and Docker/get-started instructions; refresh the wiki routing map so agents can navigate the hierarchy.",
-        "seedPaths": [
-          "README.md",
-          "docker/Dockerfile",
-          "pom.xml",
-          "src/main/java/de/tklein/tklab/openproject/mcp/security/SecurityConfig.java",
-          "src/main/resources/application-dev.properties",
-          "src/main/resources/application-local.properties",
-          "src/main/resources/application-prod.properties",
-          "src/main/resources/application.properties",
-          "src/main/resources/templates/create_work_package.ftl"
-        ],
-        "relatedPages": [
-          "/openwiki/architecture/mcp-protocol.md",
-          "/openwiki/architecture/openproject-client.md",
-          "/openwiki/architecture/overview.md",
-          "/openwiki/architecture/security.md",
-          "/openwiki/concepts/configuration.md",
-          "/openwiki/concepts/dtos-and-mappers.md",
-          "/openwiki/operations/deployment.md",
-          "/openwiki/testing/integration-tests.md",
-          "/openwiki/workflows/mcp-request-flow.md",
-          "/openwiki/workflows/work-package-lifecycle.md"
-        ],
-        "instructions": [
-          "Keep existing sections: Key facts, Wiki Routing Map, Getting Started Locally, Docker, Documentation, MCP configuration example.",
-          "Refresh the wiki routing map table to reflect the current page hierarchy.",
-          "Update stale claims referencing README.md lines 1-5, 5-6, and 80-93 to match current content."
-        ],
-        "status": "pending"
-      }
-    ],
-    "deletePages": []
   }
 }
