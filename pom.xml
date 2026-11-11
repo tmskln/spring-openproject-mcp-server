@@ -40,9 +40,11 @@
     <mapstruct.version>1.6.3</mapstruct.version>
     <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
     <commons-beanutils.version>1.11.0</commons-beanutils.version>
-    <commons-codec.version>1.22.1</commons-codec.version>
+    <commons-codec.version>1.23.0</commons-codec.version>
     <commons-lang3.version>3.21.0</commons-lang3.version>
-    <caffeine.version>3.3.0</caffeine.version>
+    <caffeine.version>3.3.1</caffeine.version>
+    <arcmutate-base.version>1.7.3</arcmutate-base.version>
+    <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <!-- temporary increasing tomcat version from 11.0.24 to 11.0.25 (CVE-2026-65905, CVE-2026-68525, CVE-2026-65182, CVE-2026-86350, CVE-2026-77762,...) -->
     <!-- remove <tomcat.version> when spring-boot-starter-parent or spring-boot-starter-tomcat-runtime > 4.1.1 exists -->
     <tomcat.version>11.0.26</tomcat.version>
@@ -162,6 +164,18 @@
       <artifactId>spring-security-test</artifactId>
       <scope>test</scope>
     </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.pitest</groupId>-->
+<!--            <artifactId>pitest-junit5-plugin</artifactId>-->
+<!--            <version>${pitest-junit5-plugin.version}</version>-->
+<!--            <scope>pro</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.arcmutate</groupId>-->
+<!--            <artifactId>base</artifactId>-->
+<!--            <version>${arcmutate-base.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
   </dependencies>
   <dependencyManagement>
     <dependencies>
@@ -192,7 +206,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>3.6.3</version>
+        <version>3.7.0</version>
         <executions>
           <execution>
             <id>enforce-maven</id>
@@ -290,6 +304,45 @@
           <!--suppress UnresolvedMavenProperty -->
           <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.30.2</version>
+        <configuration>
+          <features>
+            <feature>+auto_threads</feature>
+<!--        <feature>+exclusionscan</feature>-->
+          </features>
+          <outputFormats>
+            <param>HTML</param>
+            <param>XML</param>
+          </outputFormats>
+          <targetClasses>
+            <param>de.tklein.tklab.openproject.mcp.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>de.tklein.tklab.openproject.mcp.*</param>
+          </targetTests>
+          <excludedTestClasses>
+            <param>de.tklein.tklab.openproject.mcp.openproject.client.OpenProjectApiClientIntegrationTest</param>
+          </excludedTestClasses>
+          <timeoutConstant>15000</timeoutConstant>
+          <timestampedReports>false</timestampedReports>
+          <verbose>true</verbose>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <groupId>org.pitest</groupId>
+            <version>${pitest-junit5-plugin.version}</version>
+          </dependency>
+<!--					<dependency>-->
+<!--							<groupId>com.arcmutate</groupId>-->
+<!--							<artifactId>base</artifactId>-->
+<!--							<version>${arcmutate-base.version}</version>-->
+<!--					</dependency>-->
+        </dependencies>
       </plugin>
       <!--      <plugin>-->
       <!--        <artifactId>maven-surefire-plugin</artifactId>-->

@@ -28,7 +28,7 @@ public class PatchMap {
       throw new IllegalArgumentException("Number of  arguments must be even");
     }
 
-    Map<String, Object> result = HashMap.newHashMap(keysAndValues.length / 2);
+    Map<String, Object> result = HashMap.newHashMap(keysAndValues.length / 2); // NO PITEST
 
     for (int i = 0; i < keysAndValues.length; i += 2) {
       String key = (String) keysAndValues[i];
