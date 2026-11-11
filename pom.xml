@@ -54,6 +54,7 @@
     <!-- temporary increasing tomcat version from 3.1.5 to 3.1.7 (CVE-2026-68497, CVE-2026-91777, CVE-2026-91776, CVE-2026-89407, CVE-2026-89425, CVE-2026-19032, CVE-2026-83557) -->
     <!-- remove <jackson-bom.version> when spring-boot-starter-parent or spring-boot-web > 4.1.1 exists -->
     <jackson-bom.version>3.1.7</jackson-bom.version>
+    <argLine></argLine>
   </properties>
   <dependencies>
     <dependency>
@@ -162,6 +163,11 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
 <!--        <dependency>-->
@@ -301,8 +307,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <!--suppress UnresolvedMavenProperty -->
-          <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
+<!--          <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>-->
+          <!-- ${org.mockito:mockito-core:jar} is not resolved in PIT mutation testing, thus using long path here -->
+          <argLine>@{argLine} -javaagent:${settings.localRepository}/org/mockito/mockito-core/${mockito.version}/mockito-core-${mockito.version}.jar</argLine>
         </configuration>
       </plugin>
       <plugin>
@@ -325,7 +332,7 @@
             <param>de.tklein.tklab.openproject.mcp.*</param>
           </targetTests>
           <excludedTestClasses>
-            <param>de.tklein.tklab.openproject.mcp.openproject.client.OpenProjectApiClientIntegrationTest</param>
+<!--            <param>de.tklein.tklab.openproject.mcp.openproject.client.OpenProjectApiClientIntegrationTest</param>-->
           </excludedTestClasses>
           <timeoutConstant>15000</timeoutConstant>
           <timestampedReports>false</timestampedReports>
