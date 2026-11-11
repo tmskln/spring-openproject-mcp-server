@@ -30,6 +30,7 @@ Tested against OpenProject 14,15,16.6,17.7
 
 Find the latest image at [Docker Hub](https://hub.docker.com/r/tmskln/spring-openproject-mcp-server)
 
+
 ### build
 ```bash
 # convert java SBOM to optimized OCI format
@@ -79,11 +80,18 @@ If you want to control the OpenProject server from the MCP-client or run against
 ...
 ```
 
-## Integration Tests
+
+## Tests
+Run unit tests and integration tests against a specific Openproject version.   
+see: [OpenProjectApiClientIntegrationTest.java](src/test/java/de/tklein/tklab/openproject/mcp/openproject/client/OpenProjectApiClientIntegrationTest.java)
 ```bash
 mvn test -Dopenproject.container.tag=17.5.1 -Dopenproject.container.port=18080
 ```
-Mind to remove volumes between tests 
+
+Run mutation tests and see results in [pit-reports](target/pit-reports)
+```bash
+mvn pitest:mutationCoverage
+```
 
 
 ## Documentation
