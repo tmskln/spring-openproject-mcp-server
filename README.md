@@ -95,7 +95,7 @@ mvn pitest:mutationCoverage
 
 
 ## Documentation
-- [OpenWiki](https://tmskln.github.io/spring-openproject-mcp) is generated in [./openwiki](./openwiki)
+- [OpenWiki Doc](https://tmskln.github.io/spring-openproject-mcp-server/) is generated in [./openwiki](./openwiki)
 - `openwiki code --update --print` updates the OpenWiki documentation in `./openwiki` since the last commit
 - `openwiki visualize openwiki --export docs/openwiki-visualizer` builds static website into `docs/openwiki-visualizer` including Mermaid diagrams and navigation.
 
